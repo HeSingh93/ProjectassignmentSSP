@@ -5,7 +5,6 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
@@ -15,20 +14,16 @@
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:controller="com.example.ssp.controllers.MainWindow"
-        prefHeight="600" prefWidth="600">
+        prefHeight="600" prefWidth="600" alignment="TOP_CENTER">
 
-
-    <HBox id="boxTop" alignment="TOP_CENTER" translateX="150">
+    <VBox alignment="CENTER" spacing="20">
         <ImageView id="topImage">
             <Image
                     url="@/images/mainmenu.png"
             />
         </ImageView>
-    </HBox>
 
-    <VBox alignment="BASELINE_CENTER"  translateX="-80" translateY="150" spacing="20">
-
-            <Button id="newGameBtn"
+        <Button id="newGameBtn"
                     text="NEW GAME"/>
             <Button id="friendsBtn"
                     text="FRIENDS"/>
