@@ -1,4 +1,4 @@
-package com.ssp;
+package com.example.ssp;
 
 public class Launcher {
 }
