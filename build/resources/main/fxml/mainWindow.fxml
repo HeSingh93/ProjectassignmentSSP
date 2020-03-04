@@ -6,17 +6,37 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<FlowPane
         id="mainWindow"
         stylesheets="@/css/mainWindow.css"
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:controller="com.example.ssp.controllers.MainWindow"
         prefHeight="600" prefWidth="600">
-<top>
-    <Label>
-        text="MAIN MENU"
-    </Label>
-</top>
 
-</BorderPane>
+
+    <HBox id="boxTop" alignment="TOP_CENTER" translateX="150">
+        <ImageView id="topImage">
+            <Image
+                    url="@/images/mainmenu.png"
+            />
+        </ImageView>
+    </HBox>
+
+    <VBox alignment="BASELINE_CENTER"  translateX="-80" translateY="150" spacing="20">
+
+            <Button id="newGameBtn"
+                    text="NEW GAME"/>
+            <Button id="friendsBtn"
+                    text="FRIENDS"/>
+            <Button id="recentGamesBtn"
+                    text="RECENT GAMES"/>
+            <Button id="helpBtn"
+                    text="HELP"/>
+
+    </VBox>
+
+</FlowPane>
