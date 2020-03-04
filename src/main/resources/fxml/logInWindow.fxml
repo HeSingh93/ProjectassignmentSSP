@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<FlowPane
+        id="logInWindow"
+        stylesheets="@/css/logInWindow.css"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.ssp.controllers.LogInWindow"
+        prefHeight="600" prefWidth="600" alignment="CENTER">
+
+    <VBox alignment="CENTER" spacing="20">
+
+        <Label>LOG IN</Label>
+        <Label>Username</Label>
+        <TextField></TextField>
+        <Label>Password</Label>
+        <PasswordField></PasswordField>
+        <Button id="logInBtn"
+                text="LOG IN"/>
+        <Button id="signUpBtn"
+                text="SIGN UP"/>
+
+    </VBox>
+
+</FlowPane>
