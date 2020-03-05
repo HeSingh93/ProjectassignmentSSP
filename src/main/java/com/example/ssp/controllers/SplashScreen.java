@@ -1,11 +1,12 @@
 package com.example.ssp.controllers;
 
-import java.awt.event.MouseEvent;
+import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 
 public class SplashScreen {
 
-    public void splashScreenClicked(MouseEvent mouseEvent) throws IOException {
+    public void splashButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.loginFXML,
                 HelperMethods.loginTitle

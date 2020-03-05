@@ -1,0 +1,33 @@
+#vpcWindow {
+    -fx-background-color: white;
+    -fx-padding: 100, 100, 100, 100;
+}
+
+#versusBtn{
+     -fx-alignment: center;
+     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
+     -fx-background-radius: 5em;
+     -fx-font: normal bold 20px 'italic';
+}
+
+#cpuBtn{
+     -fx-alignment: center;
+     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
+     -fx-background-radius: 5em;
+     -fx-font: normal bold 20px 'italic';
+}
+
+#playBtn{
+     -fx-alignment: center;
+     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
+     -fx-background-radius: 5em;
+     -fx-font: normal bold 20px 'italic';
+}
+
+#gameMode {
+     -fx-font: normal bold 20px 'italic';
+}
+
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}

@@ -13,9 +13,9 @@
           fx:controller="com.example.ssp.controllers.SplashScreen"
           prefHeight="600.0" prefWidth="600.0" alignment="CENTER">
 
-    <ImageView id="splash">
+    <ImageView id="splash" onMouseClicked="#splashButtonClicked">
 
-        <Image url="@/images/splashscreen.png"
+        <Image url="@/images/splashscreen.jpg"
                requestedHeight="600"
                requestedWidth="600"/>
 

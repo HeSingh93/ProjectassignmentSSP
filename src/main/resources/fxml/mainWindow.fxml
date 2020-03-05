@@ -24,13 +24,17 @@
         </ImageView>
 
         <Button id="newGameBtn"
-                    text="NEW GAME"/>
-            <Button id="friendsBtn"
-                    text="FRIENDS"/>
-            <Button id="recentGamesBtn"
-                    text="RECENT GAMES"/>
-            <Button id="helpBtn"
-                    text="HELP"/>
+                onMouseClicked="#newGameBtnClicked"
+                text="NEW GAME"/>
+        <Button id="friendsBtn"
+                onMouseClicked="#friendsBtnClicked"
+                text="FRIENDS"/>
+        <Button id="recentGamesBtn"
+                onMouseClicked="#recentBtnClicked"
+                text="RECENT GAMES"/>
+        <Button id="helpBtn"
+                onMouseClicked="#helpBtnClicked"
+                text="HELP"/>
 
     </VBox>
 

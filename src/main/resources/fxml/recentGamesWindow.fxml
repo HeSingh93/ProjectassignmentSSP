@@ -14,7 +14,7 @@
           fx:controller="com.example.ssp.controllers.RecentGamesWindow"
           prefHeight="600.0" prefWidth="600.0">
 
-    <VBox id="box1">
+    <VBox id="box1" spacing="5">
     <ImageView id="backButton" fitWidth="30" fitHeight="30" preserveRatio="true"/>
         <Label id="wins" text="WINS: "/>
         <Label id="loss" text="LOSSES: "/>

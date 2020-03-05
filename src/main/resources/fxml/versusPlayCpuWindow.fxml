@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<FlowPane xmlns="http://javafx.com/javafx"
+          id="vpcWindow"
+          stylesheets="@/css/versusPlayCpuWindow.css"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.ssp.controllers.VersusPlayCpuWindow"
+          prefHeight="600.0" prefWidth="600.0" alignment="BASELINE_CENTER">
+
+    <VBox alignment="CENTER" spacing="20">
+        <ImageView id="backButton" fitHeight="30" fitWidth="30" preserveRatio="true"/>
+        <Label id="gameMode" text="CHOOSE GAMEMODE"/>
+        <Button id="versusBtn"
+                text="VERSUS"/>
+        <Button id="cpuBtn"
+                text="CPU"/>
+        <Button id="playBtn"
+                text="PLAY"/>
+    </VBox>
+
+</FlowPane>
