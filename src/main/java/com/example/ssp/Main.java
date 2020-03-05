@@ -24,11 +24,7 @@ public class Main extends Application {
 */
 
         FXMLLoader loader = new FXMLLoader();
-<<<<<<< Updated upstream
-        loader.setLocation(getClass().getResource("/fxml/friendsListWindow.fxml"));
-=======
-        loader.setLocation(getClass().getResource("/fxml/mainWindow.fxml"));
->>>>>>> Stashed changes
+        loader.setLocation(getClass().getResource("/fxml/playRandomWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);

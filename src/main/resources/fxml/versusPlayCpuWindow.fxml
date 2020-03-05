@@ -12,17 +12,30 @@
           stylesheets="@/css/versusPlayCpuWindow.css"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.VersusPlayCpuWindow"
-          prefHeight="600.0" prefWidth="600.0" alignment="BASELINE_CENTER">
+          prefHeight="600.0"
+          prefWidth="600.0"
+          alignment="BASELINE_CENTER">
 
     <VBox alignment="CENTER" spacing="20">
-        <ImageView id="backButton" fitHeight="30" fitWidth="30" preserveRatio="true"/>
-        <Label id="gameMode" text="CHOOSE GAMEMODE"/>
+        <ImageView id="backButton"
+                   fitHeight="30"
+                   fitWidth="30"
+                   preserveRatio="true"/>
+
+        <Label id="gameMode"
+               text="CHOOSE GAMEMODE"/>
+
         <Button id="versusBtn"
-                text="VERSUS"/>
+                text="VERSUS"
+                onMouseClicked="#versusBtnClicked"/>
+
         <Button id="cpuBtn"
-                text="CPU"/>
+                text="CPU"
+                onMouseClicked="#cpuBtnClicked"/>
+
         <Button id="playBtn"
-                text="PLAY"/>
+                text="PLAY"
+                onMouseClicked="#playBtnClicked"/>
     </VBox>
 
 </FlowPane>

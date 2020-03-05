@@ -1,3 +1,7 @@
 #playRandomWindow{
     -fx-background-color: white;
 }
+
+#random {
+    -fx-image: url("../images/randompick.jpg")
+}

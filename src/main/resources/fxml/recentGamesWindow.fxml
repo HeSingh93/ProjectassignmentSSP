@@ -7,25 +7,33 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
-<FlowPane xmlns="http://javafx.com/javafx"
-          id="recentGamesWindow"
-          stylesheets="@/css/recentGames.css"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.ssp.controllers.RecentGamesWindow"
-          prefHeight="600.0" prefWidth="600.0">
+<FlowPane
+        xmlns="http://javafx.com/javafx"
+        id="recentGamesWindow"
+        stylesheets="@/css/recentGames.css"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.ssp.controllers.RecentGamesWindow"
+        prefHeight="600.0"
+        prefWidth="600.0">
 
     <VBox id="box1" spacing="5">
-    <ImageView id="backButton" fitWidth="30" fitHeight="30" preserveRatio="true"/>
-        <Label id="wins" text="WINS: "/>
-        <Label id="loss" text="LOSSES: "/>
+        <ImageView id="backButton"
+                   fitWidth="30"
+                   fitHeight="30"
+                   preserveRatio="true"
+                   onMouseClicked="#backButtonClicked"/>
+
+        <Label id="wins"
+               text="WINS: "/>
+
+        <Label id="loss"
+               text="LOSSES: "/>
     </VBox>
 
     <HBox>
 
 
     </HBox>
-
-
 
 
 </FlowPane>

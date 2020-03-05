@@ -5,15 +5,20 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<FlowPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.ssp.controllers.SplashScreen"
-          prefHeight="600.0" prefWidth="600.0" alignment="CENTER">
 
-    <ImageView id="splash" onMouseClicked="#splashButtonClicked">
+<FlowPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.ssp.controllers.SplashScreen"
+        prefHeight="600.0"
+        prefWidth="600.0"
+        alignment="CENTER">
+
+    <ImageView
+            id="splash"
+            onMouseClicked="#splashButtonClicked">
 
         <Image url="@/images/splashscreen.jpg"
                requestedHeight="600"
