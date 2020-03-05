@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane xmlns="http://javafx.com/javafx"
+          id="helpWindow"
+          stylesheets="@/css/helpWindow.css"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.ssp.controllers.HelpWindow"
+          prefHeight="600.0" prefWidth="600.0" alignment="TOP_CENTER">
+
+    <TextArea text="https://sv.lmgtfy.com/?q=rock+paper+scissor+rules" editable="false"/>
+
+</FlowPane>
