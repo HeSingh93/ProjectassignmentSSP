@@ -1,0 +1,32 @@
+#gameWindow {
+    -fx-background: white;
+}
+
+#pickMove {
+    -fx-font: normal bold 20px 'italic';
+    -fx-padding: 10 10 10 10;
+}
+
+#rock {
+    -fx-image: url("../images/rock.png")
+}
+
+#paper {
+    -fx-image: url("../images/paper.png")
+}
+
+#scissors {
+    -fx-image: url("../images/scissors.png")
+}
+
+#rock:hover {
+    -fx-image: url("../images/rockglow.png")
+}
+
+#paper:hover {
+    -fx-image: url("../images/paperglow.png")
+}
+
+#scissors:hover {
+    -fx-image: url("../images/scissorsglow.png")
+}

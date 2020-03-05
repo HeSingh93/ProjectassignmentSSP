@@ -25,7 +25,7 @@ public class Main extends Application {
 */
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/splashScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/GameRockPaperScissorWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
