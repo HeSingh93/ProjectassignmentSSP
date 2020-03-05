@@ -9,7 +9,8 @@ public class SplashScreen {
     public void splashButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.loginFXML,
-                HelperMethods.loginTitle
+                HelperMethods.loginTitle,
+                mouseEvent
         );
     }
 }

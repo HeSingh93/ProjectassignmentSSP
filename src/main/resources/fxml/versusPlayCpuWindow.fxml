@@ -20,7 +20,8 @@
         <ImageView id="backButton"
                    fitHeight="30"
                    fitWidth="30"
-                   preserveRatio="true"/>
+                   preserveRatio="true"
+                   onMouseClicked="#backButtonClicked"/>
 
         <Label id="gameMode"
                text="CHOOSE GAMEMODE"/>

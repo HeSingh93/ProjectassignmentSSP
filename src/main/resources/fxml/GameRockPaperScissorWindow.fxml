@@ -9,13 +9,28 @@
           id="gameWindow"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.GameRockPaperScissorWindow"
-          prefHeight="600.0" prefWidth="600.0" alignment="TOP_CENTER">
+          prefHeight="600.0"
+          prefWidth="600.0"
+          alignment="TOP_CENTER">
 
     <VBox alignment="CENTER">
-        <Label id="pickMove" text="PICK YOUR MOVE"/>
-        <ImageView id="rock" fitHeight="170" fitWidth="170" preserveRatio="true"/>
-        <ImageView id="paper" fitHeight="200" fitWidth="200" preserveRatio="true"/>
-        <ImageView id="scissors" fitHeight="200" fitWidth="200" preserveRatio="true"/>
+        <Label id="pickMove"
+               text="PICK YOUR MOVE"/>
+        <ImageView id="rock"
+                   fitHeight="170"
+                   fitWidth="170"
+                   preserveRatio="true"
+                   onMouseClicked="#rockClicked"/>
+        <ImageView id="paper"
+                   fitHeight="200"
+                   fitWidth="200"
+                   preserveRatio="true"
+                   onMouseClicked="#paperClicked"/>
+        <ImageView id="scissors"
+                   fitHeight="200"
+                   fitWidth="200"
+                   preserveRatio="true"
+                   onMouseClicked="#scissorsClicked"/>
     </VBox>
 
 </FlowPane>
