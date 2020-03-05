@@ -19,12 +19,9 @@
 
         <Label id="logInLabel"
                text="LOG IN"/>
-        <Label id="usernameLabel"
-               text="Username"/>
-        <TextField></TextField>
-        <Label id="passwordLabel"
-               text="Password"/>
-        <PasswordField></PasswordField>
+        <TextField id="logInUsernameTextField"
+                   text="Username"/>
+        <PasswordField id="logInPasswordTextField"/>
         <Button id="logInBtn"
                 text="LOG IN"/>
         <Button id="signUpBtn"

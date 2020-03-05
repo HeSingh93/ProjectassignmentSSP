@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane
+        id="signUpWindow"
+        stylesheets="@/css/signUpWindow.css"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.ssp.controllers.SignUpWindow"
+        prefHeight="600" prefWidth="600" alignment="CENTER">
+
+    <VBox alignment="CENTER" spacing="20">
+
+        <Label id="signUpLabel"
+               text="SIGN UP"/>
+        <TextField id="signUpUsernameTextField"
+                   text="Username"/>
+        <TextField id="signUpPasswordTextField"
+                   text="Password"/>
+        <TextField id="signUpEmailTextField"
+                   text="Email"/>
+        <Button id="createAccountBtn"
+                text="Create Account"/>
+
+    </VBox>
+
+</FlowPane>

@@ -1,0 +1,23 @@
+#signUpWindow {
+    -fx-background-color: white;
+}
+
+#signUpLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#signUpUsernameTextField {
+    -fx-alignment:center;
+    -fx-font: normal 10px 'italic';
+}
+
+#signUpEmailTextField {
+    -fx-alignment:center;
+    -fx-font: normal 10px 'italic';
+}
+
+#signUpPasswordTextField {
+    -fx-alignment:center;
+    -fx-font: normal 10px 'italic';
+}

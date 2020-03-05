@@ -6,12 +6,12 @@
     -fx-font: normal bold 30px 'italic';
 }
 
-#usernameLabel {
+#logInUsernameTextField {
     -fx-alignment:center;
     -fx-font: normal 10px 'italic';
 }
 
-#passwordLabel {
+#logInPasswordTextField {
     -fx-alignment:center;
     -fx-font: normal 10px 'italic';
 }
