@@ -17,6 +17,11 @@ public class VersusPlayCpuWindow {
     }
 
     public void playBtnClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceScene(
+                HelperMethods.playRandomFXML,
+                HelperMethods.gameRockPaperScissorTitle,
+                mouseEvent
+        );
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {

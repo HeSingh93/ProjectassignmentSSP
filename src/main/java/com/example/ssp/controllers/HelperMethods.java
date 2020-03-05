@@ -34,6 +34,7 @@ public class HelperMethods {
     public static final String mainWindowFXML = "fxml/mainWindow.fxml";
     public static final String addFriendsFXML = "fxml/addFriendsWindow.fxml";
     public static final String friendsListFXML = "fxml/friendsListWindow.fxml";
+    public static final String playRandomFXML = "fxml/playRandomWindow.fxml";
 
 
     public static URL getRes(String fileName) {
