@@ -18,3 +18,7 @@
     -fx-background-radius: 5em;
     -fx-font: normal bold 20px 'italic';
 }
+
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}

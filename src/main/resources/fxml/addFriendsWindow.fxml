@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
 <FlowPane
         id="addFriendsWindow"
         stylesheets="@/css/addFriendsWindow.css"
@@ -23,7 +24,13 @@
                 id="addFriendsUserNameTextField"
                 text="Username"/>
         <Button id="addFriendsBtn"
+                onMouseClicked="#addFriendsBtnClicked"
                 text="SEND REQUEST"/>
+        <ImageView id="backButton"
+                   onMouseClicked="#backButton"
+                   fitHeight="30"
+                   fitWidth="30"
+                   preserveRatio="true"/>
 
     </VBox>
 
