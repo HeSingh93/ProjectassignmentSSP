@@ -17,11 +17,14 @@
 
     <VBox alignment="CENTER" spacing="20">
 
-        <Label id="logInLabel"
-               text="LOG IN"/>
-        <TextField id="logInUsernameTextField"
-                   text="Username"/>
-        <PasswordField id="logInPasswordTextField"/>
+        <Label
+                id="logInLabel"
+                text="LOG IN"/>
+        <TextField
+                id="logInUsernameTextField"
+                text="Username"/>
+        <PasswordField
+                id="logInPasswordTextField"/>
         <Button id="logInBtn"
                 text="LOG IN"/>
         <Button id="signUpBtn"

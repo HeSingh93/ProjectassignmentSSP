@@ -1,0 +1,13 @@
+#friendsListWindow {
+    -fx-background: white;
+}
+
+#friendsListLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#friendsListTextFormat {
+    -fx-alignment:center;
+    -fx-font: normal bold 10px 'italic';
+}

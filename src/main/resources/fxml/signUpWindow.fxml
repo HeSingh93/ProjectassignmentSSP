@@ -16,14 +16,18 @@
 
     <VBox alignment="CENTER" spacing="20">
 
-        <Label id="signUpLabel"
-               text="SIGN UP"/>
-        <TextField id="signUpUsernameTextField"
-                   text="Username"/>
-        <TextField id="signUpPasswordTextField"
-                   text="Password"/>
-        <TextField id="signUpEmailTextField"
-                   text="Email"/>
+        <Label
+                id="signUpLabel"
+                text="SIGN UP"/>
+        <TextField
+                id="signUpUsernameTextField"
+                text="Username"/>
+        <TextField
+                id="signUpPasswordTextField"
+                text="Password"/>
+        <TextField
+                id="signUpEmailTextField"
+                text="Email"/>
         <Button id="createAccountBtn"
                 text="Create Account"/>
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane
+        id="signUpWindow"
+        stylesheets="@/css/friendsListWindow.css"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.ssp.controllers.FriendsListWindow"
+        prefHeight="600" prefWidth="600" alignment="CENTER">
+
+    <VBox alignment="CENTER" spacing="20">
+
+        <Label
+            id="friendsListLabel"
+            text="FRIENDS"/>
+        <TabPane>
+
+            <Tab text="Friends">
+                <TableView>
+                    <columns>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="Username"
+                                     prefWidth="150"/>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="Wins"
+                                     prefWidth="50"/>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="Losses"
+                                     prefWidth="50"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <Tab text="Recent">
+                <TableView>
+                    <columns>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="Username"
+                                     prefWidth="150"/>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="Matches"
+                                     prefWidth="50"/>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="W/L"
+                                     prefWidth="50"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <Tab text="Requests">
+                <TableView>
+                    <columns>
+                        <TableColumn id="friendsListTextFormat"
+                                     text="Username"
+                                     prefWidth="150"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+        </TabPane>
+    </VBox>
+</FlowPane>
