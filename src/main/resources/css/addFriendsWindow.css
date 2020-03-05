@@ -1,28 +1,18 @@
-#signUpWindow {
+#addFriendsWindow {
     -fx-background-color: white;
 }
 
-#signUpLabel {
+#addFriendsLabel {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';
 }
 
-#signUpUsernameTextField {
+#addFriendsUserNameTextField {
     -fx-alignment:center;
     -fx-font: normal 10px 'italic';
 }
 
-#signUpEmailTextField {
-    -fx-alignment:center;
-    -fx-font: normal 10px 'italic';
-}
-
-#signUpPasswordTextField {
-    -fx-alignment:center;
-    -fx-font: normal 10px 'italic';
-}
-
-#createAccountBtn {
+#addFriendsBtn {
     -fx-alignment: center;
     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
     -fx-background-radius: 5em;

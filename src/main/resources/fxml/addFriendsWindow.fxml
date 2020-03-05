@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane
+        id="addFriendsWindow"
+        stylesheets="@/css/addFriendsWindow.css"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.example.ssp.controllers.AddFriendsWindow"
+        prefHeight="600" prefWidth="600" alignment="CENTER">
+
+    <VBox alignment="CENTER" spacing="20">
+
+        <Label
+                id="addFriendsLabel"
+                text="ADD FRIEND"/>
+        <TextField
+                id="addFriendsUserNameTextField"
+                text="Username"/>
+        <Button id="addFriendsBtn"
+                text="SEND REQUEST"/>
+
+    </VBox>
+
+</FlowPane>
