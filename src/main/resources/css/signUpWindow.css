@@ -6,6 +6,11 @@
     -fx-image: url("../images/backbutton.png")
 }
 
+#backButton:hover {
+    -fx-image: url("../images/backbuttonglow.png")
+}
+
+
 #signUpLabel {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';

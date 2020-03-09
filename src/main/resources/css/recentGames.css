@@ -6,6 +6,10 @@
     -fx-image: url("../images/backbutton.png")
 }
 
+#backButton:hover {
+    -fx-image: url("../images/backbuttonglow.png")
+}
+
 #box1 {
     -fx-padding: 10, 50, 10, 10;
 }

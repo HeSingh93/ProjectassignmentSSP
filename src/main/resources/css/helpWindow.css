@@ -2,7 +2,10 @@
     -fx-background: white;
 }
 
-
 #backButton {
     -fx-image: url("../images/backbutton.png")
+}
+
+#backButton:hover {
+    -fx-image: url("../images/backbuttonglow.png")
 }
