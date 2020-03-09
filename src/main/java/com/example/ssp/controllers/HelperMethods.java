@@ -28,6 +28,8 @@ public class HelperMethods {
     public static final String addFriendsFXML = "fxml/addFriendsWindow.fxml";
     public static final String friendsListFXML = "fxml/friendsListWindow.fxml";
     public static final String playRandomFXML = "fxml/playRandomWindow.fxml";
+    public static final String playCpuFXML = "fxml/playCpu.fxml";
+    public static final String winnerWindowFXML = "fxml/winnerWindow.fxml";
 
 
     public static URL getRes(String fileName) {

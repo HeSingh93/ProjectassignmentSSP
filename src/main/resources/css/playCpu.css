@@ -1,0 +1,22 @@
+#playCpu {
+    -fx-background-color: white;
+}
+
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}
+
+#playBtn {
+     -fx-alignment: center;
+     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
+     -fx-background-radius: 5em;
+     -fx-font: normal bold 20px 'italic';
+}
+
+#splash {
+    -fx-image: url("../images/randompick.jpg")
+}
+
+#mid {
+    -fx-padding: 50, 50, 50, 50;
+}

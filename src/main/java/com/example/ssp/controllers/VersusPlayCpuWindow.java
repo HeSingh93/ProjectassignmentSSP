@@ -14,6 +14,11 @@ public class VersusPlayCpuWindow {
     }
 
     public void cpuBtnClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceScene(
+                HelperMethods.playCpuFXML,
+                HelperMethods.gameRockPaperScissorTitle,
+                mouseEvent
+        );
     }
 
     public void playBtnClicked(MouseEvent mouseEvent) throws IOException {
@@ -25,10 +30,10 @@ public class VersusPlayCpuWindow {
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-    HelperMethods.replaceScene(
-            HelperMethods.mainWindowFXML,
-            HelperMethods.gameRockPaperScissorTitle,
-            mouseEvent
-    );
+        HelperMethods.replaceScene(
+                HelperMethods.mainWindowFXML,
+                HelperMethods.gameRockPaperScissorTitle,
+                mouseEvent
+        );
     }
 }
