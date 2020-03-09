@@ -6,10 +6,21 @@ import java.io.IOException;
 
 public class LogInWindow {
 
-    public void logInBtn(MouseEvent mouseEvent) {
+    public void logInBtn(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceScene(
+                HelperMethods.mainWindowFXML,
+                HelperMethods.gameRockPaperScissorTitle,
+                mouseEvent
+        );
+
     }
 
-    public void signUpBtn(MouseEvent mouseEvent) {
+    public void signUpBtn(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceScene(
+                HelperMethods.signUpWindowFXML,
+                HelperMethods.gameRockPaperScissorTitle,
+                mouseEvent
+        );
     }
 }
 

@@ -2,6 +2,14 @@
     -fx-background-color: white;
 }
 
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}
+
 #random {
     -fx-image: url("../images/randompick.jpg")
+}
+
+#mid {
+    -fx-padding: 50, 50, 50, 50;
 }

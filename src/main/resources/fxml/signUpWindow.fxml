@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
 
-<FlowPane
-        id="signUpWindow"
-        stylesheets="@/css/signUpWindow.css"
-        xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:controller="com.example.ssp.controllers.SignUpWindow"
-        prefHeight="600"
-        prefWidth="600"
-        alignment="CENTER">
+<FlowPane id="signUpWindow"
+          stylesheets="@/css/signUpWindow.css"
+          xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.ssp.controllers.SignUpWindow"
+          prefHeight="600"
+          prefWidth="600"
+          alignment="CENTER">
 
     <VBox alignment="CENTER" spacing="20">
+
+        <ImageView id="backButton"
+                   fitHeight="30"
+                   fitWidth="30"
+                   preserveRatio="true"
+                   onMouseClicked="#backButtonClicked"/>
 
         <Label
                 id="signUpLabel"
@@ -31,7 +34,8 @@
                 id="signUpEmailTextField"
                 text="Email"/>
         <Button id="createAccountBtn"
-                text="Create Account"/>
+                text="Create Account"
+                onMouseClicked="#createAccountClicked"/>
 
     </VBox>
 

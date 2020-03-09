@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
-<FlowPane
-        id="playCpu"
-        stylesheets="@/css/playCpu.css"
-        xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:controller="com.example.ssp.controllers.PlayCpu"
-        prefHeight="600.0"
-        prefWidth="600.0"
-        alignment="BASELINE_CENTER">
+
+<FlowPane id="playCpu"
+          stylesheets="@/css/playCpu.css"
+          xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.ssp.controllers.PlayCpu"
+          prefHeight="600.0"
+          prefWidth="600.0"
+          alignment="BASELINE_CENTER">
 
     <VBox spacing="10">
         <ImageView id="backButton"
@@ -23,18 +19,14 @@
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
-
     </VBox>
 
     <VBox id="mid" spacing="10" alignment="BASELINE_CENTER">
-
         <ImageView id="splash"
                    fitHeight="400"
                    fitWidth="400"
                    preserveRatio="true"/>
-
         <Button id="playBtn" text="PLAY" alignment="BASELINE_CENTER"/>
-
     </VBox>
 
 </FlowPane>

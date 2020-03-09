@@ -11,3 +11,7 @@
     -fx-alignment:center;
     -fx-font: normal bold 10px 'italic';
 }
+
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}

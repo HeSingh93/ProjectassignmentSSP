@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<FlowPane
-        id="winnerWindow"
-        stylesheets="@/css/winnerWindow.css"
-        xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:controller="com.example.ssp.controllers.WinnerWindow"
-        prefHeight="600.0"
-        prefWidth="600.0"
-        alignment="TOP_CENTER">
+<FlowPane id="winnerWindow"
+          stylesheets="@/css/winnerWindow.css"
+          xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.ssp.controllers.WinnerWindow"
+          prefHeight="600.0"
+          prefWidth="600.0"
+          alignment="TOP_CENTER">
 
 </FlowPane>

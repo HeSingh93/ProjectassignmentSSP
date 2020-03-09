@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
+
 <FlowPane xmlns="http://javafx.com/javafx"
           id="playRandomWindow"
           stylesheets="@/css/playRandomWindow.css"
@@ -14,12 +10,22 @@
           fx:controller="com.example.ssp.controllers.playRandomWindow"
           prefHeight="600.0"
           prefWidth="600.0"
-          alignment="TOP_CENTER">
+          alignment="BASELINE_CENTER">
 
-    <ImageView id="random"
-               fitWidth="500"
-               fitHeight="500"
-               preserveRatio="true"
-               onMouseClicked="#randomClicked"/>
+    <VBox spacing="10">
+        <ImageView id="backButton"
+                   fitHeight="30"
+                   fitWidth="30"
+                   preserveRatio="true"
+                   onMouseClicked="#backButtonClicked"/>
+    </VBox>
+
+    <VBox id="mid" spacing="10" alignment="BASELINE_CENTER">
+        <ImageView id="random"
+                   fitWidth="400"
+                   fitHeight="400"
+                   preserveRatio="true"
+                   onMouseClicked="#randomClicked"/>
+    </VBox>
 
 </FlowPane>

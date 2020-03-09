@@ -58,9 +58,5 @@ public class HelperMethods {
         stage.setScene(scene);
         stage.toFront();
         stage.show();
-
-
     }
-
-
 }

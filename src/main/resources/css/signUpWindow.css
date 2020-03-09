@@ -2,6 +2,10 @@
     -fx-background-color: white;
 }
 
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}
+
 #signUpLabel {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';

@@ -2,6 +2,10 @@
     -fx-background-color: white;
 }
 
+#topImage {
+        -fx-image: url("../images/mainmenu.png")
+}
+
 #newGameBtn {
      -fx-alignment: center;
      -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";

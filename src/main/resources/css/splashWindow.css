@@ -1,0 +1,8 @@
+#splash {
+    -fx-background-color: white;
+}
+
+#splashBtn{
+    -fx-image: url("../images/splashscreen.jpg")
+
+}
