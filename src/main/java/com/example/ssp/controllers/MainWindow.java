@@ -18,7 +18,7 @@ public class MainWindow {
     public void recentBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.recentGamesFXML,
-                HelperMethods.recentGamesTitle,
+                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
     }
@@ -26,7 +26,7 @@ public class MainWindow {
     public void helpBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.helpWindowFXML,
-                HelperMethods.helpWindowTitle,
+                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
 
@@ -35,7 +35,7 @@ public class MainWindow {
     public void friendsBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.friendsListFXML,
-                HelperMethods.friendsListTitle,
+                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
     }

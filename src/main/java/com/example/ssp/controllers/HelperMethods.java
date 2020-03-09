@@ -13,15 +13,8 @@ import java.net.URL;
 
 public class HelperMethods {
 
-    // Titles
+    // Title
     public static final String gameRockPaperScissorTitle = "Rock, paper, scissors";
-    public static final String helpWindowTitle = "Help";
-    public static final String recentGamesTitle = "Recent games";
-    public static final String signUpTitle = "Sign Up";
-    public static final String loginTitle = "Login";
-    public static final String addFriendsTitle = "Add friend";
-    public static final String friendsListTitle = "Friends";
-
 
     //FXML Paths
     public static final String gameRockPaperScissorFXML = "fxml/gameRockPaperScissorWindow.fxml";
