@@ -23,7 +23,7 @@
                 onMouseClicked="#addFriendsBtnClicked"
                 text="SEND REQUEST"/>
         <ImageView id="backButton"
-                   onMouseClicked="#backButton"
+                   onMouseClicked="#backButtonClicked"
                    fitHeight="30"
                    fitWidth="30"
                    preserveRatio="true"/>
