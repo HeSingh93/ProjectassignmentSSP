@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 
@@ -19,10 +18,12 @@
                preserveRatio="true"
                onMouseClicked="#backButtonClicked"/>
 
-    <Label id="helpLabel" text="HELP"/>
+    <VBox alignment="BASELINE_CENTER">
 
-    <TextArea
-            text="https://sv.lmgtfy.com/?q=rock+paper+scissor+rules"
-            editable="false"/>
+        <ImageView id="helpText"
+                   fitHeight="450"
+                   fitWidth="450"
+                   preserveRatio="true"/>
+    </VBox>
 
 </FlowPane>

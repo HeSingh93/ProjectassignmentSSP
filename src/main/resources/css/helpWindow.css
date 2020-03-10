@@ -2,8 +2,9 @@
     -fx-background: white;
 }
 
-#helpLabel{
-
+#helpLabel {
+     -fx-font: normal bold 30px 'italic';
+     -fx-padding: 0, 0,0, 100;
 }
 
 #backButton {
@@ -12,4 +13,8 @@
 
 #backButton:hover {
     -fx-image: url("../images/backbuttonglow.png")
+}
+
+#helpText {
+    -fx-image: url("../images/helpwindow.png")
 }
