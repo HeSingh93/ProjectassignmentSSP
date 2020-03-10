@@ -27,9 +27,10 @@
         <Label
                 id="friendsListLabel"
                 text="FRIENDS"/>
+
         <TabPane>
 
-            <Tab text="Friends">
+            <Tab text="Friends" closable="false">
                 <TableView id="friendsListBox">
                     <columns>
                         <TableColumn id="friendsListTextFormat"
@@ -45,7 +46,7 @@
                 </TableView>
             </Tab>
 
-            <Tab text="Recent">
+            <Tab text="Recent" closable="false">
                 <TableView>
                     <columns>
                         <TableColumn id="friendsListTextFormat"
@@ -61,7 +62,7 @@
                 </TableView>
             </Tab>
 
-            <Tab text="Requests">
+            <Tab text="Requests" closable="false">
                 <TableView>
                     <columns>
                         <TableColumn id="friendsListTextFormat"
@@ -71,5 +72,8 @@
                 </TableView>
             </Tab>
         </TabPane>
+        <Button id="addFriendsBtn"
+                text="Add new friend"
+                onMouseClicked="#addFriendBtnClicked"/>
     </VBox>
 </FlowPane>

@@ -11,4 +11,15 @@ public class FriendsListWindow {
                 mouseEvent
         );
     }
+
+    public void addFriendBtnClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceScene(
+                HelperMethods.addFriendsFXML,
+                mouseEvent
+        );
+    }
+
+    private void applyNewtext() {
+
+    }
 }

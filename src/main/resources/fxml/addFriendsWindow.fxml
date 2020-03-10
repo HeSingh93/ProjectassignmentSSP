@@ -19,7 +19,7 @@
         <TextField
                 id="addFriendsUserNameTextField"
                 text="Username"/>
-        <Button id="addFriendsBtn"
+        <Button id="addFriendsBtn" fx:id="addFriendsBtn"
                 onMouseClicked="#addFriendsBtnClicked"
                 text="SEND REQUEST"/>
         <ImageView id="backButton"
