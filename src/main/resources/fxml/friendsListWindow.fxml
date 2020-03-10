@@ -4,22 +4,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 
-<FlowPane id="signUpWindow"
+<FlowPane id="friendsListWindow"
           stylesheets="@/css/friendsListWindow.css"
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.FriendsListWindow"
           prefHeight="600"
           prefWidth="600"
-          alignment="CENTER">
+          alignment="BASELINE_CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox id="backBox">
 
         <ImageView id="backButton"
                    fitHeight="30"
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
+    </VBox>
+
+    <VBox alignment="CENTER" spacing="20">
 
         <Label
                 id="friendsListLabel"
@@ -27,7 +30,7 @@
         <TabPane>
 
             <Tab text="Friends">
-                <TableView>
+                <TableView id="friendsListBox">
                     <columns>
                         <TableColumn id="friendsListTextFormat"
                                      text="Username"

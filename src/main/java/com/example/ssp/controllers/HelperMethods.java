@@ -44,7 +44,7 @@ public class HelperMethods {
         return new FXMLLoader(getRes(fxmlPath));
     }
 
-    static void replaceScene(String fxmlPath, String windowTitle, MouseEvent mouseEvent) throws IOException {
+    static void replaceScene(String fxmlPath, MouseEvent mouseEvent) throws IOException {
 
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()
@@ -54,7 +54,7 @@ public class HelperMethods {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        stage.setTitle(windowTitle);
+        stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);
         stage.toFront();
         stage.show();

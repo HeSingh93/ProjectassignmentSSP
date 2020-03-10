@@ -8,7 +8,6 @@ public class HelpWindow {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.mainWindowFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
     }

@@ -8,7 +8,6 @@ public class SignUpWindow {
     public void createAccountClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.loginFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
     }
@@ -16,7 +15,6 @@ public class SignUpWindow {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.loginFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
 
         );

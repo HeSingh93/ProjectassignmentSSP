@@ -9,7 +9,6 @@ public class RecentGamesWindow {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.mainWindowFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
     }

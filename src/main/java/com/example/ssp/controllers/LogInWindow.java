@@ -9,7 +9,6 @@ public class LogInWindow {
     public void logInBtn(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.mainWindowFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
 
@@ -18,7 +17,6 @@ public class LogInWindow {
     public void signUpBtn(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.signUpWindowFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
         );
     }

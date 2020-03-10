@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -11,23 +12,28 @@ public class Main extends Application {
         launch(args);
     }
 
-
     @Override
     public void start(Stage stage) throws Exception {
 /*
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/mainWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/splashScreen.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("Rock, paper, scissors");
+        stage.getIcons().add(new Image("/images/favicon.png"));
         stage.show();
 */
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/playRandomWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/addFriendsWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("Rock, paper, scissors");
+        stage.getIcons().add(new Image("/images/favicon.png"));
         stage.show();
     }
 }

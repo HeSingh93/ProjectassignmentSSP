@@ -12,7 +12,6 @@ public class playRandomWindow {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.versusPlayCpuWindowFXML,
-                HelperMethods.gameRockPaperScissorTitle,
                 mouseEvent
 
         );
