@@ -19,6 +19,8 @@
                preserveRatio="true"
                onMouseClicked="#backButtonClicked"/>
 
+    <Label id="helpLabel" text="HELP"/>
+
     <TextArea
             text="https://sv.lmgtfy.com/?q=rock+paper+scissor+rules"
             editable="false"/>

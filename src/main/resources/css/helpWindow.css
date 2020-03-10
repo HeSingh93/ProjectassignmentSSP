@@ -2,6 +2,10 @@
     -fx-background: white;
 }
 
+#helpLabel{
+
+}
+
 #backButton {
     -fx-image: url("../images/backbutton.png")
 }
