@@ -27,7 +27,7 @@ public class Main extends Application {
 */
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/helpWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/friendsListVersusWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
