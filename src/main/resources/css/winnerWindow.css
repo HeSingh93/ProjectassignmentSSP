@@ -1,3 +1,7 @@
 #winnerWindow {
     -fx-background-color: white;
 }
+#winnerLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}

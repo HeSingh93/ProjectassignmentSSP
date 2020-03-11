@@ -2,6 +2,7 @@
 
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.Label?>
 <FlowPane id="winnerWindow"
           stylesheets="@/css/winnerWindow.css"
           xmlns="http://javafx.com/javafx"
@@ -10,5 +11,14 @@
           prefHeight="600.0"
           prefWidth="600.0"
           alignment="TOP_CENTER">
+
+    <VBox alignment="CENTER" spacing="20">
+
+        <Label
+                id="winnerLabel"
+                text="WINNER!"/>
+
+
+    </VBox>
 
 </FlowPane>
