@@ -47,7 +47,7 @@
             </Tab>
 
             <Tab text="Recent" closable="false">
-                <TableView>
+                <TableView id="recentBox">
                     <columns>
                         <TableColumn id="friendsListTextFormat"
                                      text="Username"
@@ -63,7 +63,7 @@
             </Tab>
 
             <Tab text="Requests" closable="false">
-                <TableView>
+                <TableView id="requestBox">
                     <columns>
                         <TableColumn id="friendsListTextFormat"
                                      text="Username"

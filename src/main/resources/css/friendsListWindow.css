@@ -19,6 +19,16 @@
     -fx-border-width: 0.5px;
 }
 
+#requestBox {
+    -fx-border-style: solid;
+    -fx-border-width: 0.5px;
+}
+
+#recentBox {
+    -fx-border-style: solid;
+    -fx-border-width: 0.5px;
+}
+
 #backBox {
     -fx-padding: 8,8,0,150;
 }
