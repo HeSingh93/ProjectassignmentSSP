@@ -1,0 +1,11 @@
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}
+
+#backButton:hover {
+    -fx-image: url("../images/backbuttonglow.png")
+}
+
+#scissor {
+    -fx-image: url("../images/scissors.png")
+}
