@@ -7,7 +7,7 @@ import java.io.IOException;
 public class VersusPlayCpuWindow {
     public void versusBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
-                HelperMethods.versusPlayCpuWindowFXML,
+                HelperMethods.playFriendsListVersusWindow,
                 mouseEvent
         );
     }

@@ -30,7 +30,7 @@ public class HelperMethods {
     public static final String playRandomFXML = "fxml/playRandomWindow.fxml";
     public static final String playCpuFXML = "fxml/playCpu.fxml";
     public static final String winnerWindowFXML = "fxml/winnerWindow.fxml";
-
+    public static final String playFriendsListVersusWindow = "fxml/friendsListVersusWindow.fxml";
 
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);

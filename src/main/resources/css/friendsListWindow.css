@@ -18,7 +18,7 @@
 }
 
 #backBox {
-    -fx-padding: 8,8,null,150;
+    -fx-padding: 8,8,0,150;
 }
 
 #backButton {
