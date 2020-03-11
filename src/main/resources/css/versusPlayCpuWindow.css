@@ -1,6 +1,7 @@
 #vpcWindow {
     -fx-background-color: white;
-    -fx-padding: 100, 100, 100, 100;
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: 600;
 }
 
 #versusBtn{

@@ -11,7 +11,7 @@
           fx:controller="com.example.ssp.controllers.VersusPlayCpuWindow"
           prefHeight="600.0"
           prefWidth="600.0"
-          alignment="BASELINE_CENTER">
+          alignment="CENTER">
 
     <VBox alignment="CENTER" spacing="20">
         <ImageView id="backButton"

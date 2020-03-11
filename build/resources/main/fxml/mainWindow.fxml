@@ -11,10 +11,12 @@
           fx:controller="com.example.ssp.controllers.MainWindow"
           prefHeight="600"
           prefWidth="600"
-          alignment="TOP_CENTER">
+          alignment="CENTER">
 
     <VBox alignment="CENTER" spacing="20">
-        <ImageView id="topImage"/>
+        <Label
+                id="mainMenuLabel"
+                text="MAIN MENU"/>
 
         <Button id="newGameBtn"
                 onMouseClicked="#newGameBtnClicked"

@@ -1,9 +1,12 @@
 #mainWindow{
     -fx-background-color: white;
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: 600;
 }
 
-#topImage {
-        -fx-image: url("../images/mainmenu.png")
+#mainMenuLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
 }
 
 #newGameBtn {

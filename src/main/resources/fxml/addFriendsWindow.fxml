@@ -9,7 +9,9 @@
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.AddFriendsWindow"
-          prefHeight="600" prefWidth="600" alignment="CENTER">
+          prefHeight="600"
+          prefWidth="600"
+          alignment="CENTER">
 
     <VBox alignment="CENTER" spacing="20">
 
