@@ -55,19 +55,20 @@ public class SQLHelper {
 
     }
 
-    public void login(String userName, String password) {
+    public ResultSet login(String userName, String password) throws SQLException {
         PreparedStatement state = null;
         try {
             state = connection.prepareStatement("SELECT * FROM \"user\" where \"user_name\" = ? and \"password\" = ?;");
             state.setString(1, userName);
             state.setString(2, password);
-            ResultSet validUser = state.executeQuery();
+            return state.executeQuery();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 
-    public void insertToken(String token, String userName, String password) {
+    public static void insertToken(String token, String userName, String password) {
         String input = String.format("INSERT INTO \"token\" (\"token_id\") VALUES (" + token + " ) " +
                 "INNER JOIN user WHERE \"user_name\"='%s' and \"password\"='%s'", userName, password);
     }
@@ -84,7 +85,5 @@ public class SQLHelper {
             System.exit(0);
         }
     }
-
-    // BRUH BRUH BRUH BRUH BRUH BRUH BRUH BRUH BRUH
 }
 

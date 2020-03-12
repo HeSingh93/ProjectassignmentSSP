@@ -35,6 +35,10 @@ public class HelperMethods extends SQLHelper{
     public static final String paperViewFXML = "fxml/paperView.fxml";
     public static final String scissorViewFXML = "fxml/scissorView.fxml";
 
+    public HelperMethods(String userName, String password) {
+        super(userName, password);
+    }
+
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);
     }

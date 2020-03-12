@@ -20,7 +20,7 @@
                 text="Username"/>
         <PasswordField
                 id="logInPasswordTextField"/>
-        <Button id="logInBtn"
+        <Button id="logInBtn" fx:id="logInBtn"
                 onMouseClicked="#logInBtn"
                 text="LOG IN"/>
         <Button id="signUpBtn"
