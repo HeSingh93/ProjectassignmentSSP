@@ -16,7 +16,7 @@ public class SignUpWindow {
         HelperMethods.replaceScene(
                 HelperMethods.loginFXML,
                 mouseEvent
-
         );
+        //SQL-kommando
     }
 }

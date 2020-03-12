@@ -27,7 +27,7 @@ public class Main extends Application {
 */
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/playRandomWindow.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/loginWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
