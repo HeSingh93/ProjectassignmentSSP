@@ -7,10 +7,6 @@ import java.sql.DriverManager;
 
 public class SplashScreen extends HelperMethods {
 
-    public SplashScreen(String userName, String password) {
-        super(userName, password);
-    }
-
     @Override
     public void startUp() {
         try {

@@ -16,16 +16,18 @@
                 id="logInLabel"
                 text="LOG IN"/>
         <TextField
-                id="logInUsernameTextField"
+                id="logInUsernameTextField" fx:id="logInUsernameTextField"
                 text="Username"/>
         <PasswordField
-                id="logInPasswordTextField"/>
+                id="logInPasswordTextField" fx:id="logInPasswordTextField"/>
         <Button id="logInBtn" fx:id="logInBtn"
                 onMouseClicked="#logInBtn"
                 text="LOG IN"/>
         <Button id="signUpBtn"
                 onMouseClicked="#signUpBtn"
                 text="SIGN UP"/>
+
+        <Label id="errorMsg" fx:id="errorMsg"/>
 
     </VBox>
 

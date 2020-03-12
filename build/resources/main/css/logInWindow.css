@@ -31,3 +31,8 @@
      -fx-background-radius: 5em;
      -fx-font: normal bold 20px 'italic';
 }
+
+#errorMsg {
+     -fx-font: normal bold 20px 'italic';
+    -fx-font-color: red;
+}

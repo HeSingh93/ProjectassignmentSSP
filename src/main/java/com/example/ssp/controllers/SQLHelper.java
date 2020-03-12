@@ -6,34 +6,12 @@ import java.util.Base64;
 
 public class SQLHelper {
 
-    public static String userName;
-    public static String password;
     public static final SecureRandom secureRandom = new SecureRandom();
     public static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
+
     Connection connection = null;
     Statement processSqlStatement = null;
 
-
-    public SQLHelper(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-    public static String getUserName() {
-        return userName;
-    }
-
-    public static void setUserName(String userName) {
-        SQLHelper.userName = userName;
-    }
-
-    public static String getPassword() {
-        return password;
-    }
-
-    public static void setPassword(String password) {
-        SQLHelper.password = password;
-    }
 
     public void startUp() {
         try {
@@ -55,7 +33,7 @@ public class SQLHelper {
 
     }
 
-    public ResultSet login(String userName, String password) throws SQLException {
+  /*  public ResultSet login(String userName, String password) throws SQLException {
         PreparedStatement state = null;
         try {
             state = connection.prepareStatement("SELECT * FROM \"user\" where \"user_name\" = ? and \"password\" = ?;");
@@ -67,7 +45,7 @@ public class SQLHelper {
         }
         return null;
     }
-
+*/
     public static void insertToken(String token, String userName, String password) {
         String input = String.format("INSERT INTO \"token\" (\"token_id\") VALUES (" + token + " ) " +
                 "INNER JOIN user WHERE \"user_name\"='%s' and \"password\"='%s'", userName, password);
