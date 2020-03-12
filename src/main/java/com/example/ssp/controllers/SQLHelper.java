@@ -84,5 +84,7 @@ public class SQLHelper {
             System.exit(0);
         }
     }
+
+    // BRUH BRUH BRUH BRUH BRUH BRUH BRUH BRUH BRUH
 }
 
