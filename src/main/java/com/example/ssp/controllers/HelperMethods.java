@@ -31,6 +31,9 @@ public class HelperMethods {
     public static final String playCpuFXML = "fxml/playCpu.fxml";
     public static final String winnerWindowFXML = "fxml/winnerWindow.fxml";
     public static final String playFriendsListVersusWindow = "fxml/friendsListVersusWindow.fxml";
+    public static final String rockViewFXML = "fxml/rockView";
+    public static final String paperViewFXML = "fxml/paperView";
+    public static final String scissorViewFXML = "fxml/scissorView";
 
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);
