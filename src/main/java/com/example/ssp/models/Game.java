@@ -18,25 +18,23 @@ public class Game extends HelperMethods {
         ssp[2] = scissors;
     }
 
-    public static void randomlySelect() {
+    public static String randomlySelect() {
+
         addtoArray();
 
         int random = new Random().nextInt(ssp.length);
 
         if (ssp[random] == rock) {
-            HelperMethods.getLoader(HelperMethods.rockViewFXML);
-            return;
+           return rockViewFXML;
         }
 
         if (ssp[random] == paper) {
-            HelperMethods.getLoader(HelperMethods.paperViewFXML);
-            return;
+            return paperViewFXML;
         }
 
         if (ssp[random] == scissors) {
-            HelperMethods.getLoader(HelperMethods.scissorViewFXML);
+            return scissorViewFXML;
         }
+        return randomlySelect();
     }
-
-
-    }
+}
