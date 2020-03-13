@@ -11,9 +11,7 @@ public class SplashScreen extends HelperMethods {
     public void startUp() {
         try {
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/SSP",
-                    "postgres",
-                    "TheLoveForMyHomies");
+            connection = DriverManager.getConnection("postgres://jxobeclzyreepf:4ce1d93228a8d0c016098c63cfa769751115a60b5c2fceed51e649029c873397@ec2-50-17-178-87.compute-1.amazonaws.com:5432/d3biv5j155is1v");
             connection.setAutoCommit(false);
 
         } catch (Exception e) {
