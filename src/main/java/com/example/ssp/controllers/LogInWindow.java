@@ -42,8 +42,8 @@ public class LogInWindow extends HelperMethods {
         //Finns ej användarnamn promptar den att "Fyll i användarnamn"
         //Finns ej lösenord promptar den att "Fyll i lösenord"
 
-        logInUsernameTextField.getText().equals(userName);
-        logInPasswordTextField.getText().equals(password);
+        userName = logInUsernameTextField.getText();
+        password = logInPasswordTextField.getText();
 
         PreparedStatement state = null;
         try {
