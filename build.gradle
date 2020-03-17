@@ -19,9 +19,8 @@ application {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation group: 'org.hibernate:',
-                   name: 'hibernate-core:',
-                   version: '5.4.11.Final'
+    implementation 'org.hibernate:hibernate-core:5.4.12.Final'
+    compile 'org.postgresql:postgresql:42.2.10'
 }
 
 javafx {
