@@ -7,9 +7,9 @@
 
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/hb_01_one_to_one_uni</property>
-        <property name="connection.username">hbstudent</property>
-        <property name="connection.password">hbstudent</property>
+        <property name="connection.url">jdbc:postgresql://ec2-50-17-178-87.compute-1.amazonaws.com:5432/d3biv5j155is1v</property>
+        <property name="connection.username">jxobeclzyreepf</property>
+        <property name="connection.password">4ce1d93228a8d0c016098c63cfa769751115a60b5c2fceed51e649029c873397</property>
 
         <!-- Other settings -->
         <property name="connection.pool_size">1</property>
