@@ -9,8 +9,8 @@ public class SQLHelper {
     public static final SecureRandom secureRandom = new SecureRandom();
     public static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
 
-    Connection connection = null;
-    Statement processSqlStatement = null;
+    Connection connection;
+    Statement processSqlStatement;
 
 
     public void startUp() {

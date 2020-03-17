@@ -18,8 +18,8 @@ public class LogInWindow extends HelperMethods {
     private String userName;
     private String password;
 
-    Connection connection = null;
-    Statement processSqlStatement = null;
+    Connection connection;
+    Statement processSqlStatement;
 
     /* public void login(String userName, String password, MouseEvent mouseEvent) {
          PreparedStatement state = null;
@@ -33,7 +33,7 @@ public class LogInWindow extends HelperMethods {
          }
      }
  */
-    public void logInBtn(MouseEvent mouseEvent) throws IOException, SQLException {
+    public void logInBtn(MouseEvent mouseEvent) {
         //Kollar om användarnamn och pw finns i textrutor
         //Kontrollerar användare och lösenord mot databas
         //Finns konto skickar den vidare till Main menu
@@ -46,10 +46,17 @@ public class LogInWindow extends HelperMethods {
         password = logInPasswordTextField.getText();
 
         PreparedStatement state = null;
+
         try {
+            System.out.println("conn");
+            System.out.println(connection);
             state = connection.prepareStatement("SELECT * FROM \"user\" where \"user_name\" = ? and \"password\" = ?;");
             state.setString(1, userName);
             state.setString(2, password);
+            System.out.println("username");
+            System.out.println("password");
+            System.out.println(userName);
+            System.out.println(password);
             ResultSet validUser = state.executeQuery(); //Fråga Jon ang validUser
             if (!validUser.next()) {
                 errorMsg.setText("Invalid username or password!");
@@ -63,7 +70,7 @@ public class LogInWindow extends HelperMethods {
                 );
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
