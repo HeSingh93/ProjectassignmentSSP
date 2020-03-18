@@ -40,8 +40,6 @@ public class SignUpWindow {
                 HelperMethods.loginFXML,
                 mouseEvent
         );
-
-
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {

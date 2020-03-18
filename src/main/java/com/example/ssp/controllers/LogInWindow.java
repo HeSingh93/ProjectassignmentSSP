@@ -1,13 +1,19 @@
 package com.example.ssp.controllers;
 
+import com.example.ssp.models.Token;
+import com.example.ssp.models.User;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.List;
 
 public class LogInWindow extends HelperMethods {
 
@@ -21,18 +27,6 @@ public class LogInWindow extends HelperMethods {
     Connection connection;
     Statement processSqlStatement;
 
-    /* public void login(String userName, String password, MouseEvent mouseEvent) {
-         PreparedStatement state = null;
-         try {
-             state = connection.prepareStatement("SELECT * FROM \"user\" where \"user_name\" = ? and \"password\" = ?;");
-             state.setString(1, userName);
-             state.setString(2, password);
-             ResultSet validUser = state.executeQuery(); //Fråga Jon ang validUser
-         } catch (Exception e) {
-             System.out.println(e.getMessage());
-         }
-     }
- */
     public void logInBtn(MouseEvent mouseEvent) {
         //Kollar om användarnamn och pw finns i textrutor
         //Kontrollerar användare och lösenord mot databas
@@ -45,7 +39,46 @@ public class LogInWindow extends HelperMethods {
         userName = logInUsernameTextField.getText();
         password = logInPasswordTextField.getText();
 
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(User.class)
+                .buildSessionFactory();
 
+        //Create session
+        Session session = factory.getCurrentSession();
+
+        try {
+            //Start transaction
+            session.beginTransaction();
+
+            //Query users
+            List<User> theUsers = session.createQuery("from User").getResultList();
+
+            // Display users
+            for (User tempUser : theUsers)
+                System.out.println(tempUser);
+
+            if(userName.equals(theUsers)){
+
+                HelperMethods.replaceScene(
+                        mainWindowFXML,
+                        mouseEvent
+                );
+            }
+            else {
+                errorMsg.setVisible(true);
+            }
+
+            //Commit transaction
+            session.getTransaction().commit();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            factory.close();
+            session.close();
+        }
 
       /*  PreparedStatement state = null;
 

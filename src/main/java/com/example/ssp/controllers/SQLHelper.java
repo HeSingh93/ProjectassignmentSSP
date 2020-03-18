@@ -46,22 +46,11 @@ public class SQLHelper {
         return null;
     }
 */
+
+
     public static void insertToken(String token, String userName, String password) {
         String input = String.format("INSERT INTO \"token\" (\"token_id\") VALUES (" + token + " ) " +
                 "INNER JOIN user WHERE \"user_name\"='%s' and \"password\"='%s'", userName, password);
-    }
-
-    public void closeConnection() {
-        try {
-            processSqlStatement.close();
-            connection.commit();
-            connection.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName() + ":" + e.getMessage());
-            System.exit(0);
-        }
     }
 }
 
