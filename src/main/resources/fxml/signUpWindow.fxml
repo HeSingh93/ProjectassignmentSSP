@@ -25,14 +25,11 @@
                 id="signUpLabel"
                 text="SIGN UP"/>
         <TextField
-                id="signUpUsernameTextField"
+                id="signUpUsernameTextField" fx:id="signUpUserNameTextField"
                 text="Username"/>
         <TextField
-                id="signUpPasswordTextField"
+                id="signUpPasswordTextField" fx:id="signUpPasswordTextField"
                 text="Password"/>
-        <TextField
-                id="signUpEmailTextField"
-                text="Email"/>
         <Button id="createAccountBtn"
                 text="Create Account"
                 onMouseClicked="#createAccountClicked"/>
