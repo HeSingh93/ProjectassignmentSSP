@@ -70,13 +70,13 @@ public class LogInWindow extends HelperMethods {
                     //Commit transaction
                     session.getTransaction().commit();
 
-                } else {
-                    errorMsg.setVisible(true);
-                    errorMsg.setText("Invalid username");
-                    System.out.println("We got into else part");
                 }
-
             }
+
+            errorMsg.setVisible(true);
+            errorMsg.setText("Invalid username");
+            System.out.println("We got into else part");
+
             //Commit transaction
             session.getTransaction().commit();
 
