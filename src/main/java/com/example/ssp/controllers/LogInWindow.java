@@ -21,7 +21,7 @@ public class LogInWindow extends HelperMethods {
     public TextField logInUsernameTextField;
     public Button logInBtn;
     public Label errorMsg;
-    private String userName;
+    private String logInUserName;
     private String password;
 
     Connection connection;
@@ -36,7 +36,7 @@ public class LogInWindow extends HelperMethods {
         //Finns ej användarnamn promptar den att "Fyll i användarnamn"
         //Finns ej lösenord promptar den att "Fyll i lösenord"
 
-        userName = logInUsernameTextField.getText();
+        logInUserName = logInUsernameTextField.getText();
         password = logInPasswordTextField.getText();
 
         SessionFactory factory = new Configuration()
@@ -55,20 +55,29 @@ public class LogInWindow extends HelperMethods {
             List<User> theUsers = session.createQuery("from User").getResultList();
 
             // Display users
-            for (User tempUser : theUsers)
+            for (User tempUser : theUsers) {
                 System.out.println(tempUser);
 
-            if(userName.equals(theUsers)){
+                if (tempUser.getUserName().equals(logInUserName)) {
+                    System.out.println("We got into if loop");
 
-                HelperMethods.replaceScene(
-                        mainWindowFXML,
-                        mouseEvent
-                );
-            }
-            else {
-                errorMsg.setVisible(true);
-            }
+                    HelperMethods.replaceScene(
+                            mainWindowFXML,
+                            mouseEvent
+                    );
 
+                    //Commit transaction
+                    session.getTransaction().commit();
+
+                    break;
+
+                } else {
+                    errorMsg.setVisible(true);
+                    errorMsg.setText("Invalid username");
+                    System.out.println("We got into else part");
+                }
+
+            }
             //Commit transaction
             session.getTransaction().commit();
 
