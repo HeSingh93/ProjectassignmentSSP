@@ -1,15 +1,10 @@
 package com.example.ssp.controllers;
 
-import com.example.ssp.entities.CreateLogin;
-import com.fasterxml.classmate.AnnotationConfiguration;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.sql.*;
