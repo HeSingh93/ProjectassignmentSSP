@@ -22,7 +22,7 @@ public class LogInWindow extends HelperMethods {
     public Button logInBtn;
     public Label errorMsg;
     private String logInUserName;
-    private String password;
+    private String logInPassword;
 
     Connection connection;
     Statement processSqlStatement;
@@ -37,7 +37,7 @@ public class LogInWindow extends HelperMethods {
         //Finns ej lösenord promptar den att "Fyll i lösenord"
 
         logInUserName = logInUsernameTextField.getText();
-        password = logInPasswordTextField.getText();
+        logInPassword = logInPasswordTextField.getText();
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -52,13 +52,14 @@ public class LogInWindow extends HelperMethods {
             session.beginTransaction();
 
             //Query users
-            List<User> theUsers = session.createQuery("from User").getResultList();
+            List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName +"'").getResultList();
+            System.out.println(theUsers);
 
             // Display users
             for (User tempUser : theUsers) {
                 System.out.println(tempUser);
 
-                if (tempUser.getUserName().equals(logInUserName)) {
+                if (tempUser.getUserName().equals(logInUserName) && tempUser.getPassword().equals(logInPassword)) {
                     System.out.println("We got into if loop");
 
                     HelperMethods.replaceScene(
@@ -68,8 +69,6 @@ public class LogInWindow extends HelperMethods {
 
                     //Commit transaction
                     session.getTransaction().commit();
-
-                    break;
 
                 } else {
                     errorMsg.setVisible(true);
