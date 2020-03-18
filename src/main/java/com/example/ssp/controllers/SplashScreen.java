@@ -7,7 +7,6 @@ import java.io.IOException;
 public class SplashScreen extends HelperMethods {
 
     public void splashButtonClicked(MouseEvent mouseEvent) throws IOException {
-        startUp();
         HelperMethods.replaceScene(
                 HelperMethods.loginFXML,
                 mouseEvent

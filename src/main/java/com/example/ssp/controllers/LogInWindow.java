@@ -12,7 +12,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
-import java.sql.*;
+import java.security.SecureRandom;
+
+import java.util.Base64;
 import java.util.List;
 
 public class LogInWindow extends HelperMethods {
@@ -23,9 +25,15 @@ public class LogInWindow extends HelperMethods {
     public Label errorMsg;
     private String logInUserName;
     private String logInPassword;
+    public static final SecureRandom secureRandom = new SecureRandom();
+    public static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
 
-    Connection connection;
-    Statement processSqlStatement;
+
+    public static String generateToken() {
+        byte[] randomBytes = new byte[24];
+        secureRandom.nextBytes(randomBytes);
+        return base64Encoder.encodeToString(randomBytes);
+    }
 
     public void logInBtn(MouseEvent mouseEvent) {
         //Kollar om användarnamn och pw finns i textrutor
@@ -42,6 +50,7 @@ public class LogInWindow extends HelperMethods {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Token.class)
                 .buildSessionFactory();
 
         //Create session
@@ -52,7 +61,7 @@ public class LogInWindow extends HelperMethods {
             session.beginTransaction();
 
             //Query users
-            List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName +"'").getResultList();
+            List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName + "'").getResultList();
             System.out.println(theUsers);
 
             // Display users
@@ -80,43 +89,12 @@ public class LogInWindow extends HelperMethods {
             //Commit transaction
             session.getTransaction().commit();
 
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             factory.close();
             session.close();
         }
-
-      /*  PreparedStatement state = null;
-
-        try {
-            System.out.println("conn");
-            System.out.println(connection);
-            state = connection.prepareStatement("SELECT * FROM \"user\" where \"user_name\" = ? and \"password\" = ?;");
-            state.setString(1, userName);
-            state.setString(2, password);
-            System.out.println("username");
-            System.out.println("password");
-            System.out.println(userName);
-            System.out.println(password);
-            ResultSet validUser = state.executeQuery(); //Fråga Jon ang validUser
-            if (!validUser.next()) {
-                errorMsg.setText("Invalid username or password!");
-                errorMsg.setVisible(true);
-            } else {
-                SQLHelper.generateToken();
-                SQLHelper.insertToken(SQLHelper.generateToken(), userName, password);
-                HelperMethods.replaceScene(
-                        HelperMethods.mainWindowFXML,
-                        mouseEvent
-                );
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-       */
     }
 
     public void signUpBtn(MouseEvent mouseEvent) throws IOException {

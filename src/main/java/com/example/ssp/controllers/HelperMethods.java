@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class HelperMethods extends SQLHelper{
+public class HelperMethods {
 
     // Title
     public static final String gameRockPaperScissorTitle = "Rock, paper, scissors";
