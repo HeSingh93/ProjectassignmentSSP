@@ -5,3 +5,21 @@
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';
 }
+
+#rock {
+    -fx-image: url("../images/rock.png")
+
+}
+
+#paper {
+    -fx-image: url("../images/paper.png")
+}
+
+#scissors {
+    -fx-image: url("../images/scissors.png")
+}
+
+
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}

@@ -1,6 +1,11 @@
 #loserWindow {
     -fx-background-color: white
 }
+
+#winnerWindow {
+    -fx-background-color: white
+}
+
 #loserLabel {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';
@@ -25,4 +30,8 @@
 
 #backButton {
     -fx-image: url("../images/backbutton.png")
+}
+
+#backButton:hover {
+    -fx-image: url("../images/backbuttonglow.png")
 }

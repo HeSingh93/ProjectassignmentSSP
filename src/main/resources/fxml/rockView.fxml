@@ -3,11 +3,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 
-<FlowPane id="rockView"
-          stylesheets="@/css/rockView.css"
+<FlowPane id="view"
+          stylesheets="@/css/randomChoiceWindow.css"
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.ssp.controllers.rockView"
+          fx:controller="com.example.ssp.controllers.RandomChoiceWindow"
           prefHeight="600.0"
           prefWidth="600.0"
           alignment="TOP_CENTER">

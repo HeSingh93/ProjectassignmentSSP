@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.graalvm.compiler.lir.LIRInstruction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -51,7 +50,7 @@ public class LogInWindow extends HelperMethods {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
-                .addAnnotatedClass(Token.class)
+              //  .addAnnotatedClass(Token.class)
                 .buildSessionFactory();
 
         //Create session
@@ -59,11 +58,11 @@ public class LogInWindow extends HelperMethods {
 
         token = generateToken();
 
-        User user = new User(logInUserName, logInPassword);
-        Token tempToken = new Token(token);
+     //   User user = new User(logInUserName, logInPassword);
+       // Token tempToken = new Token(token);
 
-        int tempUserId = user.getUserId();
-        tempToken.setUserId(tempUserId);
+        //int tempUserId = user.getUserId();
+       // tempToken.setUserId(tempUserId);
 
         try {
             //Query users
@@ -85,7 +84,7 @@ public class LogInWindow extends HelperMethods {
                             mouseEvent
                     );
 
-                    session.save(tempToken);
+   //                 session.save(tempToken);
 
                     //Commit transaction
                     session.getTransaction().commit();

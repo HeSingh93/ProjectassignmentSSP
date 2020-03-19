@@ -9,7 +9,6 @@ public class playRandomWindow extends Game {
 
     public void randomClicked(MouseEvent mouseEvent) throws IOException {
 
-        //
 
         int random = (int) (Math.random() * 4);
 

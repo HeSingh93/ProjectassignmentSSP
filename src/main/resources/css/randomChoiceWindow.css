@@ -1,9 +1,21 @@
+#view{
+    -fx-background-color: white;
+}
+
 #backButton {
     -fx-image: url("../images/backbutton.png")
 }
 
 #backButton:hover {
     -fx-image: url("../images/backbuttonglow.png")
+}
+
+#rock {
+    -fx-image: url("../images/rock.png")
+}
+
+#scissor {
+    -fx-image: url("../images/scissors.png")
 }
 
 #paper {

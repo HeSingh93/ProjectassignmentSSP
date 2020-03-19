@@ -4,10 +4,11 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class scissorView {
+public class WinnerPaperWindow {
+
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
-                HelperMethods.playRandomFXML,
+                HelperMethods.versusPlayCpuWindowFXML,
                 mouseEvent
         );
     }
