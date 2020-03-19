@@ -11,16 +11,73 @@ public class GameRockPaperScissorWindow {
     int paper = 2;
     int scissors = 3;
 
-
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
-        String userWordChoice = "rock";
+        int x = 1 + (int) (Math.random() * 3);
+
+        if (x == paper) {
+            HelperMethods.replaceScene(
+                    HelperMethods.loserPaperWindowFXML,
+                    mouseEvent
+            );
+        }
+        if (x == scissors) {
+            HelperMethods.replaceScene(
+                    HelperMethods.winnerRockWindowFXML,
+                    mouseEvent
+            );
+        }
+        if (x == rock) {
+            HelperMethods.replaceScene(
+                    HelperMethods.tieWindowFXML,
+                    mouseEvent
+            );
+        }
     }
 
-    public void paperClicked(MouseEvent mouseEvent) {
-        String userWordChoice = "paper";
+    public void paperClicked(MouseEvent mouseEvent) throws IOException {
+        int x = 1 + (int) (Math.random() * 3);
+
+        if (x == rock) {
+            HelperMethods.replaceScene(
+                    HelperMethods.winnerPaperWindowFXML,
+                    mouseEvent
+            );
+        }
+        if (x == scissors) {
+            HelperMethods.replaceScene(
+                    HelperMethods.loserScissorWindowFXML,
+                    mouseEvent
+            );
+        }
+        if (x == paper) {
+            HelperMethods.replaceScene(
+                    HelperMethods.tieWindowFXML,
+                    mouseEvent
+            );
+        }
+
     }
 
-    public void scissorsClicked(MouseEvent mouseEvent) {
-        String userWordChoice = "scissors";
+    public void scissorsClicked(MouseEvent mouseEvent) throws IOException {
+        int x = 1 + (int) (Math.random() * 3);
+
+        if (x == rock) {
+            HelperMethods.replaceScene(
+                    HelperMethods.loserRockWindowFXML,
+                    mouseEvent
+            );
+        }
+        if (x == paper) {
+            HelperMethods.replaceScene(
+                    HelperMethods.winnerScissorWindowFXML,
+                    mouseEvent
+            );
+        }
+        if (x == scissors) {
+            HelperMethods.replaceScene(
+                    HelperMethods.tieWindowFXML,
+                    mouseEvent
+            );
+        }
     }
 }

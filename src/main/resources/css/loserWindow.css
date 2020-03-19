@@ -2,6 +2,12 @@
     -fx-background-color: white
 }
 
+#tieWindow{
+    -fx-background-color: white;
+    -fx-background-image: url("../images/background.png");
+    -fx-background-size: 600;
+}
+
 #winnerWindow {
     -fx-background-color: white
 }
@@ -14,6 +20,11 @@
 #winnerLabel {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';
+}
+
+#tieLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 40px 'italic';
 }
 
 #rockLoss {

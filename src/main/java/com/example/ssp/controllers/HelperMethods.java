@@ -40,6 +40,7 @@ public class HelperMethods {
     public static final String winnerPaperWindowFXML = "fxml/winnerPaperWIndow.fxml";
     public static final String winnerScissorWindowFXML = "fxml/winnerScissorWindow.fxml";
     public static final String winnerRockWindowFXML = "fxml/winnerRockWindow.fxml";
+    public static final String tieWindowFXML = "fxml/tieWindow.fxml";
 
 
     public static URL getRes(String fileName) {
