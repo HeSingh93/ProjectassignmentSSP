@@ -1,0 +1,28 @@
+#loserWindow {
+    -fx-background-color: white
+}
+#loserLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#winnerLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#rockLoss {
+    -fx-image: url("../images/rock.png")
+}
+
+#paperLoss {
+    -fx-image: url("../images/paper.png")
+}
+
+#scissorLoss {
+    -fx-image: url("../images/scissors.png")
+}
+
+#backButton {
+    -fx-image: url("../images/backbutton.png")
+}

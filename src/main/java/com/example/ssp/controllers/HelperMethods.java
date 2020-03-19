@@ -34,6 +34,7 @@ public class HelperMethods {
     public static final String rockViewFXML = "fxml/rockView.fxml";
     public static final String paperViewFXML = "fxml/paperView.fxml";
     public static final String scissorViewFXML = "fxml/scissorView.fxml";
+    public static final String loserPaperWindowFXML = "fxml/loserPaperWindow.fxml";
 
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);

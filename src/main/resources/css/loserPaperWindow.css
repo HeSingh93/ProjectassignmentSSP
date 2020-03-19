@@ -1,7 +1,0 @@
-#loserWindow {
-    -fx-background-color: white
-}
-#loserLabel {
-    -fx-alignment:center;
-    -fx-font: normal bold 30px 'italic';
-}

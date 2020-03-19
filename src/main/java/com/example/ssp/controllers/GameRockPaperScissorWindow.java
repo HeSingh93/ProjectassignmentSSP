@@ -12,19 +12,8 @@ public class GameRockPaperScissorWindow {
     int scissors = 3;
 
 
-    public void rockClicked(MouseEvent mouseEvent, Random random) throws IOException {
-
-        int computerChoice = random.nextInt(3) + 1;
-
-        if (computerChoice == 2) {
-            HelperMethods.replaceScene(
-                    HelperMethods.loserPaperWindowFXML,
-                    mouseEvent
-            );
-        }
-
-
-
+    public void rockClicked(MouseEvent mouseEvent) throws IOException {
+        String userWordChoice = "rock";
     }
 
     public void paperClicked(MouseEvent mouseEvent) {
