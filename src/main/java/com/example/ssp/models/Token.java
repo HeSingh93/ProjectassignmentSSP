@@ -21,18 +21,9 @@ public class Token implements Serializable {
     @Column(name="value")
     private String value;
 
-
     public Token(){
         // no-arg constructor
     }
-
-    public static void generateNewToken(){
-        SecureRandom random = new SecureRandom();
-        byte[] bytes = new byte[24];
-        random.nextBytes(bytes);
-        String token = bytes.toString();
-    }
-
 
     public Token(String value) {
         this.value = value;

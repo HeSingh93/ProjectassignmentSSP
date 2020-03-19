@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import org.graalvm.compiler.lir.LIRInstruction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -25,6 +26,7 @@ public class LogInWindow extends HelperMethods {
     public Label errorMsg;
     private String logInUserName;
     private String logInPassword;
+    private String token;
     public static final SecureRandom secureRandom = new SecureRandom();
     public static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
 
@@ -55,13 +57,21 @@ public class LogInWindow extends HelperMethods {
         //Create session
         Session session = factory.getCurrentSession();
 
-        try {
-            //Start transaction
-            session.beginTransaction();
+        token = generateToken();
 
+        User user = new User(logInUserName, logInPassword);
+        Token tempToken = new Token(token);
+
+        int tempUserId = user.getUserId();
+        tempToken.setUserId(tempUserId);
+
+        try {
             //Query users
             List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName + "'").getResultList();
             System.out.println(theUsers);
+
+            //Start transaction
+            session.beginTransaction();
 
             // Display users
             for (User tempUser : theUsers) {
@@ -74,6 +84,8 @@ public class LogInWindow extends HelperMethods {
                             mainWindowFXML,
                             mouseEvent
                     );
+
+                    session.save(tempToken);
 
                     //Commit transaction
                     session.getTransaction().commit();

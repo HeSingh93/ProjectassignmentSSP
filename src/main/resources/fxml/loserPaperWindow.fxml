@@ -4,7 +4,7 @@
 
 <?import javafx.scene.control.Label?>
 <FlowPane id="winnerWindow"
-          stylesheets="@/css/winnerWindow.css"
+          stylesheets="@/css/loserPaperWindow.css"
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.WinnerWindow"
@@ -15,8 +15,8 @@
     <VBox alignment="CENTER" spacing="20">
 
         <Label
-                id="winnerLabel"
-                text="WINNER!"
+                id="loserLabel"
+                text="CPU won"
                 fx:id="winnerLabel"/>
 
     </VBox>

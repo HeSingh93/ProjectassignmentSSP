@@ -26,7 +26,7 @@
                    fitHeight="400"
                    fitWidth="400"
                    preserveRatio="true"/>
-        <Button id="playBtn" text="PLAY" alignment="BASELINE_CENTER"/>
+        <Button id="playBtn" text="PLAY" alignment="BASELINE_CENTER" onMouseClicked="#playerBtnClicked"/>
     </VBox>
 
 </FlowPane>

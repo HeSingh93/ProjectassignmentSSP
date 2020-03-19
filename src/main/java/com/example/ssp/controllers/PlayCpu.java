@@ -13,4 +13,10 @@ public class PlayCpu {
     }
 
 
+    public void playerBtnClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceScene(
+                HelperMethods.gameRockPaperScissorFXML,
+                mouseEvent
+        );
+    }
 }
