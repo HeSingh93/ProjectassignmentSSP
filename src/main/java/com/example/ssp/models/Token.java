@@ -1,10 +1,12 @@
 package com.example.ssp.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.security.SecureRandom;
 
 @Entity
 @Table(name = "\"Ssp\".Token")
-public class Token {
+public class Token implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -23,6 +25,14 @@ public class Token {
     public Token(){
         // no-arg constructor
     }
+
+    public static void generateNewToken(){
+        SecureRandom random = new SecureRandom();
+        byte[] bytes = new byte[24];
+        random.nextBytes(bytes);
+        String token = bytes.toString();
+    }
+
 
     public Token(String value) {
         this.value = value;
