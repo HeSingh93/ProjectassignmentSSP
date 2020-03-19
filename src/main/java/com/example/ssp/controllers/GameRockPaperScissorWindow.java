@@ -3,9 +3,9 @@ package com.example.ssp.controllers;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class GameRockPaperScissorWindow {
+
 
     int rock = 1;
     int paper = 2;

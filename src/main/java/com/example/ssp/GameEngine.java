@@ -1,16 +1,15 @@
 package com.example.ssp;
 
 public class GameEngine {
+    private static int random;
     private int rock = 1;
     private int paper = 2;
     private int scissors = 3;
-    private int random;
 
-    public GameEngine(int rock, int paper, int scissors, int random) {
+    public GameEngine(int rock, int paper, int scissors) {
         this.rock = rock;
         this.paper = paper;
         this.scissors = scissors;
-        this.random = random;
     }
 
     public int getRock() {
@@ -45,9 +44,9 @@ public class GameEngine {
         this.random = random;
     }
 
-    public void generateRandom(){
+    public static int generateRandom(){
         int x = 1 + (int) (Math.random() * 3);
-        x = random;
+        return x = random;
     }
 
 
