@@ -5,18 +5,13 @@ import java.io.Serializable;
 import java.security.SecureRandom;
 
 @Entity
-@Table(name = "\"Ssp\".Token")
+@Table(name = "public.token")
 public class Token implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name="token_id")
     private int tokenId;
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name="user_id")
-    private int userId;
 
     @Column(name="value")
     private String value;
@@ -37,14 +32,6 @@ public class Token implements Serializable {
         this.tokenId = tokenId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     public String getValue() {
         return value;
     }
@@ -57,7 +44,6 @@ public class Token implements Serializable {
     public String toString() {
         return "Token{" +
                 "tokenId=" + tokenId +
-                ", userId=" + userId +
                 ", value='" + value + '\'' +
                 '}';
     }

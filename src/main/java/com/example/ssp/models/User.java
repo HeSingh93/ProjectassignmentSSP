@@ -3,7 +3,7 @@ package com.example.ssp.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "\"Ssp\".user")
+@Table(name = "public.user")
 public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class User {
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "token_token_id")
     private Token token;
 
     public Token getToken() {
