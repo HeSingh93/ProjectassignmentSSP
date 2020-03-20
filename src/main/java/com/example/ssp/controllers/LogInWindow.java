@@ -70,9 +70,12 @@ public class LogInWindow extends HelperMethods {
                 if (tempUser.getUserName().equals(logInUserName) && tempUser.getPassword().equals(logInPassword)) {
                     System.out.println("We got into if loop");
 
-                   Token token = new Token(generateToken());
+                    List<Token> tempToken = session.createQuery("from Token where token_id = " + tempUser.getUserId() + "").getResultList();
+                    System.out.println(tempToken);
 
-                    tempUser.setToken(token);
+                    //Token token = new Token(generateToken());
+
+                    //tempUser.setToken(token);
 
                     HelperMethods.replaceScene(
                             mainWindowFXML,
