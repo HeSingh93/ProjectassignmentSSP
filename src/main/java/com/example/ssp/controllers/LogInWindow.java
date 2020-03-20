@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -73,20 +74,28 @@ public class LogInWindow extends HelperMethods {
                     List<Token> tempToken = session.createQuery("from Token where token_id = " + tempUser.getUserId() + "").getResultList();
                     System.out.println(tempToken);
 
-                    //Token token = new Token(generateToken());
+                    if (tempToken.get(0).getValue().isEmpty()) {
+                        Token token = new Token(generateToken());
+                        tempUser.setToken(token);
 
-                    //tempUser.setToken(token);
+                        HelperMethods.replaceScene(
+                                mainWindowFXML,
+                                mouseEvent
+                        );
 
-                    HelperMethods.replaceScene(
-                            mainWindowFXML,
-                            mouseEvent
-                    );
+                        session.save(tempUser);
 
-                    session.save(tempUser);
+                    } else {
+                        Token token = new Token(generateToken());
+                        tempUser.setToken(token);
 
-                    //Commit transaction
-                    session.getTransaction().commit();
 
+
+                        HelperMethods.replaceScene(
+                                mainWindowFXML,
+                                mouseEvent
+                        );
+                    }
                 }
             }
 
