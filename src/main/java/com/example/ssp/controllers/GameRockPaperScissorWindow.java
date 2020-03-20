@@ -12,21 +12,21 @@ public class GameRockPaperScissorWindow {
     int scissors = 3;
 
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
-        int x = 1 + (int) (Math.random() * 3);
+        int rand = 1 + (int) (Math.random() * 4);
 
-        if (x == paper) {
+        if (rand == paper) {
             HelperMethods.replaceScene(
                     HelperMethods.loserPaperWindowFXML,
                     mouseEvent
             );
         }
-        if (x == scissors) {
+        if (rand == scissors) {
             HelperMethods.replaceScene(
                     HelperMethods.winnerRockWindowFXML,
                     mouseEvent
             );
         }
-        if (x == rock) {
+        if (rand == rock) {
             HelperMethods.replaceScene(
                     HelperMethods.tieWindowFXML,
                     mouseEvent
@@ -35,21 +35,21 @@ public class GameRockPaperScissorWindow {
     }
 
     public void paperClicked(MouseEvent mouseEvent) throws IOException {
-        int x = 1 + (int) (Math.random() * 3);
+        int rand = 1 + (int) (Math.random() * 4);
 
-        if (x == rock) {
+        if (rand == rock) {
             HelperMethods.replaceScene(
                     HelperMethods.winnerPaperWindowFXML,
                     mouseEvent
             );
         }
-        if (x == scissors) {
+        if (rand == scissors) {
             HelperMethods.replaceScene(
                     HelperMethods.loserScissorWindowFXML,
                     mouseEvent
             );
         }
-        if (x == paper) {
+        if (rand == paper) {
             HelperMethods.replaceScene(
                     HelperMethods.tieWindowFXML,
                     mouseEvent
@@ -59,21 +59,21 @@ public class GameRockPaperScissorWindow {
     }
 
     public void scissorsClicked(MouseEvent mouseEvent) throws IOException {
-        int x = 1 + (int) (Math.random() * 3);
+        int rand = 1 + (int) (Math.random() * 4);
 
-        if (x == rock) {
+        if (rand == rock) {
             HelperMethods.replaceScene(
                     HelperMethods.loserRockWindowFXML,
                     mouseEvent
             );
         }
-        if (x == paper) {
+        if (rand == paper) {
             HelperMethods.replaceScene(
                     HelperMethods.winnerScissorWindowFXML,
                     mouseEvent
             );
         }
-        if (x == scissors) {
+        if (rand == scissors) {
             HelperMethods.replaceScene(
                     HelperMethods.tieWindowFXML,
                     mouseEvent
