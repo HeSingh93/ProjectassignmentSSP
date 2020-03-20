@@ -50,27 +50,18 @@ public class LogInWindow extends HelperMethods {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
-              //  .addAnnotatedClass(Token.class)
+                .addAnnotatedClass(Token.class)
                 .buildSessionFactory();
 
         //Create session
         Session session = factory.getCurrentSession();
 
-        token = generateToken();
-
-     //   User user = new User(logInUserName, logInPassword);
-       // Token tempToken = new Token(token);
-
-        //int tempUserId = user.getUserId();
-       // tempToken.setUserId(tempUserId);
-
         try {
+            session.beginTransaction();
+
             //Query users
             List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName + "'").getResultList();
             System.out.println(theUsers);
-
-            //Start transaction
-            session.beginTransaction();
 
             // Display users
             for (User tempUser : theUsers) {
@@ -79,12 +70,16 @@ public class LogInWindow extends HelperMethods {
                 if (tempUser.getUserName().equals(logInUserName) && tempUser.getPassword().equals(logInPassword)) {
                     System.out.println("We got into if loop");
 
+                   Token token = new Token(generateToken());
+
+                    tempUser.setToken(token);
+
                     HelperMethods.replaceScene(
                             mainWindowFXML,
                             mouseEvent
                     );
 
-   //                 session.save(tempToken);
+                    session.save(tempUser);
 
                     //Commit transaction
                     session.getTransaction().commit();
