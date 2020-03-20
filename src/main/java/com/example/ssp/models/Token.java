@@ -1,12 +1,11 @@
 package com.example.ssp.models;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.security.SecureRandom;
+
 
 @Entity
 @Table(name = "public.token")
-public class Token implements Serializable {
+public class Token {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

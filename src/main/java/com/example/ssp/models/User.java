@@ -21,6 +21,12 @@ public class User {
     @JoinColumn(name = "token_token_id")
     private Token token;
 
+    public User(Token token, String userName, String password) {
+        this.token = token;
+        this.userName = userName;
+        this.password = password;
+    }
+
     public Token getToken() {
         return token;
     }

@@ -25,23 +25,33 @@ public class testUserToken {
 
     public static void main(String[] args) {
 
-        System.out.println("kill me");
-      /*  SessionFactory factory = new Configuration()
+        SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Token.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
-*/
-      try {
-          token = generateToken();
 
-          System.out.println("bruh");
+        try {
+            token = generateToken();
 
-      }catch (Exception e){
-          e.printStackTrace();
-      }
+            Token tempToken = new Token(token);
+
+            User user = new User(tempToken, "hello", "boiiii");
+
+            session.beginTransaction();
+
+            session.save(user);
+
+            session.getTransaction().commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+            factory.close();
+        }
     }
 
 }
