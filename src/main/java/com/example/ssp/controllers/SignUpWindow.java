@@ -1,5 +1,6 @@
 package com.example.ssp.controllers;
 
+import com.example.ssp.models.SignUpUser;
 import com.example.ssp.models.User;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -21,13 +22,13 @@ public class SignUpWindow {
         password = signUpPasswordTextField.getText();
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(SignUpUser.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
 
         try {
-            User newUser = new User(userName, password);
+            SignUpUser newUser = new SignUpUser(userName, password);
             session.beginTransaction();
             session.save(newUser);
             session.getTransaction().commit();

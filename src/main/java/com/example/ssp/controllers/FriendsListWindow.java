@@ -18,8 +18,4 @@ public class FriendsListWindow {
                 mouseEvent
         );
     }
-
-    private void applyNewtext() {
-
-    }
 }

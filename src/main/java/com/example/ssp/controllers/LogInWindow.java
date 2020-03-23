@@ -26,7 +26,6 @@ public class LogInWindow extends HelperMethods {
     public Label errorMsg;
     private String logInUserName;
     private String logInPassword;
-    private String token;
     public static final SecureRandom secureRandom = new SecureRandom();
     public static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
 
@@ -74,28 +73,15 @@ public class LogInWindow extends HelperMethods {
                     List<Token> tempToken = session.createQuery("from Token where token_id = " + tempUser.getUserId() + "").getResultList();
                     System.out.println(tempToken);
 
-                    if (tempToken.get(0).getValue().isEmpty()) {
-                        Token token = new Token(generateToken());
-                        tempUser.setToken(token);
+                    Token token = new Token(generateToken());
+                    tempUser.setToken(token);
 
-                        HelperMethods.replaceScene(
-                                mainWindowFXML,
-                                mouseEvent
-                        );
+                    session.save(tempUser);
 
-                        session.save(tempUser);
-
-                    } else {
-                        Token token = new Token(generateToken());
-                        tempUser.setToken(token);
-
-
-
-                        HelperMethods.replaceScene(
-                                mainWindowFXML,
-                                mouseEvent
-                        );
-                    }
+                    HelperMethods.replaceScene(
+                            mainWindowFXML,
+                            mouseEvent
+                    );
                 }
             }
 

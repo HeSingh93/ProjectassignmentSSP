@@ -20,10 +20,12 @@
                 text="ADD FRIEND"/>
         <TextField
                 id="addFriendsUserNameTextField"
+                fx:id="addFriendsUserNameTF"
                 text="Username"/>
         <Button id="addFriendsBtn" fx:id="addFriendsBtn"
                 onMouseClicked="#addFriendsBtnClicked"
                 text="SEND REQUEST"/>
+        <Label id="promptLabel" fx:id="promptLabel"/>
         <ImageView id="backButton"
                    onMouseClicked="#backButtonClicked"
                    fitHeight="30"
