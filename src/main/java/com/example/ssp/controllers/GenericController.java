@@ -1,18 +1,26 @@
 package com.example.ssp.controllers;
 
+import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-public class GenericController {
+public abstract class GenericController {
     private String valueOfToken;
     User user;
-    Stage stage;
+    Token token;
 
 
-    public void inheritSettings(GenericController controller, Scene scene) {
+    public void inheritSettings(GenericController controller, Token tokenBruh) {
         user = controller.user;
-        stage = controller.stage;
+        token = controller.token;
+
+    }
+
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
     }
 
     public User getUser() {
@@ -23,10 +31,6 @@ public class GenericController {
         this.user = user;
     }
 
-    public Stage getStage() {
-        return stage;
-    }
-
     public String getValueOfToken() {
         return valueOfToken;
     }
@@ -35,7 +39,4 @@ public class GenericController {
         this.valueOfToken = valueOfToken;
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
 }

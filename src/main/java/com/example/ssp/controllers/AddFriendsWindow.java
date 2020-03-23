@@ -14,13 +14,15 @@ import org.hibernate.cfg.Configuration;
 import java.io.IOException;
 import java.util.List;
 
-public class AddFriendsWindow {
+public class AddFriendsWindow extends GenericController {
+
 
     public Button addFriendsBtn;
     public Label promptLabel;
     public TextField addFriendsUserNameTF;
 
     public void addFriendsBtnClicked(MouseEvent mouseEvent) {
+        System.out.println("Tokens value should be loginToken");
 
         String userNameEntered = addFriendsUserNameTF.getText();
 
@@ -33,27 +35,23 @@ public class AddFriendsWindow {
 
         Session session = factory.getCurrentSession();
 
-        try{
+        try {
 
             session.beginTransaction();
 
             List<User> userList = session.createQuery("from User where user_name = '" + userNameEntered + "'").getResultList();
             System.out.println(userList);
 
-
-
-            if (userList.size() > 0){
+            if (userList.size() > 0) {
                 FriendsList friends = new FriendsList();
                 User userAdd = new User();
 
             }
 
-        }
-        finally {
+        } finally {
             session.close();
             factory.close();
         }
-
 
 
     }

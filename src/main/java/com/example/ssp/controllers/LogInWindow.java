@@ -17,7 +17,9 @@ import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.List;
 
-public class LogInWindow extends HelperMethods {
+import static com.example.ssp.controllers.HelperMethods.mainWindowFXML;
+
+public class LogInWindow extends GenericController {
 
     public PasswordField logInPasswordTextField;
     public TextField logInUsernameTextField;
@@ -33,17 +35,8 @@ public class LogInWindow extends HelperMethods {
         secureRandom.nextBytes(randomBytes);
         return base64Encoder.encodeToString(randomBytes);
     }
-    GenericController controller = new GenericController();
 
     public void logInBtn(MouseEvent mouseEvent) {
-        //Kollar om användarnamn och pw finns i textrutor
-        //Kontrollerar användare och lösenord mot databas
-        //Finns konto skickar den vidare till Main menu
-        //och skapar en token
-        //Finns det inget konto som matchar promptar den "användare finns ej"
-        //Finns ej användarnamn promptar den att "Fyll i användarnamn"
-        //Finns ej lösenord promptar den att "Fyll i lösenord"
-
         logInUserName = logInUsernameTextField.getText();
         logInPassword = logInPasswordTextField.getText();
 
@@ -85,12 +78,7 @@ public class LogInWindow extends HelperMethods {
 
                     System.out.println(tempUser.getToken().getValue());
 
-                    controller.setValueOfToken(tempUser.getToken().getValue());
-
-
                     System.out.println("The controllers token value should be: " +tempUser.getToken().getValue());
-                    System.out.println(controller);
-                    System.out.println(controller.getValueOfToken());
 
 
                     HelperMethods.replaceScene(

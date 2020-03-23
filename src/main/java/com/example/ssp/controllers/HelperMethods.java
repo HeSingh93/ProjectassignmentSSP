@@ -1,6 +1,6 @@
 package com.example.ssp.controllers;
 
-import com.example.ssp.models.User;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class HelperMethods extends GenericController{
+public class HelperMethods {
 
     // Title
     public static final String gameRockPaperScissorTitle = "Rock, paper, scissors";
@@ -42,15 +42,6 @@ public class HelperMethods extends GenericController{
     public static final String winnerScissorWindowFXML = "fxml/winnerScissorWindow.fxml";
     public static final String winnerRockWindowFXML = "fxml/winnerRockWindow.fxml";
     public static final String tieWindowFXML = "fxml/tieWindow.fxml";
-    public static String loggedInUser;
-
-    public static String getLoggedInUser() {
-        return loggedInUser;
-    }
-
-    public static void setLoggedInUser(String loggedInUser) {
-        HelperMethods.loggedInUser = loggedInUser;
-    }
 
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);
@@ -80,8 +71,7 @@ public class HelperMethods extends GenericController{
         stage.show();
     }
 
-    static User replaceSceneUser(String fxmlPath, MouseEvent mouseEvent, User loggedInUser) throws IOException {
-
+    static void replaceSceneUser(String fxmlPath, MouseEvent mouseEvent, GenericController tokenController) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()
                 .getWindow();
@@ -89,12 +79,9 @@ public class HelperMethods extends GenericController{
         FXMLLoader loader = getLoader(fxmlPath);
         Parent root = loader.load();
         Scene scene = new Scene(root);
-
         stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);
         stage.toFront();
         stage.show();
-
-        return loggedInUser;
     }
 }

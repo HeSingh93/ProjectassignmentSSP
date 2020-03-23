@@ -7,7 +7,6 @@ import java.io.IOException;
 public class MainWindow extends HelperMethods{
 
     public void newGameBtnClicked(MouseEvent mouseEvent) throws IOException {
-        System.out.println(loggedInUser);
         HelperMethods.replaceScene(
                 HelperMethods.versusPlayCpuWindowFXML,
                 mouseEvent
