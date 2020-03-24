@@ -36,11 +36,18 @@ public class AddFriendsWindow extends GenericController {
 
         try {
             session.beginTransaction();
-
-            Query query = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'");
-            List list = query.list();
+        /*
+           Query myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'");
+            List list = myUser.list();
             System.out.println(list);
 
+
+            Query queriedUser = session.createQuery("from User where user_name = '" + userNameEntered + "'");
+            List list1 = queriedUser.list();
+            System.out.println(list1);
+        */
+
+            List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
 
             List<User> queriedUser = session.createQuery("from User where user_name = '" + userNameEntered + "'").getResultList();
 
@@ -48,9 +55,19 @@ public class AddFriendsWindow extends GenericController {
             if (queriedUser.size() > 0) {
                 System.out.println(queriedUser);
 
-
+                // Query insertMyUserToFriendsList = session.createQuery("insert into Friends_List()");
                 FriendsList friends = new FriendsList();
-                User userAdd = new User();
+                friends.setFriendId(queriedUser.get(0).getUserId());
+                friends.setUserId(myUser.get(0).getUserId());
+
+                System.out.println(friends.getFriendId());
+                System.out.println(friends.getUserId());
+
+                session.save(friends);
+
+                session.getTransaction().commit();
+
+                //  FriendsList friends = new FriendsList(myUser.get(myUser.size()).getUserId(), queriedUser.get(queriedUser.size()).getUserId());
 
             } else {
                 promptLabel.setText("That user could not be found! Please try again.");

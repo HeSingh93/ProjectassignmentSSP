@@ -16,16 +16,14 @@ public class FriendsList implements Serializable {
     @Column(name = "friend_id")
     private int FriendId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "token_token_id")
-    private Token token;
+
 
     public FriendsList() {
         //No arg constructor
     }
 
     public FriendsList(int userId, int friendId) {
-        this.userId = userId;
+        userId = userId;
         FriendId = friendId;
     }
 
@@ -45,20 +43,14 @@ public class FriendsList implements Serializable {
         FriendId = friendId;
     }
 
-    public Token getToken() {
-        return token;
-    }
 
-    public void setToken(Token token) {
-        this.token = token;
-    }
 
     @Override
     public String toString() {
         return "FriendsList{" +
                 "userId=" + userId +
                 ", FriendId=" + FriendId +
-                ", token=" + token +
+                +
                 '}';
     }
 }
