@@ -6,17 +6,19 @@ import java.io.IOException;
 
 public class PlayCpu extends GenericController {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.versusPlayCpuWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 
 
     public void playerBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.gameRockPaperScissorFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 }

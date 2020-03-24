@@ -35,16 +35,15 @@ public class AddFriendsWindow extends GenericController {
         Session session = factory.getCurrentSession();
 
         try {
-
             session.beginTransaction();
+
+            Query query = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'");
+            List list = query.list();
+            System.out.println(list);
 
 
             List<User> queriedUser = session.createQuery("from User where user_name = '" + userNameEntered + "'").getResultList();
 
-
-
-            //List<Token> myUser = session.createQuery("from Token where token_id = '" + token.getTokenId() + "'").getResultList();
-            //System.out.println(myUser);
 
             if (queriedUser.size() > 0) {
                 System.out.println(queriedUser);
@@ -59,10 +58,9 @@ public class AddFriendsWindow extends GenericController {
 
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-                finally {
+        } finally {
             session.close();
             factory.close();
         }

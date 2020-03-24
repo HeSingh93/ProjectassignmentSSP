@@ -15,29 +15,33 @@ public class playRandomWindow extends GenericController {
         int random = (int) (Math.random() * 4);
 
         if (random == 1) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     rockViewFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (random == 2) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     paperViewFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (random == 3) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     scissorViewFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.versusPlayCpuWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
 
         );
     }

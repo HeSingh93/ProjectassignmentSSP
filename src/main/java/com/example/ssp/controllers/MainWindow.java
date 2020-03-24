@@ -35,9 +35,10 @@ public class MainWindow extends GenericController {
     }
 
     public void friendsBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.friendsListFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 }

@@ -7,9 +7,10 @@ import java.io.IOException;
 public class WinnerPaperWindow extends GenericController {
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.versusPlayCpuWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 }

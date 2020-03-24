@@ -15,21 +15,24 @@ public class GameRockPaperScissorWindow extends GenericController {
         int rand = 1 + (int) (Math.random() * 4);
 
         if (rand == paper) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.loserPaperWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (rand == scissors) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.winnerRockWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (rand == rock) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.tieWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
     }
@@ -38,21 +41,24 @@ public class GameRockPaperScissorWindow extends GenericController {
         int rand = 1 + (int) (Math.random() * 4);
 
         if (rand == rock) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.winnerPaperWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (rand == scissors) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.loserScissorWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (rand == paper) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.tieWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
 
@@ -62,21 +68,24 @@ public class GameRockPaperScissorWindow extends GenericController {
         int rand = 1 + (int) (Math.random() * 4);
 
         if (rand == rock) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.loserRockWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (rand == paper) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.winnerScissorWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
         if (rand == scissors) {
-            HelperMethods.replaceScene(
+            HelperMethods.replaceSceneLoggedIn(
                     HelperMethods.tieWindowFXML,
-                    mouseEvent
+                    mouseEvent,
+                    token
             );
         }
     }

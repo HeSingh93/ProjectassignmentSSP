@@ -6,16 +6,18 @@ import java.io.IOException;
 
 public class FriendsListWindow extends GenericController {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.mainWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 
     public void addFriendBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.addFriendsFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 }
