@@ -1,4 +1,4 @@
 package com.example.ssp.controllers;
 
-public class VersusWindow {
+public class VersusWindow extends GenericController {
 }

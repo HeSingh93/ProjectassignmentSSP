@@ -1,4 +1,4 @@
 package com.example.ssp.controllers;
 
-public class NewGameWindow {
+public class NewGameWindow extends GenericController {
 }

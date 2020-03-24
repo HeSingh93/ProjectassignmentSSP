@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
 
-public class SignUpWindow {
+public class SignUpWindow extends GenericController {
 
     public TextField signUpPasswordTextField;
     public TextField signUpUserNameTextField;

@@ -4,7 +4,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class PlayCpu {
+public class PlayCpu extends GenericController {
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
                 HelperMethods.versusPlayCpuWindowFXML,

@@ -5,7 +5,9 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class playRandomWindow extends Game {
+import static com.example.ssp.controllers.HelperMethods.*;
+
+public class playRandomWindow extends GenericController {
 
     public void randomClicked(MouseEvent mouseEvent) throws IOException {
 

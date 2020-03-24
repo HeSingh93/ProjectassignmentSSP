@@ -4,7 +4,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class GameRockPaperScissorWindow {
+public class GameRockPaperScissorWindow extends GenericController {
 
 
     int rock = 1;
