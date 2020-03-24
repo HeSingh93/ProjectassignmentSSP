@@ -4,6 +4,10 @@
     -fx-background-size: 600;
 }
 
+#promptLabel {
+    -fx-font: normal bold 15px 'italic';
+}
+
 #addFriendsLabel {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';

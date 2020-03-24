@@ -10,12 +10,12 @@ import javafx.scene.input.MouseEvent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.util.List;
 
 public class AddFriendsWindow extends GenericController {
-
 
     public Button addFriendsBtn;
     public Label promptLabel;
@@ -38,16 +38,31 @@ public class AddFriendsWindow extends GenericController {
 
             session.beginTransaction();
 
-            List<User> userList = session.createQuery("from User where user_name = '" + userNameEntered + "'").getResultList();
-            System.out.println(userList);
 
-            if (userList.size() > 0) {
+            List<User> queriedUser = session.createQuery("from User where user_name = '" + userNameEntered + "'").getResultList();
+
+
+
+            //List<Token> myUser = session.createQuery("from Token where token_id = '" + token.getTokenId() + "'").getResultList();
+            //System.out.println(myUser);
+
+            if (queriedUser.size() > 0) {
+                System.out.println(queriedUser);
+
+
                 FriendsList friends = new FriendsList();
                 User userAdd = new User();
 
+            } else {
+                promptLabel.setText("That user could not be found! Please try again.");
+                promptLabel.setVisible(true);
+
             }
 
-        } finally {
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+                finally {
             session.close();
             factory.close();
         }
