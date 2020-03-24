@@ -1,6 +1,7 @@
 package com.example.ssp.controllers;
 
 
+import com.example.ssp.models.Token;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -71,13 +72,15 @@ public class HelperMethods {
         stage.show();
     }
 
-    static void replaceSceneUser(String fxmlPath, MouseEvent mouseEvent, GenericController tokenController) throws IOException {
+    static void replaceSceneLoggedIn(String fxmlPath, MouseEvent mouseEvent, Token token) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()
                 .getWindow();
 
         FXMLLoader loader = getLoader(fxmlPath);
         Parent root = loader.load();
+        GenericController controller = loader.getController();
+        controller.setToken(token);
         Scene scene = new Scene(root);
         stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);

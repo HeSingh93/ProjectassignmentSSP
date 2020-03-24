@@ -81,9 +81,10 @@ public class LogInWindow extends GenericController {
                     System.out.println("The controllers token value should be: " +tempUser.getToken().getValue());
 
 
-                    HelperMethods.replaceScene(
+                    HelperMethods.replaceSceneLoggedIn(
                             mainWindowFXML,
-                            mouseEvent
+                            mouseEvent,
+                            token
                     );
                 }
             }

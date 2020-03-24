@@ -29,6 +29,7 @@
         <Button id="helpBtn"
                 onMouseClicked="#helpBtnClicked"
                 text="HELP"/>
+        <Label id="valueText" fx:id="valueText"/>
 
     </VBox>
 

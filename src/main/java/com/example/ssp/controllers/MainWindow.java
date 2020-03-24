@@ -4,9 +4,11 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class MainWindow extends HelperMethods{
+public class MainWindow extends GenericController {
+
 
     public void newGameBtnClicked(MouseEvent mouseEvent) throws IOException {
+        System.out.println(token);
         HelperMethods.replaceScene(
                 HelperMethods.versusPlayCpuWindowFXML,
                 mouseEvent

@@ -4,7 +4,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class SplashScreen extends HelperMethods {
+public class SplashScreen {
 
     public void splashButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceScene(
