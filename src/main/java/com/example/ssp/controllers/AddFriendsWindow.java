@@ -22,7 +22,6 @@ public class AddFriendsWindow extends GenericController {
     public TextField addFriendsUserNameTF;
 
     public void addFriendsBtnClicked(MouseEvent mouseEvent) {
-        System.out.println("Tokens value should be loginToken");
 
         String userNameEntered = addFriendsUserNameTF.getText();
 
@@ -57,9 +56,10 @@ public class AddFriendsWindow extends GenericController {
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.friendsListFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 

@@ -4,32 +4,37 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class VersusPlayCpuWindow {
+public class VersusPlayCpuWindow extends GenericController {
+
     public void versusBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.playFriendsListVersusWindow,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 
     public void cpuBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.playCpuFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 
     public void playBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.playRandomFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.mainWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 }

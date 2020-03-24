@@ -9,24 +9,27 @@ public class MainWindow extends GenericController {
 
     public void newGameBtnClicked(MouseEvent mouseEvent) throws IOException {
         System.out.println(token);
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.versusPlayCpuWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
 
     }
 
     public void recentBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.recentGamesFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
     }
 
     public void helpBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceScene(
+        HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.helpWindowFXML,
-                mouseEvent
+                mouseEvent,
+                token
         );
 
     }
