@@ -1,7 +1,7 @@
 package com.example.ssp.models;
 
 import javax.persistence.*;
-
+// More like, bruh
 @Entity
 @Table(name = "public.user")
 public class SignUpUser {
