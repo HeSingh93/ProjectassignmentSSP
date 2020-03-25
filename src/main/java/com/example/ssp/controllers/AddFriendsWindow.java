@@ -10,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,16 +35,7 @@ public class AddFriendsWindow extends GenericController {
 
         try {
             session.beginTransaction();
-        /*
-           Query myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'");
-            List list = myUser.list();
-            System.out.println(list);
 
-
-            Query queriedUser = session.createQuery("from User where user_name = '" + userNameEntered + "'");
-            List list1 = queriedUser.list();
-            System.out.println(list1);
-        */
 
             List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
 
@@ -55,7 +45,6 @@ public class AddFriendsWindow extends GenericController {
             if (queriedUser.size() > 0) {
                 System.out.println(queriedUser);
 
-                // Query insertMyUserToFriendsList = session.createQuery("insert into Friends_List()");
                 FriendsList friends = new FriendsList();
                 friends.setFriendId(queriedUser.get(0).getUserId());
                 friends.setUserId(myUser.get(0).getUserId());
@@ -66,8 +55,6 @@ public class AddFriendsWindow extends GenericController {
                 session.save(friends);
 
                 session.getTransaction().commit();
-
-                //  FriendsList friends = new FriendsList(myUser.get(myUser.size()).getUserId(), queriedUser.get(queriedUser.size()).getUserId());
 
             } else {
                 promptLabel.setText("That user could not be found! Please try again.");

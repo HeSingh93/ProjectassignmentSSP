@@ -20,6 +20,12 @@
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
+
+        <ImageView id="refreshButton"
+                   fitHeight="20"
+                   fitWidth="20"
+                   preserveRatio="true"
+                   onMouseClicked="#refreshButtonClicked"/>
     </VBox>
 
     <VBox alignment="CENTER" spacing="20">
@@ -30,18 +36,12 @@
 
         <TabPane>
 
-            <Tab text="Friends" closable="false">
+            <Tab text="Friends" closable="false" fx:id="friendsTab">
                 <TableView id="friendsListBox">
                     <columns>
                         <TableColumn id="friendsListTextFormat"
                                      text="Username"
-                                     prefWidth="150"/>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Wins"
-                                     prefWidth="50"/>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Losses"
-                                     prefWidth="50"/>
+                                     prefWidth="300"/>
                     </columns>
                 </TableView>
             </Tab>
@@ -62,18 +62,10 @@
                 </TableView>
             </Tab>
 
-            <Tab text="Requests" closable="false">
-                <TableView id="requestBox">
-                    <columns>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Username"
-                                     prefWidth="150"/>
-                    </columns>
-                </TableView>
-            </Tab>
         </TabPane>
         <Button id="addFriendsBtn"
                 text="Add new friend"
                 onMouseClicked="#addFriendBtnClicked"/>
     </VBox>
+
 </FlowPane>
