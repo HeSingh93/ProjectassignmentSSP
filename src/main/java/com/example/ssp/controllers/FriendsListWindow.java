@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FriendsListWindow extends GenericController {
@@ -80,22 +81,7 @@ public class FriendsListWindow extends GenericController {
 
             // Gets the friends id and sets it into friendsId
             List<FriendsList> friendsListList = session.createQuery("from FriendsList where user_id = '" + myId + "'").getResultList();
-            int friendsId = friendsListList.get(0).getFriendId();
-
-            List <User> friendUserNames = session.createQuery("from User userName where user_id = '" + friendsId + "'").getResultList();
-
-            System.out.println(friendUserNames);
-
-            List <User> friendsInList = session.createQuery("from User where user_id = '" + friendsId + "'").getResultList();
-            System.out.println(friendsInList.get(0).getUserName());
-
-            for (FriendsList tempFriend : friendsListList) {
-                int friendNo = friendsId;
-                System.out.println(friendNo);
-                int num = 0;
-                System.out.println(friendsListList.get(num).getFriendId());
-            }
-
+            System.out.println(friendsListList);
 
 
             tr.commit();

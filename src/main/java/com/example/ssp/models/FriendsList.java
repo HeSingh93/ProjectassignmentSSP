@@ -16,15 +16,19 @@ public class FriendsList implements Serializable {
     @Column(name = "friend_id")
     private int FriendId;
 
+    @Column(name = "friends_name")
+    private String friendsName;
+
 
 
     public FriendsList() {
         //No arg constructor
     }
 
-    public FriendsList(int userId, int friendId) {
+    public FriendsList(int userId, int friendId, String friendsName) {
         userId = userId;
         FriendId = friendId;
+        friendsName = friendsName;
     }
 
     public int getUserId() {
@@ -43,6 +47,10 @@ public class FriendsList implements Serializable {
         FriendId = friendId;
     }
 
+    public String getFriendsName() { return friendsName; }
+
+    public void setFriendsName(String friendsName) { this.friendsName = friendsName; }
+
 
 
     @Override
@@ -50,7 +58,7 @@ public class FriendsList implements Serializable {
         return "FriendsList{" +
                 "userId=" + userId +
                 ", FriendId=" + FriendId +
-                +
+                ", FriendsName=" + friendsName +
                 '}';
     }
 }

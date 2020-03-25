@@ -48,9 +48,11 @@ public class AddFriendsWindow extends GenericController {
                 FriendsList friends = new FriendsList();
                 friends.setFriendId(queriedUser.get(0).getUserId());
                 friends.setUserId(myUser.get(0).getUserId());
+                friends.setFriendsName(queriedUser.get(0).getUserName());
 
                 System.out.println(friends.getFriendId());
                 System.out.println(friends.getUserId());
+                System.out.println(friends.getFriendsName());
 
                 session.save(friends);
 
