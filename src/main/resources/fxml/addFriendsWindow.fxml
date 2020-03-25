@@ -15,22 +15,26 @@
 
     <VBox alignment="CENTER" spacing="20">
 
-        <Label
-                id="addFriendsLabel"
-                text="ADD FRIEND"/>
-        <TextField
-                id="addFriendsUserNameTextField"
-                fx:id="addFriendsUserNameTF"
-                text="Username"/>
-        <Button id="addFriendsBtn" fx:id="addFriendsBtn"
+        <Label id="addFriendsLabel"
+               text="ADD FRIEND"/>
+
+        <TextField id="addFriendsUserNameTextField"
+                   fx:id="addFriendsUserNameTF"
+                   text="Username"/>
+
+        <Button id="addFriendsBtn"
+                fx:id="addFriendsBtn"
                 onMouseClicked="#addFriendsBtnClicked"
                 text="SEND REQUEST"/>
+
         <ImageView id="backButton"
                    onMouseClicked="#backButtonClicked"
                    fitHeight="30"
                    fitWidth="30"
                    preserveRatio="true"/>
-        <Label id="promptLabel" fx:id="promptLabel"/>
+
+        <Label id="promptLabel"
+               fx:id="promptLabel"/>
 
     </VBox>
 

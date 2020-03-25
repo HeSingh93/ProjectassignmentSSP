@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
+
 <FlowPane id="friendsVersusWindow"
           stylesheets="@/css/friendsListVersusWindow.css"
           xmlns="http://javafx.com/javafx"
@@ -13,34 +14,37 @@
           prefWidth="600.0"
           alignment="BASELINE_CENTER">
 
-    <VBox id="backBox">
+    <VBox id="backBox"
+          alignment="BASELINE_CENTER">
 
         <ImageView id="backButton"
                    fitHeight="30"
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
+
     </VBox>
 
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="50">
 
-        <Label
-                id="friendsListLabel"
-                text="FRIENDS"/>
+        <Label id="friendsListLabel"
+               text="FRIENDS"/>
 
-        <TabPane>
+        <Label id="opponentsUsername"
+               text="Enter your opponents username"/>
 
-            <Tab text="Friends" closable="false">
-                <TableView id="friendsListBox">
-                    <columns>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Username"
-                                     prefWidth="250"/>
-                    </columns>
-                </TableView>
-            </Tab>
-        </TabPane>
+        <TextField id="choseUser"
+                   fx:id="enteredUserName"
+                   text="Username"
+                   alignment="BASELINE_CENTER"/>
+
+        <Button id="confirmBtn"
+                text="PLAY"
+                fx:id="confirmBtn"
+                onMouseClicked="#confirmBtnClicked"
+        />
     </VBox>
 
 </FlowPane>

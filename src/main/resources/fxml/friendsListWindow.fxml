@@ -30,25 +30,25 @@
 
     <VBox alignment="CENTER" spacing="20">
 
-        <Label
-                id="friendsListLabel"
-                text="FRIENDS"/>
+        <Label id="friendsListLabel"
+               text="FRIENDS"/>
 
         <TabPane>
 
-            <Tab text="Friends" closable="false" fx:id="friendsTab">
+            <Tab text="Friends"
+                 closable="false">
+
                 <TableView id="friendsListBox">
                     <columns>
                         <TableColumn id="friendsListTextFormat"
-                                     fx:id="friendsBox"
                                      text="Username"
                                      prefWidth="300"/>
 
                     </columns>
                 </TableView>
-                <VBox fx:id="friendsListNameHolder">
 
-                </VBox>
+                <VBox fx:id="friendsListNameHolder"/>
+
             </Tab>
 
             <Tab text="Recent" closable="false">
@@ -68,6 +68,7 @@
             </Tab>
 
         </TabPane>
+
         <Button id="addFriendsBtn"
                 text="Add new friend"
                 onMouseClicked="#addFriendBtnClicked"/>

@@ -17,8 +17,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class FriendsListWindow extends GenericController {
-    public Tab friendsTab;
-    public TableColumn friendsBox;
     public VBox friendsListNameHolder;
 
     public void addFriendsToColumn() {
@@ -76,6 +74,7 @@ public class FriendsListWindow extends GenericController {
         Session session = factory.getCurrentSession();
 
         try {
+
             Transaction tr = session.beginTransaction();
 
             // Gets the users id and sets it into myId
@@ -87,14 +86,15 @@ public class FriendsListWindow extends GenericController {
             System.out.println(friendsListList);
 
             // Iterates through the friendslist, putting names into Labels and displaying them
-            for (int i = 0; i < friendsListList.size(); i++){
-                Label friendsLabel = new Label (friendsListList.get(i).getFriendsName());
+            for (FriendsList friendsList : friendsListList) {
+                Label friendsLabel = new Label(friendsList.getFriendsName());
                 Font font = new Font("Arial Black", 20);
 
                 friendsLabel.setFont(font);
-                friendsListNameHolder.getChildren().addAll(friendsLabel);
-            }
 
+                friendsListNameHolder.getChildren()
+                        .addAll(friendsLabel);
+            }
 
             tr.commit();
 
