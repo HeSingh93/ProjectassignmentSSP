@@ -39,10 +39,11 @@
                    onMouseClicked="#scissorsClicked"
                    fx:id="scissorView"/>
 
-        <VBox fx:id="replacementBox">
+    </VBox>
 
-        </VBox>
+    <VBox fx:id="replacementBox" alignment="CENTER">
 
+        <Button text="MAIN MENU" id="mainMenuBtn" fx:id="mainMenuBtn" onMouseClicked="#mainMenuBtnClicked" visible="false"/>
 
     </VBox>
 

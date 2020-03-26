@@ -1,5 +1,6 @@
 package com.example.ssp.controllers;
 
+import com.example.ssp.Main;
 import com.example.ssp.models.Choice;
 import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
@@ -12,6 +13,7 @@ import javafx.scene.layout.VBox;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 import java.io.IOException;
 
 public class GameRockPaperScissorVersus extends GenericController {
@@ -22,6 +24,7 @@ public class GameRockPaperScissorVersus extends GenericController {
     public VBox midBox;
     public Label pickMove;
     public VBox replacementBox;
+    public Button mainMenuBtn;
     int rock = 1;
     int paper = 2;
     int scissors = 3;
@@ -44,33 +47,21 @@ public class GameRockPaperScissorVersus extends GenericController {
             choice.setChoice(rock);
             session.update(choice);
             session.getTransaction().commit();
-            
-            midBox.setVisible(false);
-
-   //         rockView.setVisible(false);
-     //       paperView.setVisible(false);
-       //     scissorView.setVisible(false);
 
 
-            Button mainMenuBtn = new Button ("MAIN MENU");
+            paperView.setVisible(false);
+            scissorView.setVisible(false);
 
-            Label rockChosen = new Label ("You have chosen, rock");
+            Label rockChosen = new Label("You have chosen, rock");
 
             pickMove.setText("VS");
 
+            rockView.setVisible(true);
             rockView.setFitHeight(250);
             rockView.setFitWidth(250);
-            rockView.setLayoutX(20);
 
-            replacementBox.setVisible(true);
-            replacementBox.getChildren().addAll(
-                    pickMove,
-                    rockChosen,
-                    rockView,
-                    mainMenuBtn
-            );
-
-         //   midBox.getChildren().addAll(rockChosen, rockView, mainMenuBtn);
+            replacementBox.getChildren().addAll(rockChosen);
+            mainMenuBtn.setVisible(true);
 
 
         } catch (Exception e) {
