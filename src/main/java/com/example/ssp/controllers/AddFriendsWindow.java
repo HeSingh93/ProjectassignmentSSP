@@ -58,6 +58,8 @@ public class AddFriendsWindow extends GenericController {
 
                 session.getTransaction().commit();
 
+                promptLabel.setText("FRIEND ADDED!");
+
             } else {
                 promptLabel.setText("That user could not be found! Please try again.");
                 promptLabel.setVisible(true);

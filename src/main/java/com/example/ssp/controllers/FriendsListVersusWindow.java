@@ -77,11 +77,13 @@ public class FriendsListVersusWindow extends GenericController {
 
                     session.save(choice);
 
-                    HelperMethods.replaceSceneLoggedIn(
-                            HelperMethods.mainWindowFXML,
+                    HelperMethods.replaceSceneVersusPlayer(
+                            HelperMethods.gameRockPaperScissorVersusFXML,
                             mouseEvent,
-                            token
+                            token,
+                            choice
                     );
+
                 }else {
                     System.out.println("INSIDE ELSE");
                     errorMessage.setVisible(true);
@@ -91,20 +93,14 @@ public class FriendsListVersusWindow extends GenericController {
 
             errorMessage.setVisible(true);
             errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER, GO FUCK YOURSELF");
-
-            System.out.println("AFTER THE IF, FAILED TO ENTER");
-
-            System.out.println("bruh wrong name");
-
             tr.commit();
-
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             errorMessage.setVisible(true);
             errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER, GO FUCK YOURSELF");
-            System.out.println("SUCC");
+
             factory.close();
             session.close();
         }

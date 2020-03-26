@@ -1,6 +1,7 @@
 package com.example.ssp.controllers;
 
 
+import com.example.ssp.models.Choice;
 import com.example.ssp.models.Token;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -43,6 +44,7 @@ public class HelperMethods {
     public static final String winnerScissorWindowFXML = "fxml/winnerScissorWindow.fxml";
     public static final String winnerRockWindowFXML = "fxml/winnerRockWindow.fxml";
     public static final String tieWindowFXML = "fxml/tieWindow.fxml";
+    public static final String gameRockPaperScissorVersusFXML = "fxml/gameRockPaperScissorVersus.fxml";
 
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);
@@ -81,6 +83,23 @@ public class HelperMethods {
         Parent root = loader.load();
         GenericController controller = loader.getController();
         controller.setToken(token);
+        Scene scene = new Scene(root);
+        stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
+        stage.setScene(scene);
+        stage.toFront();
+        stage.show();
+    }
+
+    static void replaceSceneVersusPlayer(String fxmlPath, MouseEvent mouseEvent, Token token, Choice choice) throws IOException {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource())
+                .getScene()
+                .getWindow();
+
+        FXMLLoader loader = getLoader(fxmlPath);
+        Parent root = loader.load();
+        GenericController controller = loader.getController();
+        controller.setToken(token);
+        controller.setChoice(choice);
         Scene scene = new Scene(root);
         stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);
