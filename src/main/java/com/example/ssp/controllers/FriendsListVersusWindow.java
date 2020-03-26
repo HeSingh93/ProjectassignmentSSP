@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -61,11 +62,9 @@ public class FriendsListVersusWindow extends GenericController {
             if (comparedFriend.get(0).getFriendsName().equals(queriedUserName)) {
                 System.out.println("INSIDE THE FIRST IF");
 
-                List<Choice> matchExists = session.createQuery("from Choice where user_id = '" + myUser.get(0).getUserId() + "'").getResultList();
+                List<Choice> matchExists = session.createQuery("from Choice where user_id = '" + myUser.get(0).getUserId() + "' and friend_id = '" + comparedFriend.get(0).getFriendId() + "'").getResultList();
 
                 if (matchExists.size() < 1) {
-
-                    System.out.println("INSIDE THE SECOND IF");
 
                     Choice choice = new Choice();
 
@@ -84,23 +83,20 @@ public class FriendsListVersusWindow extends GenericController {
                             choice
                     );
 
-                }else {
-                    System.out.println("INSIDE ELSE");
+                } else {
+                    Font font = new Font("Arial Black", 10);
                     errorMessage.setVisible(true);
-                    errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER, GO FUCK YOURSELF");
+                    errorMessage.setFont(font);
+                    errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER!");
+
                 }
             }
 
-            errorMessage.setVisible(true);
-            errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER, GO FUCK YOURSELF");
             tr.commit();
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            errorMessage.setVisible(true);
-            errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER, GO FUCK YOURSELF");
-
             factory.close();
             session.close();
         }

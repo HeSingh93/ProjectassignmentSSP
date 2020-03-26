@@ -11,9 +11,9 @@ import org.hibernate.cfg.Configuration;
 
 public class GameRockPaperScissorVersus extends GenericController {
 
-    int rock = 0;
-    int paper = 1;
-    int scissors = 2;
+    int rock = 1;
+    int paper = 2;
+    int scissors = 3;
 
     SessionFactory factory = new Configuration()
             .configure("hibernate.cfg.xml")
@@ -31,6 +31,8 @@ public class GameRockPaperScissorVersus extends GenericController {
             System.out.println(choice.getFriendId());
             System.out.println(choice.getUserId());
             choice.setChoice(rock);
+            session.update(choice);
+            session.getTransaction().commit();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,6 +49,8 @@ public class GameRockPaperScissorVersus extends GenericController {
             System.out.println(choice.getFriendId());
             System.out.println(choice.getUserId());
             choice.setChoice(paper);
+            session.update(choice);
+            session.getTransaction().commit();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +66,8 @@ public class GameRockPaperScissorVersus extends GenericController {
             System.out.println(choice.getFriendId());
             System.out.println(choice.getUserId());
             choice.setChoice(scissors);
-
+            session.update(choice);
+            session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
