@@ -8,7 +8,6 @@ public class MainWindow extends GenericController {
 
 
     public void newGameBtnClicked(MouseEvent mouseEvent) throws IOException {
-        System.out.println(token);
         HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.versusPlayCpuWindowFXML,
                 mouseEvent,

@@ -45,6 +45,7 @@ public class HelperMethods {
     public static final String winnerRockWindowFXML = "fxml/winnerRockWindow.fxml";
     public static final String tieWindowFXML = "fxml/tieWindow.fxml";
     public static final String gameRockPaperScissorVersusFXML = "fxml/gameRockPaperScissorVersus.fxml";
+    public static final String versusResultWindowFXML = "fxml/versusResultWindow.fxml";
 
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);

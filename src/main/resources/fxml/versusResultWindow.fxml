@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<FlowPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          stylesheets="@/css/versusResultWindow.css"
+          fx:controller="com.example.ssp.controllers.VersusResultWindow"
+          prefHeight="600.0"
+          prefWidth="600.0"
+          alignment="TOP_CENTER"
+          id="vsrWindow">
+
+    <VBox alignment="CENTER">
+
+        <HBox id="topBox"
+              fx:id="topBox">
+
+            <Label id="userName"
+                   fx:id="userName"/>
+
+            <Label id="vsLabel"
+                   text="VS"/>
+
+            <Label id="friendName"
+                   fx:id="friendName"/>
+
+        </HBox>
+
+        <HBox id="middleBox"
+              fx:id="middleBox">
+
+            <ImageView id="userChoice"
+                       fx:id="userChoice">
+
+            </ImageView>
+
+            <ImageView id="opponentChoice"
+                       fx:id="opponentChoice"/>
+
+        </HBox>
+
+        <VBox id="botBox"
+              fx:id="botBox"
+              alignment="BOTTOM_CENTER">
+
+            <Button id="mainMenuBtn"
+                    text="MAIN MENU"
+                    onMouseClicked="#mainMenuBtnClicked"/>
+
+        </VBox>
+
+    </VBox>
+
+</FlowPane>
+

@@ -30,3 +30,10 @@
 #scissors:hover {
     -fx-image: url("../images/scissorsglow.png")
 }
+
+#mainMenuBtn {
+     -fx-alignment: center;
+     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
+     -fx-background-radius: 5em;
+     -fx-font: normal bold 20px 'italic';
+}

@@ -13,24 +13,37 @@
           prefWidth="600.0"
           alignment="TOP_CENTER">
 
-    <VBox alignment="CENTER">
+    <VBox alignment="CENTER" fx:id="midBox">
         <Label id="pickMove"
+               fx:id="pickMove"
                text="PICK YOUR MOVE"/>
+
         <ImageView id="rock"
                    fitHeight="170"
                    fitWidth="170"
                    preserveRatio="true"
-                   onMouseClicked="#rockClicked"/>
+                   onMouseClicked="#rockClicked"
+                   fx:id="rockView"/>
+
         <ImageView id="paper"
                    fitHeight="200"
                    fitWidth="200"
                    preserveRatio="true"
-                   onMouseClicked="#paperClicked"/>
+                   onMouseClicked="#paperClicked"
+                   fx:id="paperView"/>
+
         <ImageView id="scissors"
                    fitHeight="200"
                    fitWidth="200"
                    preserveRatio="true"
-                   onMouseClicked="#scissorsClicked"/>
+                   onMouseClicked="#scissorsClicked"
+                   fx:id="scissorView"/>
+
+        <VBox fx:id="replacementBox">
+
+        </VBox>
+
+
     </VBox>
 
 </FlowPane>
