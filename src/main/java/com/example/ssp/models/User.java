@@ -17,7 +17,9 @@ public class User {
     @Column(name="password")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {
+            CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "token_token_id")
     private Token token;
 

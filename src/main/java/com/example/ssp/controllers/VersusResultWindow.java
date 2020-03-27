@@ -1,9 +1,6 @@
 package com.example.ssp.controllers;
 
-import com.example.ssp.models.Choice;
-import com.example.ssp.models.FriendsList;
-import com.example.ssp.models.Token;
-import com.example.ssp.models.User;
+import com.example.ssp.models.*;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,14 +11,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.io.IOException;
 import java.util.List;
 
 public class VersusResultWindow extends GenericController {
     public HBox middleBox;
     public VBox botBox;
     public HBox topBox;
-    public ImageView userChoice;
-    public ImageView opponentChoice;
+    public ImageView userImage;
+    public ImageView opponentImage;
     public Label friendName, userName, resultTextLabel;
     public String myName, yourName;
 
@@ -31,6 +29,7 @@ public class VersusResultWindow extends GenericController {
             .addAnnotatedClass(FriendsList.class)
             .addAnnotatedClass(Token.class)
             .addAnnotatedClass(Choice.class)
+            .addAnnotatedClass(Results.class)
             .buildSessionFactory();
 
     Session session = factory.getCurrentSession();
@@ -39,105 +38,163 @@ public class VersusResultWindow extends GenericController {
     @Override
     public void postInitialize() {
 
-        session.beginTransaction();
+        try {
+            session.beginTransaction();
 
-        List<User> myId = session.createQuery(
-                "from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
-        List<User> yourId = session.createQuery(
-                "from User where user_id = '" + choice.getFriendId() + "'").getResultList();
-        List<Choice> friendChoice = session.createQuery(
-                "from Choice where user_id = '" + choice.getFriendId() +
-                        "' and friend_id = '" + myId.get(0).getUserId() + "' and choice = ").getResultList();
+            User myId = (User) session.createQuery(
+                    "from User where token_token_id = '" + token.getTokenId() + "'")
+                    .getSingleResult();
+            User yourId = (User) session.createQuery(
+                    "from User where user_id = '" + choice.getFriendId() + "'")
+                    .getSingleResult();
+            Choice opponentChoice = (Choice) session.createQuery(
+                    "from Choice where user_id = '" + choice.getFriendId()
+                            + "' and friend_id = '" + myId.getUserId() + "'")
+                    .getSingleResult();
+
+            myName = myId.getUserName();
+            yourName = yourId.getUserName();
+
+            friendName.setText(yourName);
+            userName.setText(myName);
+            System.out.println(yourName);
+            System.out.println(myName);
 
 
-        myName = myId.get(0).getUserName();
-        yourName = yourId.get(0).getUserName();
+            //Methods to set images
+            setChoiceImage(choice, userImage);
 
-        friendName.setText(yourName);
-        userName.setText(myName);
-        System.out.println(yourName);
-        System.out.println(myName);
+            //Thread 1
+            //sleep(1000)
+            setChoiceImage(opponentChoice, opponentImage);
+
+
+            if (choice.getChoice() == 1 && opponentChoice.getChoice() == 1) {
+                resultTextLabel.setText("TIE!");
+
+            } else if (choice.getChoice() == 1 && opponentChoice.getChoice() == 2) {
+                resultTextLabel.setText(yourName + " Wins!");
+                updateLoss();
+
+            } else if (choice.getChoice() == 1 && opponentChoice.getChoice() == 3) {
+                resultTextLabel.setText(myName + " Wins!");
+                updateWins();
+
+            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 1) {
+                resultTextLabel.setText(myName + " Wins!");
+                updateWins();
+
+            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 2) {
+                resultTextLabel.setText("TIE!");
+
+            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 3) {
+                resultTextLabel.setText(yourName + " Wins!");
+                updateLoss();
+
+            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 1) {
+                resultTextLabel.setText(yourName + " Wins!");
+                updateLoss();
+
+            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 2) {
+                resultTextLabel.setText(myName + " Wins!");
+                updateWins();
+
+            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 3) {
+                resultTextLabel.setText("TIE!");
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+            factory.close();
+        }
+    }
+
+
+    public void mainMenuBtnClicked(MouseEvent mouseEvent) throws IOException {
+
+        HelperMethods.replaceSceneLoggedIn(
+                HelperMethods.mainWindowFXML,
+                mouseEvent,
+                token
+        );
+    }
+
+    public void setChoiceImage(Choice choice, ImageView image) {
 
         switch (choice.getChoice()) {
+            case 0:
+
             case 1:
                 Image rock = new Image(HelperMethods.getResAsStream("images/rock.png"));
-                userChoice.setImage(rock);
+                image.setImage(rock);
                 break;
 
             case 2:
                 Image paper = new Image(HelperMethods.getResAsStream("images/paper.png"));
-                userChoice.setImage(paper);
+                image.setImage(paper);
                 break;
 
             case 3:
                 Image scissor = new Image(HelperMethods.getResAsStream("images/scissors.png"));
-                userChoice.setImage(scissor);
+                image.setImage(scissor);
                 break;
         }
+    }
 
-        while (friendChoice.get(0).getChoice() == 0) {
-            List<Choice> friendFinalChoice = session.createQuery(
-                    "from Choice where user_id = '" + choice.getFriendId() +
-                            "' and friend_id = '" + myId.get(0).getUserId() + "'").getResultList();
+    public void updateWins() {
 
-            switch (friendFinalChoice.get(0).getChoice()) {
-                case 1:
-                    Image rock = new Image(HelperMethods.getResAsStream("images/rock.png"));
-                    opponentChoice.setImage(rock);
-                    break;
+        Results currentResults = (Results) session.createQuery(
+                "from Results where user_id = '" + choice.getUserId() + "'")
+                .getSingleResult();
 
-                case 2:
-                    Image paper = new Image(HelperMethods.getResAsStream("images/paper.png"));
-                    opponentChoice.setImage(paper);
-                    break;
 
-                case 3:
-                    Image scissor = new Image(HelperMethods.getResAsStream("images/scissors.png"));
-                    opponentChoice.setImage(scissor);
-                    break;
-            }
 
-            if (choice.getChoice() == 1 && friendFinalChoice.get(0).getChoice() == 1) {
-                resultTextLabel.setText("TIE!");
+        if (currentResults == null) {
 
-            } else if (choice.getChoice() == 1 && friendFinalChoice.get(0).getChoice() == 2) {
-                resultTextLabel.setText(yourName + " Wins!");
+            Results updateWins = new Results();
+            updateWins.setUserId(choice.getUserId());
+            updateWins.setWins(1);
 
-            } else if (choice.getChoice() == 1 && friendFinalChoice.get(0).getChoice() == 3) {
-                resultTextLabel.setText(myName + " Wins!");
+            session.save(updateWins);
 
-            } else if (choice.getChoice() == 2 && friendFinalChoice.get(0).getChoice() == 1) {
-                resultTextLabel.setText(myName + " Wins!");
+        } else {
 
-            } else if (choice.getChoice() == 2 && friendFinalChoice.get(0).getChoice() == 2) {
-                resultTextLabel.setText("TIE!");
+            int winner = currentResults.getWins();
+            int finalWinner = winner + 1;
 
-            } else if (choice.getChoice() == 2 && friendFinalChoice.get(0).getChoice() == 3) {
-                resultTextLabel.setText(yourName + " Wins!");
 
-            } else if (choice.getChoice() == 3 && friendFinalChoice.get(0).getChoice() == 1) {
-                resultTextLabel.setText(yourName + " Wins!");
+            currentResults.setUserId(choice.getUserId());
+            currentResults.setWins(finalWinner);
+            session.update(currentResults);
 
-            } else if (choice.getChoice() == 3 && friendFinalChoice.get(0).getChoice() == 2) {
-                resultTextLabel.setText(myName + " Wins!");
-
-            } else if (choice.getChoice() == 3 && friendFinalChoice.get(0).getChoice() == 3) {
-                resultTextLabel.setText("TIE!");
-
-            }
-
-            if (resultTextLabel.hasProperties()) {
-                break;
-            }
         }
 
-
-
+        session.getTransaction().commit();
     }
 
-    public void mainMenuBtnClicked(MouseEvent mouseEvent) {
+    public void updateLoss() {
 
+        List<Results> currentResults = session.createQuery(
+                "from Results where user_id = '" + choice.getUserId() + "'").getResultList();
+
+        Results updateLosses = new Results();
+
+        if (currentResults.size() == 0) {
+            updateLosses.setLosses(1);
+            updateLosses.setUserId(choice.getUserId());
+        } else {
+
+            int loser = (currentResults.get(0).getLosses());
+            int finalLoser = loser + 1;
+
+            updateLosses.setUserId(choice.getUserId());
+            updateLosses.setLosses(finalLoser);
+        }
+
+        session.save(updateLosses);
+        session.getTransaction().commit();
     }
-
-
 }
