@@ -177,24 +177,28 @@ public class VersusResultWindow extends GenericController {
 
     public void updateLoss() {
 
-        List<Results> currentResults = session.createQuery(
+        Results currentResults = (Results) session.createQuery(
                 "from Results where user_id = '" + choice.getUserId() + "'").getResultList();
 
-        Results updateLosses = new Results();
+        if (currentResults == null) {
 
-        if (currentResults.size() == 0) {
+            Results updateLosses = new Results();
             updateLosses.setLosses(1);
             updateLosses.setUserId(choice.getUserId());
+
+            session.save(updateLosses);
+
         } else {
 
-            int loser = (currentResults.get(0).getLosses());
+            int loser = (currentResults.getLosses());
             int finalLoser = loser + 1;
 
-            updateLosses.setUserId(choice.getUserId());
-            updateLosses.setLosses(finalLoser);
+            currentResults.setUserId(choice.getUserId());
+            currentResults.setLosses(finalLoser);
+            session.save(currentResults);
         }
 
-        session.save(updateLosses);
+
         session.getTransaction().commit();
     }
 }
