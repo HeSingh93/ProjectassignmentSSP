@@ -49,11 +49,15 @@ public class FriendsListVersusWindow extends GenericController {
 
             Transaction tr = session.beginTransaction();
 
-            List<FriendsList> searchedFriend = session.createQuery("from FriendsList where friends_name = '" + queriedUserName + "'").getResultList();
+            List<FriendsList> searchedFriend = session.createQuery(
+                    "from FriendsList where friends_name = '" + queriedUserName + "'").getResultList();
 
-            List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
+            List<User> myUser = session.createQuery(
+                    "from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
 
-            List<FriendsList> comparedFriend = session.createQuery("from FriendsList where friends_name = '" + queriedUserName + "'  and user_id = " + myUser.get(0).getUserId()).getResultList();
+            List<FriendsList> comparedFriend = session.createQuery(
+                    "from FriendsList where friends_name = '" + queriedUserName
+                            + "'  and user_id = " + myUser.get(0).getUserId()).getResultList();
 
 
             System.out.println("compared friend: " + comparedFriend);
@@ -61,7 +65,9 @@ public class FriendsListVersusWindow extends GenericController {
             if (comparedFriend.get(0).getFriendsName().equals(queriedUserName)) {
                 System.out.println("INSIDE THE FIRST IF");
 
-                List<Choice> matchExists = session.createQuery("from Choice where user_id = '" + myUser.get(0).getUserId() + "' and friend_id = '" + comparedFriend.get(0).getFriendId() + "'").getResultList();
+                List<Choice> matchExists = session.createQuery(
+                        "from Choice where user_id = '" + myUser.get(0).getUserId()
+                                + "' and friend_id = '" + comparedFriend.get(0).getFriendId() + "'").getResultList();
 
                 if (matchExists.size() < 1) {
 

@@ -35,8 +35,11 @@ public class VersusResultWindow extends GenericController {
 
     Session session = factory.getCurrentSession();
 
+
+
     @Override
     public void postInitialize() {
+
         session.beginTransaction();
 
         List<User> myId = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
@@ -47,8 +50,6 @@ public class VersusResultWindow extends GenericController {
             case 1:
                 Image rock = new Image(HelperMethods.getResAsStream("images/rock.png"));
                 userChoice.setImage(rock);
-                System.out.println("Users id: " +myId);
-                System.out.println("Friends id:" +friendChoice);
                 break;
 
             case 2:
@@ -59,6 +60,23 @@ public class VersusResultWindow extends GenericController {
             case 3:
                 Image scissor = new Image(HelperMethods.getResAsStream("images/scissor.png"));
                 userChoice.setImage(scissor);
+                break;
+        }
+
+        switch (friendChoice.get(0).getChoice()) {
+            case 1:
+                Image rock = new Image(HelperMethods.getResAsStream("images/rock.png"));
+                opponentChoice.setImage(rock);
+                break;
+
+            case 2:
+                Image paper = new Image(HelperMethods.getResAsStream("images/paper.png"));
+                opponentChoice.setImage(paper);
+                break;
+
+            case 3:
+                Image scissor = new Image(HelperMethods.getResAsStream("images/scissor.png"));
+                opponentChoice.setImage(scissor);
                 break;
         }
 
