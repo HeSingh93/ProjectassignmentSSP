@@ -45,9 +45,9 @@ public class VersusResultWindow extends GenericController {
                 "from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
         List<User> yourId = session.createQuery(
                 "from User where user_id = '" + choice.getFriendId() + "'").getResultList();
-         List<Choice> friendChoice = session.createQuery(
+        List<Choice> friendChoice = session.createQuery(
                 "from Choice where user_id = '" + choice.getFriendId() +
-                        "' and friend_id = '" + myId.get(0).getUserId() + "'").getResultList();
+                        "' and friend_id = '" + myId.get(0).getUserId() + "' and choice = ").getResultList();
 
 
         myName = myId.get(0).getUserName();
@@ -75,8 +75,7 @@ public class VersusResultWindow extends GenericController {
                 break;
         }
 
-        //noinspection InfiniteLoopStatement
-        while (friendChoice.isEmpty()) {
+        while (friendChoice.get(0).getChoice() == 0) {
             List<Choice> friendFinalChoice = session.createQuery(
                     "from Choice where user_id = '" + choice.getFriendId() +
                             "' and friend_id = '" + myId.get(0).getUserId() + "'").getResultList();
@@ -97,29 +96,42 @@ public class VersusResultWindow extends GenericController {
                     opponentChoice.setImage(scissor);
                     break;
             }
+
+            if (choice.getChoice() == 1 && friendFinalChoice.get(0).getChoice() == 1) {
+                resultTextLabel.setText("TIE!");
+
+            } else if (choice.getChoice() == 1 && friendFinalChoice.get(0).getChoice() == 2) {
+                resultTextLabel.setText(yourName + " Wins!");
+
+            } else if (choice.getChoice() == 1 && friendFinalChoice.get(0).getChoice() == 3) {
+                resultTextLabel.setText(myName + " Wins!");
+
+            } else if (choice.getChoice() == 2 && friendFinalChoice.get(0).getChoice() == 1) {
+                resultTextLabel.setText(myName + " Wins!");
+
+            } else if (choice.getChoice() == 2 && friendFinalChoice.get(0).getChoice() == 2) {
+                resultTextLabel.setText("TIE!");
+
+            } else if (choice.getChoice() == 2 && friendFinalChoice.get(0).getChoice() == 3) {
+                resultTextLabel.setText(yourName + " Wins!");
+
+            } else if (choice.getChoice() == 3 && friendFinalChoice.get(0).getChoice() == 1) {
+                resultTextLabel.setText(yourName + " Wins!");
+
+            } else if (choice.getChoice() == 3 && friendFinalChoice.get(0).getChoice() == 2) {
+                resultTextLabel.setText(myName + " Wins!");
+
+            } else if (choice.getChoice() == 3 && friendFinalChoice.get(0).getChoice() == 3) {
+                resultTextLabel.setText("TIE!");
+
+            }
+
+            if (resultTextLabel.hasProperties()) {
+                break;
+            }
         }
 
-        if (choice.getChoice() == 1 && friendChoice.get(0).getChoice() == 2) {
-            resultTextLabel.setText(yourName + " Wins!");
-            //friend wins
-        } else if (choice.getChoice() == 1 && friendChoice.get(0).getChoice() == 3) {
-            resultTextLabel.setText(myName + " Wins!");
-            //user wins
-        } else if (choice.getChoice() == 2 && friendChoice.get(0).getChoice() == 1) {
-            resultTextLabel.setText(myName + " Wins!");
-            //user wins
-        } else if (choice.getChoice() == 2 && friendChoice.get(0).getChoice() == 3) {
-            resultTextLabel.setText(yourName + " Wins!");
-            //friend wins
-        } else if (choice.getChoice() == 3 && friendChoice.get(0).getChoice() == 1) {
-            resultTextLabel.setText(yourName + " Wins!");
-            //friend wins
-        } else if (choice.getChoice() == 3 && friendChoice.get(0).getChoice() == 2) {
-            resultTextLabel.setText(myName + " Wins!");
-            //user wins
-        } else {
-            resultTextLabel.setText("TIE!");
-        }
+
 
     }
 
