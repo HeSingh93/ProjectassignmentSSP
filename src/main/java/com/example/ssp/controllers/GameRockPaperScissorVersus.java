@@ -41,6 +41,9 @@ public class GameRockPaperScissorVersus extends GenericController {
 
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
 
+        choiceMade(mouseEvent, rock);
+
+        /*
         try {
             session.beginTransaction();
             choice.setChoice(rock);
@@ -60,73 +63,17 @@ public class GameRockPaperScissorVersus extends GenericController {
             session.close();
             factory.close();
         }
-
-       /* try {
-            System.out.println(choice.getFriendId());
-            System.out.println(choice.getUserId());
-            choice.setChoice(rock);
-            session.update(choice);
-            session.getTransaction().commit();
-
-            paperView.setVisible(false);
-            scissorView.setVisible(false);
-
-            Label rockChosen = new Label("You have chosen, rock");
-
-            pickMove.setText("VS");
-
-            rockView.setVisible(true);
-            rockView.setFitHeight(250);
-            rockView.setFitWidth(250);
-            scissorView.setVisible(true);
-            scissorView.setFitHeight(250);
-            scissorView.setFitWidth(250);
-
-            replacementBox.getChildren().addAll(rockChosen);
-            mainMenuBtn.setVisible(true);
-            mainMenuBtn.setAlignment(Pos.BOTTOM_CENTER);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-            factory.close();
-        }
-*/
+         */
     }
 
     public void paperClicked(MouseEvent mouseEvent) {
-        session.beginTransaction();
-        try {
-            System.out.println(choice.getFriendId());
-            System.out.println(choice.getUserId());
-            choice.setChoice(paper);
-            session.update(choice);
-            session.getTransaction().commit();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-            factory.close();
-        }
+        choiceMade(mouseEvent, paper);
     }
 
     public void scissorsClicked(MouseEvent mouseEvent) {
-        session.beginTransaction();
-        try {
-            System.out.println(choice.getFriendId());
-            System.out.println(choice.getUserId());
-            choice.setChoice(scissors);
-            session.update(choice);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-            factory.close();
-        }
+
+        choiceMade(mouseEvent, scissors);
 
     }
 
@@ -151,9 +98,6 @@ public class GameRockPaperScissorVersus extends GenericController {
             session.close();
             factory.close();
         }
-
-
-
     }
 
     public void mainMenuBtnClicked(MouseEvent mouseEvent) throws IOException {
