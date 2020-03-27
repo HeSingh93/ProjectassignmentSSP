@@ -5,6 +5,7 @@ import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -34,27 +35,35 @@ public class VersusResultWindow extends GenericController {
 
     Session session = factory.getCurrentSession();
 
+    @Override
+    public void postInitialize() {
+        session.beginTransaction();
+
+        List<User> myId = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
+        List<Choice> friendChoice = session.createQuery("from Choice where user_id = '" + choice.getFriendId() + "' and friend_id = '" + myId.get(0).getUserId() + "'").getResultList();
 
 
-     /*   try{
-            session.beginTransaction();
+        switch (choice.getChoice()) {
+            case 1:
+                Image rock = new Image(HelperMethods.getResAsStream("images/rock.png"));
+                userChoice.setImage(rock);
+                System.out.println("Users id: " +myId);
+                System.out.println("Friends id:" +friendChoice);
+                break;
 
-            List<User> currentUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
+            case 2:
+                Image paper = new Image(HelperMethods.getResAsStream("images/paper.png"));
+                userChoice.setImage(paper);
+                break;
 
-            System.out.println(currentUser.get(0).getUserName() + currentUser.get(0).getUserId());
-
-            List<Choice> currentFriend = session.createQuery("from Choice where user_id = '" + currentUser.get(0).getUserId() + "' and friend_id = " + choice.getFriendId()).getResultList();
-
-            System.out.println(currentFriend.get(0).getFriendId());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            session.close();
-            factory.close();
+            case 3:
+                Image scissor = new Image(HelperMethods.getResAsStream("images/scissor.png"));
+                userChoice.setImage(scissor);
+                break;
         }
+
     }
-*/
+
     public void mainMenuBtnClicked(MouseEvent mouseEvent) {
 
     }

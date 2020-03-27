@@ -68,7 +68,6 @@ public class HelperMethods {
         FXMLLoader loader = getLoader(fxmlPath);
         Parent root = loader.load();
         Scene scene = new Scene(root);
-
         stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);
         stage.toFront();
@@ -84,6 +83,7 @@ public class HelperMethods {
         Parent root = loader.load();
         GenericController controller = loader.getController();
         controller.setToken(token);
+        controller.postInitialize();
         Scene scene = new Scene(root);
         stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);
@@ -101,6 +101,7 @@ public class HelperMethods {
         GenericController controller = loader.getController();
         controller.setToken(token);
         controller.setChoice(choice);
+        controller.postInitialize();
         Scene scene = new Scene(root);
         stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
         stage.setScene(scene);

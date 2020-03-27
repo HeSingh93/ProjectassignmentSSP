@@ -30,15 +30,21 @@
         </HBox>
 
         <HBox id="middleBox"
+              minHeight="400"
+              minWidth="400"
               fx:id="middleBox">
 
             <ImageView id="userChoice"
-                       fx:id="userChoice">
+                       fx:id="userChoice"
+                       fitHeight="250"
+                       fitWidth="250">
 
             </ImageView>
 
             <ImageView id="opponentChoice"
-                       fx:id="opponentChoice"/>
+                       fx:id="opponentChoice"
+                       fitWidth="250"
+                       fitHeight="250"/>
 
         </HBox>
 

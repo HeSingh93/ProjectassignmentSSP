@@ -70,9 +70,6 @@ public class FriendsListVersusWindow extends GenericController {
                     choice.setUserId(myUser.get(0).getUserId());
                     choice.setFriendId(searchedFriend.get(0).getFriendId());
 
-                    System.out.println(choice.getUserId());
-                    System.out.println(choice.getFriendId());
-
                     session.save(choice);
 
                     HelperMethods.replaceSceneVersusPlayer(

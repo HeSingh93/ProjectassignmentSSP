@@ -1,6 +1,5 @@
 package com.example.ssp.controllers;
 
-import com.example.ssp.models.Game;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;

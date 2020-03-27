@@ -1,10 +1,10 @@
 package com.example.ssp.controllers;
 
-import com.example.ssp.Main;
 import com.example.ssp.models.Choice;
 import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -40,14 +40,33 @@ public class GameRockPaperScissorVersus extends GenericController {
     Session session = factory.getCurrentSession();
 
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
-        session.beginTransaction();
+
         try {
+            session.beginTransaction();
+            choice.setChoice(rock);
+            session.update(choice);
+            session.getTransaction().commit();
+
+            HelperMethods.replaceSceneVersusPlayer(
+                    HelperMethods.versusResultWindowFXML,
+                    mouseEvent,
+                    token,
+                    choice
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+            factory.close();
+        }
+
+       /* try {
             System.out.println(choice.getFriendId());
             System.out.println(choice.getUserId());
             choice.setChoice(rock);
             session.update(choice);
             session.getTransaction().commit();
-
 
             paperView.setVisible(false);
             scissorView.setVisible(false);
@@ -59,9 +78,13 @@ public class GameRockPaperScissorVersus extends GenericController {
             rockView.setVisible(true);
             rockView.setFitHeight(250);
             rockView.setFitWidth(250);
+            scissorView.setVisible(true);
+            scissorView.setFitHeight(250);
+            scissorView.setFitWidth(250);
 
             replacementBox.getChildren().addAll(rockChosen);
             mainMenuBtn.setVisible(true);
+            mainMenuBtn.setAlignment(Pos.BOTTOM_CENTER);
 
 
         } catch (Exception e) {
@@ -70,6 +93,7 @@ public class GameRockPaperScissorVersus extends GenericController {
             session.close();
             factory.close();
         }
+*/
     }
 
     public void paperClicked(MouseEvent mouseEvent) {
@@ -106,6 +130,37 @@ public class GameRockPaperScissorVersus extends GenericController {
 
     }
 
-    public void mainMenuBtnClicked(MouseEvent mouseEvent) {
+    public void choiceMade(MouseEvent mouseEvent, int myChoice) {
+
+        try {
+            session.beginTransaction();
+            choice.setChoice(myChoice);
+            session.update(choice);
+            session.getTransaction().commit();
+
+            HelperMethods.replaceSceneVersusPlayer(
+                    HelperMethods.versusResultWindowFXML,
+                    mouseEvent,
+                    token,
+                    choice
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+            factory.close();
+        }
+
+
+
+    }
+
+    public void mainMenuBtnClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceSceneLoggedIn(
+                HelperMethods.mainWindowFXML,
+                mouseEvent,
+                token
+        );
     }
 }

@@ -22,4 +22,10 @@ public abstract class GenericController {
     public void setChoice(Choice choice) {
         this.choice = choice;
     }
+
+    public void postInitialize() {
+        // Does nothing by default my dudes
+    }
+
+
 }
