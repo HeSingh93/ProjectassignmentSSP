@@ -12,3 +12,23 @@
 #userChoice {
 
 }
+
+#userName {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#vsLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#friendName {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#resultTextLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}

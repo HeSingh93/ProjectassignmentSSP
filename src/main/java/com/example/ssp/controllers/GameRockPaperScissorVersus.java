@@ -43,32 +43,12 @@ public class GameRockPaperScissorVersus extends GenericController {
 
         choiceMade(mouseEvent, rock);
 
-        /*
-        try {
-            session.beginTransaction();
-            choice.setChoice(rock);
-            session.update(choice);
-            session.getTransaction().commit();
-
-            HelperMethods.replaceSceneVersusPlayer(
-                    HelperMethods.versusResultWindowFXML,
-                    mouseEvent,
-                    token,
-                    choice
-            );
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-            factory.close();
-        }
-         */
     }
 
     public void paperClicked(MouseEvent mouseEvent) {
 
         choiceMade(mouseEvent, paper);
+
     }
 
     public void scissorsClicked(MouseEvent mouseEvent) {

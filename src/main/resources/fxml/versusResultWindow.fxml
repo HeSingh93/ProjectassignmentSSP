@@ -13,10 +13,12 @@
           alignment="TOP_CENTER"
           id="vsrWindow">
 
-    <VBox alignment="CENTER">
+    <VBox alignment="CENTER" spacing="10">
 
         <HBox id="topBox"
-              fx:id="topBox">
+              fx:id="topBox"
+              spacing="20"
+              alignment="CENTER">
 
             <Label id="userName"
                    fx:id="userName"/>
@@ -51,6 +53,9 @@
         <VBox id="botBox"
               fx:id="botBox"
               alignment="BOTTOM_CENTER">
+
+            <Label id="resultTextLabel"
+                   fx:id="resultTextLabel"/>
 
             <Button id="mainMenuBtn"
                     text="MAIN MENU"
