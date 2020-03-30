@@ -36,15 +36,15 @@
               minWidth="400"
               fx:id="middleBox">
 
-            <ImageView id="userChoice"
-                       fx:id="userChoice"
+            <ImageView id="userImage"
+                       fx:id="userImage"
                        fitHeight="250"
                        fitWidth="250">
 
             </ImageView>
 
-            <ImageView id="opponentChoice"
-                       fx:id="opponentChoice"
+            <ImageView id="opponentImage"
+                       fx:id="opponentImage"
                        fitWidth="250"
                        fitHeight="250"/>
 
