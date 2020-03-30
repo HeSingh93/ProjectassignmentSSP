@@ -1,7 +1,20 @@
-#mainWindow{
+#mainWindow {
     -fx-background-color: white;
     -fx-background-image: url("../images/background.png");
     -fx-background-size: 600;
+}
+
+#loadWindow {
+    -fx-background-color: white;
+}
+
+#loadLabel {
+    -fx-alignment:center;
+    -fx-font: normal bold 30px 'italic';
+}
+
+#rpsGif {
+    -fx-image: url("../images/hands.gif");
 }
 
 #mainMenuLabel {
