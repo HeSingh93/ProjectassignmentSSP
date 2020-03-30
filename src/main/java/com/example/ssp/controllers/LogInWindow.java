@@ -65,6 +65,7 @@ public class LogInWindow extends GenericController {
                     Token token = new Token(generateToken());
 
                     tempUser.setToken(token);
+                    session.save(token);
                     session.save(tempUser);
 
                     HelperMethods.replaceSceneLoggedIn(

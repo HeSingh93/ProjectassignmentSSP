@@ -12,7 +12,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
-import java.util.List;
 
 public class VersusResultWindow extends GenericController {
     public HBox middleBox;
@@ -126,6 +125,9 @@ public class VersusResultWindow extends GenericController {
 
         switch (choice.getChoice()) {
             case 0:
+                Image questionMark = new Image(HelperMethods.getResAsStream("images/questionmark.png"));
+                image.setImage(questionMark);
+                break;
 
             case 1:
                 Image rock = new Image(HelperMethods.getResAsStream("images/rock.png"));
