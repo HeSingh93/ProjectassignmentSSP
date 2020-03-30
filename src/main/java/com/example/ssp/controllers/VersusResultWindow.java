@@ -17,8 +17,7 @@ public class VersusResultWindow extends GenericController {
     public HBox middleBox;
     public VBox botBox;
     public HBox topBox;
-    public ImageView userImage;
-    public ImageView opponentImage;
+    public ImageView userImage, opponentImage;
     public Label friendName, userName, resultTextLabel;
     public String myName, yourName;
 
@@ -63,8 +62,18 @@ public class VersusResultWindow extends GenericController {
             //Methods to set images
             setChoiceImage(choice, userImage);
 
-            //Thread 1
-            //sleep(1000)
+            Thread bruh = new Thread(() -> {
+                while(opponentChoice.getChoice() == 0) {
+                    setChoiceImage(opponentChoice, opponentImage);
+                    try {
+                        Thread.sleep(1000);
+                        session.refresh(opponentChoice);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            bruh.start();
             setChoiceImage(opponentChoice, opponentImage);
 
 
