@@ -10,8 +10,10 @@ import javafx.scene.layout.VBox;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
+import java.util.List;
 
 public class VersusResultWindow extends GenericController {
     public HBox middleBox;
@@ -42,13 +44,18 @@ public class VersusResultWindow extends GenericController {
             User myId = (User) session.createQuery(
                     "from User where token_token_id = '" + token.getTokenId() + "'")
                     .getSingleResult();
-            User yourId = (User) session.createQuery(
-                    "from User where user_id = '" + choice.getFriendId() + "'")
-                    .getSingleResult();
-            Choice opponentChoice = (Choice) session.createQuery(
+
+            User yourId = session.get(User.class, choice.getFriendId());
+
+            Query<Choice> query = session.createQuery("from Choice where user_id = :userId and friend_id = :friendId");
+            query.setParameter("userId", choice.getFriendId());
+
+            List<Choice> opponentChoice = session.createQuery(
                     "from Choice where user_id = '" + choice.getFriendId()
                             + "' and friend_id = '" + myId.getUserId() + "'")
-                    .getSingleResult();
+                    .getResultList();
+
+            System.out.println(opponentChoice);
 
             myName = myId.getUserName();
             yourName = yourId.getUserName();
@@ -62,52 +69,58 @@ public class VersusResultWindow extends GenericController {
             //Methods to set images
             setChoiceImage(choice, userImage);
 
+
             Thread bruh = new Thread(() -> {
-                while(opponentChoice.getChoice() == 0) {
-                    setChoiceImage(opponentChoice, opponentImage);
+
+                while (opponentChoice.get(0).getChoice() == 0) {
+                    Session session = factory.getCurrentSession();
+                    session.beginTransaction();
+                    session.refresh(opponentChoice);
+                    setChoiceImage((Choice) opponentChoice, opponentImage);
                     try {
                         Thread.sleep(1000);
-                        session.refresh(opponentChoice);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    session.close();
                 }
             });
+
             bruh.start();
-            setChoiceImage(opponentChoice, opponentImage);
+            setChoiceImage((Choice) opponentChoice, opponentImage);
 
 
-            if (choice.getChoice() == 1 && opponentChoice.getChoice() == 1) {
+            if (choice.getChoice() == 1 && opponentChoice.get(0).getChoice() == 1) {
                 resultTextLabel.setText("TIE!");
 
-            } else if (choice.getChoice() == 1 && opponentChoice.getChoice() == 2) {
+            } else if (choice.getChoice() == 1 && opponentChoice.get(0).getChoice() == 2) {
                 resultTextLabel.setText(yourName + " Wins!");
                 updateLoss();
 
-            } else if (choice.getChoice() == 1 && opponentChoice.getChoice() == 3) {
+            } else if (choice.getChoice() == 1 && opponentChoice.get(0).getChoice() == 3) {
                 resultTextLabel.setText(myName + " Wins!");
                 updateWins();
 
-            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 1) {
+            } else if (choice.getChoice() == 2 && opponentChoice.get(0).getChoice() == 1) {
                 resultTextLabel.setText(myName + " Wins!");
                 updateWins();
 
-            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 2) {
+            } else if (choice.getChoice() == 2 && opponentChoice.get(0).getChoice() == 2) {
                 resultTextLabel.setText("TIE!");
 
-            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 3) {
+            } else if (choice.getChoice() == 2 && opponentChoice.get(0).getChoice() == 3) {
                 resultTextLabel.setText(yourName + " Wins!");
                 updateLoss();
 
-            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 1) {
+            } else if (choice.getChoice() == 3 && opponentChoice.get(0).getChoice() == 1) {
                 resultTextLabel.setText(yourName + " Wins!");
                 updateLoss();
 
-            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 2) {
+            } else if (choice.getChoice() == 3 && opponentChoice.get(0).getChoice() == 2) {
                 resultTextLabel.setText(myName + " Wins!");
                 updateWins();
 
-            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 3) {
+            } else if (choice.getChoice() == 3 && opponentChoice.get(0).getChoice() == 3) {
                 resultTextLabel.setText("TIE!");
 
             }
@@ -160,7 +173,6 @@ public class VersusResultWindow extends GenericController {
         Results currentResults = (Results) session.createQuery(
                 "from Results where user_id = '" + choice.getUserId() + "'")
                 .getSingleResult();
-
 
 
         if (currentResults == null) {
