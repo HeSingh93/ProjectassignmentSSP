@@ -48,15 +48,20 @@ public class VersusResultWindow extends GenericController {
 
             User yourId = session.get(User.class, choice.getFriendId());
 
+            /*
             Query<Choice> query = session.createQuery("from Choice where user_id = :userId and friend_id = :friendId");
             query.setParameter("userId", choice.getFriendId());
+            */
 
-            Choice opponentChoice = (Choice)session.createQuery(
+            Choice opponentChoice = (Choice) session.createQuery(
                     "from Choice where user_id = '" + choice.getFriendId()
                             + "' and friend_id = '" + myId.getUserId() + "'")
                     .getSingleResult();
 
             System.out.println(opponentChoice);
+
+            Thread.sleep(10000);
+
 
             myName = myId.getUserName();
             yourName = yourId.getUserName();
@@ -66,65 +71,10 @@ public class VersusResultWindow extends GenericController {
             System.out.println(yourName);
             System.out.println(myName);
 
-
-            //Methods to set images
+            //Methods to set images and text
             setChoiceImage(choice, userImage);
-
-
-            Thread bruh = new Thread(() -> {
-
-                while (opponentChoice.getChoice() == 0) {
-                    Transaction tx = session.beginTransaction();
-                    session.refresh(opponentChoice);
-                    setChoiceImage((Choice) opponentChoice, opponentImage);
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } finally {
-                        tx.commit();
-                    }
-                }
-            });
-
-            bruh.start();
-            setChoiceImage((Choice) opponentChoice, opponentImage);
-
-
-            if (choice.getChoice() == 1 && opponentChoice.getChoice() == 1) {
-                resultTextLabel.setText("TIE!");
-
-            } else if (choice.getChoice() == 1 && opponentChoice.getChoice() == 2) {
-                resultTextLabel.setText(yourName + " Wins!");
-                updateLoss();
-
-            } else if (choice.getChoice() == 1 && opponentChoice.getChoice() == 3) {
-                resultTextLabel.setText(myName + " Wins!");
-                updateWins();
-
-            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 1) {
-                resultTextLabel.setText(myName + " Wins!");
-                updateWins();
-
-            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 2) {
-                resultTextLabel.setText("TIE!");
-
-            } else if (choice.getChoice() == 2 && opponentChoice.getChoice() == 3) {
-                resultTextLabel.setText(yourName + " Wins!");
-                updateLoss();
-
-            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 1) {
-                resultTextLabel.setText(yourName + " Wins!");
-                updateLoss();
-
-            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 2) {
-                resultTextLabel.setText(myName + " Wins!");
-                updateWins();
-
-            } else if (choice.getChoice() == 3 && opponentChoice.getChoice() == 3) {
-                resultTextLabel.setText("TIE!");
-
-            }
+            setChoiceImage(opponentChoice, opponentImage);
+            getWinner(choice, opponentChoice, resultTextLabel);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -166,6 +116,43 @@ public class VersusResultWindow extends GenericController {
                 Image scissor = new Image(HelperMethods.getResAsStream("images/scissors.png"));
                 image.setImage(scissor);
                 break;
+        }
+    }
+
+    public void getWinner(Choice myChoice, Choice yourChoice, Label resultLabel) {
+
+        if (myChoice.getChoice() == 1 && yourChoice.getChoice() == 1) {
+            resultLabel.setText("TIE!");
+        } else if (choice.getChoice() == 1 && yourChoice.getChoice() == 2) {
+            resultLabel.setText(yourName + " Wins!");
+            //updateLoss();
+
+        } else if (choice.getChoice() == 1 && yourChoice.getChoice() == 3) {
+            resultLabel.setText(myName + " Wins!");
+            //updateWins();
+
+        } else if (choice.getChoice() == 2 && yourChoice.getChoice() == 1) {
+            resultLabel.setText(myName + " Wins!");
+            //updateWins();
+
+        } else if (choice.getChoice() == 2 && yourChoice.getChoice() == 2) {
+            resultLabel.setText("TIE!");
+
+        } else if (choice.getChoice() == 2 && yourChoice.getChoice() == 3) {
+            resultLabel.setText(yourName + " Wins!");
+            //updateLoss();
+
+        } else if (choice.getChoice() == 3 && yourChoice.getChoice() == 1) {
+            resultLabel.setText(yourName + " Wins!");
+            //updateLoss();
+
+        } else if (choice.getChoice() == 3 && yourChoice.getChoice() == 2) {
+            resultLabel.setText(myName + " Wins!");
+            //updateWins();
+
+        } else if (choice.getChoice() == 3 && yourChoice.getChoice() == 3) {
+            resultLabel.setText("TIE!");
+
         }
     }
 
