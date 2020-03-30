@@ -12,7 +12,7 @@
         <property name="connection.password">4ce1d93228a8d0c016098c63cfa769751115a60b5c2fceed51e649029c873397</property>
 
         <!-- Other settings -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">100</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>

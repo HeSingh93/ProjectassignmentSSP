@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
@@ -73,16 +74,16 @@ public class VersusResultWindow extends GenericController {
             Thread bruh = new Thread(() -> {
 
                 while (opponentChoice.getChoice() == 0) {
-                    Session session = factory.getCurrentSession();
-                    session.beginTransaction();
+                    Transaction tx = session.beginTransaction();
                     session.refresh(opponentChoice);
                     setChoiceImage((Choice) opponentChoice, opponentImage);
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                    } finally {
+                        tx.commit();
                     }
-                    session.close();
                 }
             });
 
