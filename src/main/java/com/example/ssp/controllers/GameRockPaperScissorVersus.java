@@ -4,12 +4,17 @@ import com.example.ssp.models.Choice;
 import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -65,8 +70,8 @@ public class GameRockPaperScissorVersus extends GenericController {
             session.update(choice);
             session.getTransaction().commit();
 
-            HelperMethods.replaceSceneVersusPlayer(
-                    HelperMethods.versusResultWindowFXML,
+            replaceSceneToLoadingScreen(
+                    HelperMethods.loadScreenWindowFXML,
                     mouseEvent,
                     token,
                     choice
@@ -86,5 +91,23 @@ public class GameRockPaperScissorVersus extends GenericController {
                 mouseEvent,
                 token
         );
+    }
+
+    static void replaceSceneToLoadingScreen(String fxmlPath, MouseEvent mouseEvent, Token token, Choice choice) throws IOException {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource())
+                .getScene()
+                .getWindow();
+
+        FXMLLoader loader = HelperMethods.getLoader(fxmlPath);
+        Parent root = loader.load();
+        GenericController controller = loader.getController();
+        controller.setToken(token);
+        controller.setChoice(choice);
+        Scene scene = new Scene(root);
+        stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
+        stage.setScene(scene);
+        stage.toFront();
+        stage.show();
+        controller.postInitialize();
     }
 }

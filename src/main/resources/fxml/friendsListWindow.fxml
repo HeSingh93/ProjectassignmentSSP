@@ -20,12 +20,6 @@
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
-
-        <ImageView id="refreshButton"
-                   fitHeight="20"
-                   fitWidth="20"
-                   preserveRatio="true"
-                   onMouseClicked="#refreshButtonClicked"/>
     </VBox>
 
     <VBox alignment="CENTER" spacing="20">

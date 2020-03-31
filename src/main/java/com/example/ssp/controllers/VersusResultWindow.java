@@ -60,9 +60,6 @@ public class VersusResultWindow extends GenericController {
 
             System.out.println(opponentChoice);
 
-            Thread.sleep(10000);
-
-
             myName = myId.getUserName();
             yourName = yourId.getUserName();
 
@@ -125,30 +122,30 @@ public class VersusResultWindow extends GenericController {
             resultLabel.setText("TIE!");
         } else if (choice.getChoice() == 1 && yourChoice.getChoice() == 2) {
             resultLabel.setText(yourName + " Wins!");
-            //updateLoss();
+            updateLoss();
 
         } else if (choice.getChoice() == 1 && yourChoice.getChoice() == 3) {
             resultLabel.setText(myName + " Wins!");
-            //updateWins();
+            updateWins();
 
         } else if (choice.getChoice() == 2 && yourChoice.getChoice() == 1) {
             resultLabel.setText(myName + " Wins!");
-            //updateWins();
+            updateWins();
 
         } else if (choice.getChoice() == 2 && yourChoice.getChoice() == 2) {
             resultLabel.setText("TIE!");
 
         } else if (choice.getChoice() == 2 && yourChoice.getChoice() == 3) {
             resultLabel.setText(yourName + " Wins!");
-            //updateLoss();
+            updateLoss();
 
         } else if (choice.getChoice() == 3 && yourChoice.getChoice() == 1) {
             resultLabel.setText(yourName + " Wins!");
-            //updateLoss();
+            updateLoss();
 
         } else if (choice.getChoice() == 3 && yourChoice.getChoice() == 2) {
             resultLabel.setText(myName + " Wins!");
-            //updateWins();
+            updateWins();
 
         } else if (choice.getChoice() == 3 && yourChoice.getChoice() == 3) {
             resultLabel.setText("TIE!");
@@ -158,12 +155,12 @@ public class VersusResultWindow extends GenericController {
 
     public void updateWins() {
 
-        Results currentResults = (Results) session.createQuery(
+        List<Results> currentResults = session.createQuery(
                 "from Results where user_id = '" + choice.getUserId() + "'")
-                .getSingleResult();
+                .getResultList();
 
 
-        if (currentResults == null) {
+        if (currentResults.size() == 0) {
 
             Results updateWins = new Results();
             updateWins.setUserId(choice.getUserId());
@@ -173,13 +170,13 @@ public class VersusResultWindow extends GenericController {
 
         } else {
 
-            int winner = currentResults.getWins();
+            int winner = currentResults.get(0).getWins();
             int finalWinner = winner + 1;
 
 
-            currentResults.setUserId(choice.getUserId());
-            currentResults.setWins(finalWinner);
-            session.update(currentResults);
+            currentResults.get(0).setUserId(choice.getUserId());
+            currentResults.get(0).setWins(finalWinner);
+            session.saveOrUpdate(currentResults);
 
         }
 
@@ -188,10 +185,10 @@ public class VersusResultWindow extends GenericController {
 
     public void updateLoss() {
 
-        Results currentResults = (Results) session.createQuery(
+        List<Results> currentResults = session.createQuery(
                 "from Results where user_id = '" + choice.getUserId() + "'").getResultList();
 
-        if (currentResults == null) {
+        if (currentResults.size() == 0) {
 
             Results updateLosses = new Results();
             updateLosses.setLosses(1);
@@ -201,12 +198,12 @@ public class VersusResultWindow extends GenericController {
 
         } else {
 
-            int loser = (currentResults.getLosses());
+            int loser = (currentResults.get(0).getLosses());
             int finalLoser = loser + 1;
 
-            currentResults.setUserId(choice.getUserId());
-            currentResults.setLosses(finalLoser);
-            session.save(currentResults);
+            currentResults.get(0).setUserId(choice.getUserId());
+            currentResults.get(0).setLosses(finalLoser);
+            session.saveOrUpdate(currentResults);
         }
 
 

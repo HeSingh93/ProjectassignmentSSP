@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 
+<?import javafx.scene.control.Button?>
 <FlowPane id="loadWindow"
           stylesheets="@/css/mainWindow.css"
           xmlns="http://javafx.com/javafx"
@@ -19,7 +20,16 @@
                    fitWidth="600"
                    fitHeight="600"/>
 
-        <Label text="LOADING" id="loadLabel" alignment="BOTTOM_CENTER"/>
+        <Label text="LOADING"
+               id="loadLabel"
+               fx:id="loadLabel"
+               alignment="BOTTOM_CENTER"/>
+
+        <Button id="showResultBtn"
+                fx:id="showResultBtn"
+                text="Show result"
+                visible="false"
+                onMouseClicked="#showResultBtnClicked"/>
 
     </VBox>
 </FlowPane>
