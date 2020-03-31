@@ -10,9 +10,10 @@
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.RecentGamesWindow"
           prefHeight="600.0"
-          prefWidth="600.0">
+          prefWidth="600.0"
+          alignment="CENTER">
 
-    <VBox id="box1" spacing="5">
+    <VBox id="box1" fx:id="box1" spacing="10">
 
         <ImageView id="backButton"
                    fitWidth="30"
@@ -21,10 +22,10 @@
                    onMouseClicked="#backButtonClicked"/>
 
         <Label id="wins"
-               text="WINS: "/>
+               fx:id="wins"/>
 
         <Label id="loss"
-               text="LOSSES: "/>
+               fx:id="loss"/>
     </VBox>
 
     <HBox>
