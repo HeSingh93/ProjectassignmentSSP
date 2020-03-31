@@ -7,8 +7,8 @@ import javax.persistence.*;
 @Table(name = "public.token")
 public class Token {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="token_id")
     private int tokenId;
 

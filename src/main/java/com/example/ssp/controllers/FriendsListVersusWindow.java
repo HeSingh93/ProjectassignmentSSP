@@ -59,11 +59,7 @@ public class FriendsListVersusWindow extends GenericController {
                     "from FriendsList where friends_name = '" + queriedUserName
                             + "'  and user_id = " + myUser.get(0).getUserId()).getResultList();
 
-
-            System.out.println("compared friend: " + comparedFriend);
-
             if (comparedFriend.get(0).getFriendsName().equals(queriedUserName)) {
-                System.out.println("INSIDE THE FIRST IF");
 
                 List<Choice> matchExists = session.createQuery(
                         "from Choice where user_id = '" + myUser.get(0).getUserId()
@@ -102,7 +98,6 @@ public class FriendsListVersusWindow extends GenericController {
             factory.close();
             session.close();
         }
-
 
     }
 }

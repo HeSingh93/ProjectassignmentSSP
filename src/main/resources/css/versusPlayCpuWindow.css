@@ -4,21 +4,7 @@
     -fx-background-size: 600;
 }
 
-#versusBtn{
-     -fx-alignment: center;
-     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
-     -fx-background-radius: 5em;
-     -fx-font: normal bold 20px 'italic';
-}
-
-#cpuBtn{
-     -fx-alignment: center;
-     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
-     -fx-background-radius: 5em;
-     -fx-font: normal bold 20px 'italic';
-}
-
-#playBtn{
+Button {
      -fx-alignment: center;
      -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
      -fx-background-radius: 5em;

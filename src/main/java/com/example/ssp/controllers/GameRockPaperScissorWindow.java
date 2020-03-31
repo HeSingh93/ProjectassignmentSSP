@@ -6,7 +6,6 @@ import java.io.IOException;
 
 public class GameRockPaperScissorWindow extends GenericController {
 
-
     int rock = 1;
     int paper = 2;
     int scissors = 3;
@@ -61,7 +60,6 @@ public class GameRockPaperScissorWindow extends GenericController {
                     token
             );
         }
-
     }
 
     public void scissorsClicked(MouseEvent mouseEvent) throws IOException {

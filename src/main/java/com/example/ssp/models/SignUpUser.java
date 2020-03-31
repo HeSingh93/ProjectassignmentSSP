@@ -1,13 +1,13 @@
 package com.example.ssp.models;
 
 import javax.persistence.*;
-// More like, bruh
+
 @Entity
 @Table(name = "public.user")
 public class SignUpUser {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int userId;
 

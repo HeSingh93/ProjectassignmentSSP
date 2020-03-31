@@ -5,7 +5,6 @@ import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,8 +27,6 @@ public class GameRockPaperScissorVersus extends GenericController {
     public ImageView scissorView;
     public VBox midBox;
     public Label pickMove;
-    public VBox replacementBox;
-    public Button mainMenuBtn;
     int rock = 1;
     int paper = 2;
     int scissors = 3;

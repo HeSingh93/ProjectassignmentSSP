@@ -9,11 +9,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
-import java.io.IOException;
 import java.util.List;
 
 public class VersusResultWindow extends GenericController {
@@ -22,7 +19,7 @@ public class VersusResultWindow extends GenericController {
     public HBox topBox;
     public ImageView userImage, opponentImage;
     public Label friendName, userName, resultTextLabel;
-    public String myName, yourName, result;
+    public String myName, yourName;
 
     SessionFactory factory = new Configuration()
             .configure("hibernate.cfg.xml")
@@ -47,11 +44,6 @@ public class VersusResultWindow extends GenericController {
                     .getSingleResult();
 
             User yourId = session.get(User.class, choice.getFriendId());
-
-            /*
-            Query<Choice> query = session.createQuery("from Choice where user_id = :userId and friend_id = :friendId");
-            query.setParameter("userId", choice.getFriendId());
-            */
 
             Choice opponentChoice = (Choice) session.createQuery(
                     "from Choice where user_id = '" + choice.getFriendId()
@@ -82,7 +74,7 @@ public class VersusResultWindow extends GenericController {
     }
 
 
-    public void mainMenuBtnClicked(MouseEvent mouseEvent) throws IOException {
+    public void mainMenuBtnClicked(MouseEvent mouseEvent) {
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -194,6 +186,7 @@ public class VersusResultWindow extends GenericController {
             session.getTransaction().commit();
 
         } else {
+
             Results updateResults = (Results) session.createQuery(
                     "from Results where user_id = '" + choice.getUserId() + "'").getSingleResult();
 
@@ -226,6 +219,7 @@ public class VersusResultWindow extends GenericController {
             session.getTransaction().commit();
 
         } else {
+
             Results updateResults = (Results) session.createQuery(
                     "from Results where user_id = '" + choice.getUserId() + "'").getSingleResult();
 

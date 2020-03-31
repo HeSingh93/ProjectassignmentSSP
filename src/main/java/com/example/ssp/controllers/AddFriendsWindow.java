@@ -34,18 +34,17 @@ public class AddFriendsWindow extends GenericController {
         Session session = factory.getCurrentSession();
 
         try {
-            session.beginTransaction();
 
+            session.beginTransaction();
 
             List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
 
             List<User> queriedUser = session.createQuery("from User where user_name = '" + userNameEntered + "'").getResultList();
 
-
             if (queriedUser.size() > 0) {
-                System.out.println(queriedUser);
 
                 FriendsList friends = new FriendsList();
+
                 friends.setFriendId(queriedUser.get(0).getUserId());
                 friends.setUserId(myUser.get(0).getUserId());
                 friends.setFriendsName(queriedUser.get(0).getUserName());
@@ -68,8 +67,6 @@ public class AddFriendsWindow extends GenericController {
             session.close();
             factory.close();
         }
-
-
     }
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
@@ -79,6 +76,4 @@ public class AddFriendsWindow extends GenericController {
                 token
         );
     }
-
-
 }

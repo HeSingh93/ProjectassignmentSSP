@@ -22,37 +22,9 @@
     -fx-font: normal bold 30px 'italic';
 }
 
-#newGameBtn {
+Button {
      -fx-alignment: center;
      -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
      -fx-background-radius: 5em;
      -fx-font: normal bold 20px 'italic';
- }
-
- #friendsBtn {
-     -fx-alignment: center;
-     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
-     -fx-background-radius: 5em;
-     -fx-font: normal bold 20px 'italic';
- }
-
- #recentGamesBtn {
-     -fx-alignment: center;
-     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
-     -fx-background-radius: 5em;
-     -fx-font: normal bold 20px 'italic';
- }
-
- #helpBtn {
-     -fx-alignment: center;
-     -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
-     -fx-background-radius: 5em;
-     -fx-font: normal bold 20px 'italic';
- }
-
- #showResultBtn {
-    -fx-alignment: center;
-    -fx-shape: "M 350 300 L 500 300 L 500 200 L 350 200 L 350 300";
-    -fx-background-radius: 5em;
-    -fx-font: normal bold 20px 'italic';
  }

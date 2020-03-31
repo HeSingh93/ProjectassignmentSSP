@@ -25,14 +25,12 @@ public class HelperMethods {
     public static final String recentGamesFXML = "fxml/recentGamesWindow.fxml";
     public static final String signUpWindowFXML = "fxml/signUpWindow.fxml";
     public static final String versusPlayCpuWindowFXML = "fxml/versusPlayCpuWindow.fxml";
-    public static final String splashScreenFXML = "fxml/splashScreen.fxml";
     public static final String loginFXML = "fxml/logInWindow.fxml";
     public static final String mainWindowFXML = "fxml/mainWindow.fxml";
     public static final String addFriendsFXML = "fxml/addFriendsWindow.fxml";
     public static final String friendsListFXML = "fxml/friendsListWindow.fxml";
     public static final String playRandomFXML = "fxml/playRandomWindow.fxml";
     public static final String playCpuFXML = "fxml/playCpu.fxml";
-    public static final String winnerWindowFXML = "fxml/winnerWindow.fxml";
     public static final String playFriendsListVersusWindow = "fxml/friendsListVersusWindow.fxml";
     public static final String rockViewFXML = "fxml/rockView.fxml";
     public static final String paperViewFXML = "fxml/paperView.fxml";

@@ -13,7 +13,6 @@ public class PlayCpu extends GenericController {
         );
     }
 
-
     public void playerBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.gameRockPaperScissorFXML,

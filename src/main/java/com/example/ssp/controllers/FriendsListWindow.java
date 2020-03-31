@@ -3,7 +3,6 @@ package com.example.ssp.controllers;
 import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
-import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;

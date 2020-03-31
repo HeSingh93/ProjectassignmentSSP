@@ -9,10 +9,6 @@
      -fx-font: normal bold 20px 'italic';
 }
 
-#userChoice {
-
-}
-
 #userName {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';

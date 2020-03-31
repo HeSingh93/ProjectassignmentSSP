@@ -46,9 +46,6 @@ public class RecentGamesWindow extends GenericController {
             wins.setText("Total wins: " + results.getWins());
             loss.setText("Total losses: " + results.getLosses());
 
-            box1.getChildren().addAll(wins,
-                    loss);
-
         } catch(Exception e) {
             e.printStackTrace();
         } finally {

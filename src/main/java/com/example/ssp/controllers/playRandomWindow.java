@@ -10,7 +10,6 @@ public class playRandomWindow extends GenericController {
 
     public void randomClicked(MouseEvent mouseEvent) throws IOException {
 
-
         int random = (int) (Math.random() * 4);
 
         if (random == 1) {

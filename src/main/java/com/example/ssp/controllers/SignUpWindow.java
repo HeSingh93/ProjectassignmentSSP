@@ -1,7 +1,6 @@
 package com.example.ssp.controllers;
 
 import com.example.ssp.models.SignUpUser;
-import com.example.ssp.models.User;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import org.hibernate.Session;
@@ -29,10 +28,12 @@ public class SignUpWindow extends GenericController {
 
         try {
             SignUpUser newUser = new SignUpUser(userName, password);
+
             session.beginTransaction();
             session.save(newUser);
             session.getTransaction().commit();
-        }finally {
+
+        } finally {
             session.close();
             factory.close();
         }
@@ -48,6 +49,5 @@ public class SignUpWindow extends GenericController {
                 HelperMethods.loginFXML,
                 mouseEvent
         );
-        //SQL-kommando
     }
 }

@@ -30,7 +30,6 @@ public class MainWindow extends GenericController {
                 mouseEvent,
                 token
         );
-
     }
 
     public void friendsBtnClicked(MouseEvent mouseEvent) throws IOException {

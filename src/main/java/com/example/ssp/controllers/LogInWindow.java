@@ -54,11 +54,9 @@ public class LogInWindow extends GenericController {
 
             //Query users
             List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName + "'").getResultList();
-            System.out.println(theUsers);
 
             // Display users
             for (User tempUser : theUsers) {
-                System.out.println(tempUser);
 
                 if (tempUser.getUserName().equals(logInUserName) && tempUser.getPassword().equals(logInPassword)) {
 
