@@ -2,7 +2,6 @@ package com.example.ssp.models;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "public.token")
 public class Token {

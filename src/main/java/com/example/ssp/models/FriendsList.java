@@ -3,7 +3,6 @@ package com.example.ssp.models;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
 @Entity
 @Table(name = "public.friendslist")
 public class FriendsList implements Serializable {

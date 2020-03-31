@@ -14,7 +14,8 @@
           prefWidth="600.0"
           alignment="TOP_CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
 
         <Label      id="loserLabel"
                     text="You lost"/>
