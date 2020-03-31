@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-
-<FlowPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<FlowPane xmlns:fx="http://javafx.com/fxml"
+          xmlns="http://javafx.com/javafx"
           stylesheets="@/css/gameRockPaperScissorWindow.css"
           id="gameWindow"
-          xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.GameRockPaperScissorWindow"
           prefHeight="600.0"
           prefWidth="600.0"
