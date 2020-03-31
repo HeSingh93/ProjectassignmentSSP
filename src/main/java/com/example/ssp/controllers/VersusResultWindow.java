@@ -22,7 +22,7 @@ public class VersusResultWindow extends GenericController {
     public HBox topBox;
     public ImageView userImage, opponentImage;
     public Label friendName, userName, resultTextLabel;
-    public String myName, yourName;
+    public String myName, yourName, result;
 
     SessionFactory factory = new Configuration()
             .configure("hibernate.cfg.xml")
@@ -84,11 +84,36 @@ public class VersusResultWindow extends GenericController {
 
     public void mainMenuBtnClicked(MouseEvent mouseEvent) throws IOException {
 
-        HelperMethods.replaceSceneLoggedIn(
-                HelperMethods.mainWindowFXML,
-                mouseEvent,
-                token
-        );
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(FriendsList.class)
+                .addAnnotatedClass(Token.class)
+                .addAnnotatedClass(Choice.class)
+                .addAnnotatedClass(Results.class)
+                .buildSessionFactory();
+
+        Session session = factory.getCurrentSession();
+
+        try {
+            session.beginTransaction();
+
+            session.delete(choice);
+
+            HelperMethods.replaceSceneLoggedIn(
+                    HelperMethods.mainWindowFXML,
+                    mouseEvent,
+                    token
+            );
+
+            session.getTransaction().commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+            factory.close();
+        }
     }
 
     public void setChoiceImage(Choice choice, ImageView image) {
@@ -159,7 +184,6 @@ public class VersusResultWindow extends GenericController {
                 "from Results where user_id = '" + choice.getUserId() + "'")
                 .getResultList();
 
-
         if (currentResults.size() == 0) {
 
             Results updateWins = new Results();
@@ -167,46 +191,54 @@ public class VersusResultWindow extends GenericController {
             updateWins.setWins(1);
 
             session.save(updateWins);
+            session.getTransaction().commit();
 
         } else {
+            Results updateResults = (Results) session.createQuery(
+                    "from Results where user_id = '" + choice.getUserId() + "'").getSingleResult();
 
+            int loser = currentResults.get(0).getLosses();
             int winner = currentResults.get(0).getWins();
             int finalWinner = winner + 1;
 
+            updateResults.setUserId(choice.getUserId());
+            updateResults.setWins(finalWinner);
+            updateResults.setLosses(loser);
 
-            currentResults.get(0).setUserId(choice.getUserId());
-            currentResults.get(0).setWins(finalWinner);
-            session.saveOrUpdate(currentResults);
-
+            session.save(updateResults);
+            session.getTransaction().commit();
         }
-
-        session.getTransaction().commit();
     }
 
     public void updateLoss() {
 
         List<Results> currentResults = session.createQuery(
-                "from Results where user_id = '" + choice.getUserId() + "'").getResultList();
+                "from Results where user_id = '" + choice.getUserId() + "'")
+                .getResultList();
 
         if (currentResults.size() == 0) {
 
             Results updateLosses = new Results();
-            updateLosses.setLosses(1);
             updateLosses.setUserId(choice.getUserId());
+            updateLosses.setLosses(1);
 
             session.save(updateLosses);
+            session.getTransaction().commit();
 
         } else {
+            Results updateResults = (Results) session.createQuery(
+                    "from Results where user_id = '" + choice.getUserId() + "'").getSingleResult();
 
-            int loser = (currentResults.get(0).getLosses());
+            int loser = currentResults.get(0).getLosses();
+            int winner = currentResults.get(0).getWins();
             int finalLoser = loser + 1;
 
-            currentResults.get(0).setUserId(choice.getUserId());
-            currentResults.get(0).setLosses(finalLoser);
-            session.saveOrUpdate(currentResults);
+            updateResults.setUserId(choice.getUserId());
+            updateResults.setLosses(finalLoser);
+            updateResults.setWins(winner);
+
+            session.save(updateResults);
+            session.getTransaction().commit();
         }
-
-
-        session.getTransaction().commit();
     }
 }
