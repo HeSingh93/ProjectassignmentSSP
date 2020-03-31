@@ -36,16 +36,15 @@
 
         <TextField id="choseUser"
                    fx:id="enteredUserName"
-                   text="Username"
+                   promptText="Username"
                    alignment="BASELINE_CENTER"/>
 
         <Button id="confirmBtn"
                 text="PLAY"
-                fx:id="confirmBtn"
-                onMouseClicked="#confirmBtnClicked"
-        />
+                onMouseClicked="#confirmBtnClicked"/>
 
         <Label fx:id="errorMessage" />
+
     </VBox>
 
 </FlowPane>

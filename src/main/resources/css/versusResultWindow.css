@@ -9,22 +9,7 @@
      -fx-font: normal bold 20px 'italic';
 }
 
-#userName {
-    -fx-alignment:center;
-    -fx-font: normal bold 30px 'italic';
-}
-
-#vsLabel {
-    -fx-alignment:center;
-    -fx-font: normal bold 30px 'italic';
-}
-
-#friendName {
-    -fx-alignment:center;
-    -fx-font: normal bold 30px 'italic';
-}
-
-#resultTextLabel {
+Label {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';
 }

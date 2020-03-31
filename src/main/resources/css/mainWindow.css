@@ -8,18 +8,13 @@
     -fx-background-color: white;
 }
 
-#loadLabel {
+Label {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';
 }
 
 #rpsGif {
     -fx-image: url("../images/hands.gif");
-}
-
-#mainMenuLabel {
-    -fx-alignment:center;
-    -fx-font: normal bold 30px 'italic';
 }
 
 Button {

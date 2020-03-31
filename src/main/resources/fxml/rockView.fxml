@@ -13,18 +13,22 @@
           alignment="TOP_CENTER">
 
     <VBox>
+
         <ImageView id="backButton"
                    fitHeight="30"
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
+
     </VBox>
 
     <VBox alignment="BASELINE_CENTER">
+
         <ImageView id="rock"
                    fitHeight="500"
                    fitWidth="500"
                    preserveRatio="true"/>
+
     </VBox>
 
 </FlowPane>

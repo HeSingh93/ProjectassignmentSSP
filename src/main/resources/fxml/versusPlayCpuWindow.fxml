@@ -13,7 +13,9 @@
           prefWidth="600.0"
           alignment="CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
+
         <ImageView id="backButton"
                    fitHeight="30"
                    fitWidth="30"
@@ -34,6 +36,7 @@
         <Button id="playBtn"
                 text="PLAY"
                 onMouseClicked="#playBtnClicked"/>
+
     </VBox>
 
 </FlowPane>

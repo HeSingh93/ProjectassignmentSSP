@@ -19,7 +19,6 @@ import java.util.List;
 
 public class FriendsListVersusWindow extends GenericController {
     public TextField enteredUserName;
-    public Button confirmBtn;
     public Label errorMessage;
 
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {

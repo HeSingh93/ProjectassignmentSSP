@@ -14,9 +14,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 public class VersusResultWindow extends GenericController {
-    public HBox middleBox;
-    public VBox botBox;
-    public HBox topBox;
+
     public ImageView userImage, opponentImage;
     public Label friendName, userName, resultTextLabel;
     public String myName, yourName;
@@ -50,15 +48,11 @@ public class VersusResultWindow extends GenericController {
                             + "' and friend_id = '" + myId.getUserId() + "'")
                     .getSingleResult();
 
-            System.out.println(opponentChoice);
-
             myName = myId.getUserName();
             yourName = yourId.getUserName();
 
             friendName.setText(yourName);
             userName.setText(myName);
-            System.out.println(yourName);
-            System.out.println(myName);
 
             //Methods to set images and text
             setChoiceImage(choice, userImage);

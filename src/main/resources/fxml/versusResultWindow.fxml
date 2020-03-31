@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
+
 <FlowPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           stylesheets="@/css/versusResultWindow.css"
@@ -13,10 +14,10 @@
           alignment="TOP_CENTER"
           id="vsrWindow">
 
-    <VBox alignment="CENTER" spacing="10">
+    <VBox alignment="CENTER"
+          spacing="10">
 
         <HBox id="topBox"
-              fx:id="topBox"
               spacing="20"
               alignment="CENTER">
 
@@ -33,15 +34,12 @@
 
         <HBox id="middleBox"
               minHeight="400"
-              minWidth="400"
-              fx:id="middleBox">
+              minWidth="400">
 
             <ImageView id="userImage"
                        fx:id="userImage"
                        fitHeight="250"
-                       fitWidth="250">
-
-            </ImageView>
+                       fitWidth="250"/>
 
             <ImageView id="opponentImage"
                        fx:id="opponentImage"
@@ -51,7 +49,6 @@
         </HBox>
 
         <VBox id="botBox"
-              fx:id="botBox"
               alignment="BOTTOM_CENTER">
 
             <Label id="resultTextLabel"

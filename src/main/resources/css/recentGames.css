@@ -16,10 +16,6 @@
     -fx-padding: 10, 50, 10, 10;
 }
 
-#wins {
-    -fx-font: normal bold 20px 'italic';
-}
-
-#loss {
+Label {
     -fx-font: normal bold 20px 'italic';
 }

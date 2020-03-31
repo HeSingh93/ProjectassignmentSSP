@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class FriendsListWindow extends GenericController {
+
     public VBox friendsListNameHolder;
 
     @Override

@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 
 <FlowPane xmlns="http://javafx.com/javafx"
-          stylesheets="@/css/GameRockPaperScissorWindow.css"
+          stylesheets="@/css/gameRockPaperScissorWindow.css"
           id="gameWindow"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.GameRockPaperScissorVersus"
@@ -13,9 +13,9 @@
           prefWidth="600.0"
           alignment="CENTER">
 
-    <VBox alignment="TOP_CENTER" fx:id="midBox">
+    <VBox alignment="TOP_CENTER">
+
         <Label id="pickMove"
-               fx:id="pickMove"
                text="PICK YOUR MOVE"/>
 
         <ImageView id="rock"
@@ -38,5 +38,7 @@
                    preserveRatio="true"
                    onMouseClicked="#scissorsClicked"
                    fx:id="scissorView"/>
+
     </VBox>
+
 </FlowPane>

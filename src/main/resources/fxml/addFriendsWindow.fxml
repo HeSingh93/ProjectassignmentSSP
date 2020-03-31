@@ -13,7 +13,8 @@
           prefWidth="600"
           alignment="CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
 
         <Label id="addFriendsLabel"
                text="ADD FRIEND"/>

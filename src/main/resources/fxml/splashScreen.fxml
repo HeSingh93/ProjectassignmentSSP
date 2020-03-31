@@ -12,10 +12,9 @@
           prefWidth="600.0"
           alignment="CENTER">
 
-    <ImageView
-            id="splashBtn"
-            fitWidth="500"
-            fitHeight="500"
-            onMouseClicked="#splashButtonClicked"/>
+    <ImageView id="splashBtn"
+               fitWidth="500"
+               fitHeight="500"
+               onMouseClicked="#splashButtonClicked"/>
 
 </FlowPane>

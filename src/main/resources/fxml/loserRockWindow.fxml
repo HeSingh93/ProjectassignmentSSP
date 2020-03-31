@@ -4,6 +4,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
+
 <FlowPane id="loserRockWindow"
           stylesheets="@/css/loserWindow.css"
           xmlns="http://javafx.com/javafx"
@@ -13,14 +14,17 @@
           prefWidth="600.0"
           alignment="TOP_CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
 
         <Label      id="loserLabel"
                     text="You lost"/>
+
         <ImageView  id="rockLoss"
                     fitHeight="450"
                     fitWidth="450"
                     preserveRatio="true"/>
+
         <ImageView  id="backButton"
                     fitHeight="30"
                     fitWidth="30"

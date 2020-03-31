@@ -8,12 +8,7 @@
     -fx-font: normal bold 30px 'italic';
 }
 
-#logInUsernameTextField {
-    -fx-alignment:center;
-    -fx-font: normal 10px 'italic';
-}
-
-#logInPasswordTextField {
+TextField {
     -fx-alignment:center;
     -fx-font: normal 10px 'italic';
 }

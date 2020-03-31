@@ -19,17 +19,16 @@
                preserveRatio="true"
                onMouseClicked="#backButtonClicked"/>
 
-    <VBox id="box1" fx:id="box1" spacing="10">
+    <VBox id="box1"
+          fx:id="box1"
+          spacing="10">
 
         <Label id="wins"
                fx:id="wins"/>
 
         <Label id="loss"
                fx:id="loss"/>
+
     </VBox>
-
-    <HBox>
-
-    </HBox>
 
 </FlowPane>

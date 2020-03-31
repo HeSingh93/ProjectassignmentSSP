@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-
-<FlowPane id="friendsListWindow"
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<FlowPane xmlns:fx="http://javafx.com/fxml"
+          id="friendsListWindow"
           stylesheets="@/css/friendsListWindow.css"
           xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.FriendsListWindow"
           prefHeight="600"
           prefWidth="600"
           alignment="TOP_CENTER">
 
-    <VBox id="backBox" alignment="TOP_CENTER">
+    <VBox id="backBox"
+          alignment="TOP_CENTER">
 
         <ImageView id="backButton"
                    fitHeight="30"
@@ -22,12 +24,15 @@
                    onMouseClicked="#backButtonClicked"/>
     </VBox>
 
-    <VBox alignment="CENTER" spacing="50">
+    <VBox alignment="CENTER"
+          spacing="50">
 
         <Label id="friendsListLabel"
                text="FRIENDS"/>
 
-        <VBox fx:id="friendsListNameHolder" alignment="CENTER" id="friendsListNameHolder"/>
+        <VBox fx:id="friendsListNameHolder"
+              alignment="CENTER"
+              id="friendsListNameHolder"/>
 
         <Button id="addFriendsBtn"
                 text="Add new friend"

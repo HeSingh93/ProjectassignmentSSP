@@ -24,6 +24,7 @@
                    fitHeight="450"
                    fitWidth="450"
                    preserveRatio="true"/>
+
     </VBox>
 
 </FlowPane>

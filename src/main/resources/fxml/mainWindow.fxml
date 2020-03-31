@@ -13,6 +13,7 @@
           alignment="CENTER">
 
     <VBox alignment="CENTER" spacing="20">
+
         <Label
                 id="mainMenuLabel"
                 text="MAIN MENU"/>
@@ -20,16 +21,18 @@
         <Button id="newGameBtn"
                 onMouseClicked="#newGameBtnClicked"
                 text="NEW GAME"/>
+
         <Button id="friendsBtn"
                 onMouseClicked="#friendsBtnClicked"
                 text="FRIENDS"/>
+
         <Button id="recentGamesBtn"
                 onMouseClicked="#recentBtnClicked"
                 text="RECENT GAMES"/>
+
         <Button id="helpBtn"
                 onMouseClicked="#helpBtnClicked"
                 text="HELP"/>
-        <Label id="valueText" fx:id="valueText"/>
 
     </VBox>
 

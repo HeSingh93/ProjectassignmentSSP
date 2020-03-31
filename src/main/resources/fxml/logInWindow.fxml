@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
 
-<FlowPane id="logInWindow"
+<FlowPane xmlns:fx="http://javafx.com/fxml"
+          id="logInWindow"
           stylesheets="@/css/logInWindow.css"
           xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.LogInWindow"
-          prefHeight="600" prefWidth="600" alignment="CENTER">
+          prefHeight="600"
+          prefWidth="600"
+          alignment="CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
 
-        <Label
-                id="logInLabel"
-                text="LOG IN"/>
-        <TextField
-                id="logInUsernameTextField" fx:id="logInUsernameTextField"
-                text="Username"/>
-        <PasswordField
-                id="logInPasswordTextField" fx:id="logInPasswordTextField"/>
-        <Button id="logInBtn" fx:id="logInBtn"
+        <Label id="logInLabel"
+               text="LOG IN"/>
+
+        <TextField id="logInUsernameTextField"
+                   fx:id="logInUsernameTextField"
+                   promptText="Username"
+                   alignment="CENTER"/>
+
+        <PasswordField id="logInPasswordTextField"
+                       fx:id="logInPasswordTextField"
+                       promptText="Password"
+                       alignment="CENTER"/>
+
+        <Button id="logInBtn"
+                fx:id="logInBtn"
                 onMouseClicked="#logInBtn"
                 text="LOG IN"/>
+
         <Button id="signUpBtn"
                 onMouseClicked="#signUpBtn"
                 text="SIGN UP"/>
 
-        <Label id="errorMsg" fx:id="errorMsg"/>
+        <Label id="errorMsg"
+               fx:id="errorMsg"/>
 
     </VBox>
 

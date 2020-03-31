@@ -25,8 +25,6 @@ public class GameRockPaperScissorVersus extends GenericController {
     public ImageView rockView;
     public ImageView paperView;
     public ImageView scissorView;
-    public VBox midBox;
-    public Label pickMove;
     int rock = 1;
     int paper = 2;
     int scissors = 3;

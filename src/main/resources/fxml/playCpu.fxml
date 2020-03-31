@@ -14,19 +14,29 @@
           alignment="BASELINE_CENTER">
 
     <VBox spacing="10">
+
         <ImageView id="backButton"
                    fitHeight="30"
                    fitWidth="30"
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
+
     </VBox>
 
-    <VBox id="mid" spacing="10" alignment="BASELINE_CENTER">
+    <VBox id="mid"
+          spacing="10"
+          alignment="BASELINE_CENTER">
+
         <ImageView id="splash"
                    fitHeight="400"
                    fitWidth="400"
                    preserveRatio="true"/>
-        <Button id="playBtn" text="PLAY" alignment="BASELINE_CENTER" onMouseClicked="#playerBtnClicked"/>
+
+        <Button id="playBtn"
+                text="PLAY"
+                alignment="BASELINE_CENTER"
+                onMouseClicked="#playerBtnClicked"/>
+
     </VBox>
 
 </FlowPane>

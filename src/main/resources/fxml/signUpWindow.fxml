@@ -13,7 +13,8 @@
           prefWidth="600"
           alignment="CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
 
         <ImageView id="backButton"
                    fitHeight="30"
@@ -21,15 +22,17 @@
                    preserveRatio="true"
                    onMouseClicked="#backButtonClicked"/>
 
-        <Label
-                id="signUpLabel"
-                text="SIGN UP"/>
-        <TextField
-                id="signUpUsernameTextField" fx:id="signUpUserNameTextField"
-                text="Username"/>
-        <TextField
-                id="signUpPasswordTextField" fx:id="signUpPasswordTextField"
-                text="Password"/>
+        <Label id="signUpLabel"
+               text="SIGN UP"/>
+
+        <TextField id="signUpUsernameTextField"
+                   fx:id="signUpUserNameTextField"
+                   promptText="Username"/>
+
+        <TextField id="signUpPasswordTextField"
+                   fx:id="signUpPasswordTextField"
+                   promptText="Password"/>
+
         <Button id="createAccountBtn"
                 text="Create Account"
                 onMouseClicked="#createAccountClicked"/>

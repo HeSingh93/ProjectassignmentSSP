@@ -4,6 +4,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
+
 <FlowPane id="loserRockWindow"
           stylesheets="@/css/loserWindow.css"
           xmlns="http://javafx.com/javafx"
@@ -17,15 +18,18 @@
 
         <Label      id="loserLabel"
                     text="You lost"/>
+
         <ImageView  id="scissorLoss"
                     fitHeight="450"
                     fitWidth="450"
                     preserveRatio="true"/>
+
         <ImageView  id="backButton"
                     fitHeight="30"
                     fitWidth="30"
                     preserveRatio="true"
                     onMouseClicked="#backButtonClicked"/>
+
     </VBox>
 
 </FlowPane>
