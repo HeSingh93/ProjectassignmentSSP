@@ -19,51 +19,8 @@ import java.util.List;
 public class FriendsListWindow extends GenericController {
     public VBox friendsListNameHolder;
 
-    public void addFriendsToColumn() {
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(User.class)
-                .addAnnotatedClass(FriendsList.class)
-                .addAnnotatedClass(Token.class)
-                .buildSessionFactory();
-
-        Session session = factory.getCurrentSession();
-
-        try {
-            session.beginTransaction();
-
-            FriendsList friendsList = new FriendsList();
-
-            List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
-
-            int myId = myUser.get(0).getUserId();
-
-            List<FriendsList> friendsListList = session.createQuery("from FriendsList where user_id = '" + myId + "'").getResultList();
-
-
-        } finally {
-            factory.close();
-        }
-
-    }
-
-    public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceSceneLoggedIn(
-                HelperMethods.mainWindowFXML,
-                mouseEvent,
-                token
-        );
-    }
-
-    public void addFriendBtnClicked(MouseEvent mouseEvent) throws IOException {
-        HelperMethods.replaceSceneLoggedIn(
-                HelperMethods.addFriendsFXML,
-                mouseEvent,
-                token
-        );
-    }
-
-    public void refreshButtonClicked(MouseEvent mouseEvent) {
+    @Override
+    public void postInitialize(){
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
@@ -105,4 +62,21 @@ public class FriendsListWindow extends GenericController {
             session.close();
         }
     }
+
+    public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceSceneLoggedIn(
+                HelperMethods.mainWindowFXML,
+                mouseEvent,
+                token
+        );
+    }
+
+    public void addFriendBtnClicked(MouseEvent mouseEvent) throws IOException {
+        HelperMethods.replaceSceneLoggedIn(
+                HelperMethods.addFriendsFXML,
+                mouseEvent,
+                token
+        );
+    }
+
 }
