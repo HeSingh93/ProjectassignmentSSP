@@ -13,13 +13,13 @@
           prefWidth="600.0"
           alignment="CENTER">
 
-    <VBox id="box1" fx:id="box1" spacing="10">
+    <ImageView id="backButton"
+               fitWidth="30"
+               fitHeight="30"
+               preserveRatio="true"
+               onMouseClicked="#backButtonClicked"/>
 
-        <ImageView id="backButton"
-                   fitWidth="30"
-                   fitHeight="30"
-                   preserveRatio="true"
-                   onMouseClicked="#backButtonClicked"/>
+    <VBox id="box1" fx:id="box1" spacing="10">
 
         <Label id="wins"
                fx:id="wins"/>

@@ -28,6 +28,7 @@ public class RecentGamesWindow extends GenericController {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(FriendsList.class)
                 .addAnnotatedClass(Token.class)
+                .addAnnotatedClass(Results.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
@@ -45,7 +46,8 @@ public class RecentGamesWindow extends GenericController {
             wins.setText("Total wins: " + results.getWins());
             loss.setText("Total losses: " + results.getLosses());
 
-            box1.getChildren().addAll(wins, loss);
+            box1.getChildren().addAll(wins,
+                    loss);
 
         } catch(Exception e) {
             e.printStackTrace();
