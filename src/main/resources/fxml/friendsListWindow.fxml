@@ -11,9 +11,9 @@
           fx:controller="com.example.ssp.controllers.FriendsListWindow"
           prefHeight="600"
           prefWidth="600"
-          alignment="BASELINE_CENTER">
+          alignment="TOP_CENTER">
 
-    <VBox id="backBox">
+    <VBox id="backBox" alignment="TOP_CENTER">
 
         <ImageView id="backButton"
                    fitHeight="30"
@@ -22,50 +22,17 @@
                    onMouseClicked="#backButtonClicked"/>
     </VBox>
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER" spacing="50">
 
         <Label id="friendsListLabel"
                text="FRIENDS"/>
 
-        <TabPane>
-
-            <Tab text="Friends"
-                 closable="false">
-
-                <TableView id="friendsListBox">
-                    <columns>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Username"
-                                     prefWidth="300"/>
-
-                    </columns>
-                </TableView>
-
-                <VBox fx:id="friendsListNameHolder"/>
-
-            </Tab>
-
-            <Tab text="Recent" closable="false">
-                <TableView id="recentBox">
-                    <columns>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Username"
-                                     prefWidth="150"/>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="Matches"
-                                     prefWidth="50"/>
-                        <TableColumn id="friendsListTextFormat"
-                                     text="W/L"
-                                     prefWidth="50"/>
-                    </columns>
-                </TableView>
-            </Tab>
-
-        </TabPane>
+        <VBox fx:id="friendsListNameHolder" alignment="CENTER" id="friendsListNameHolder"/>
 
         <Button id="addFriendsBtn"
                 text="Add new friend"
                 onMouseClicked="#addFriendBtnClicked"/>
+
     </VBox>
 
 </FlowPane>

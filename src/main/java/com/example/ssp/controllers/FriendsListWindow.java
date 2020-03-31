@@ -39,7 +39,6 @@ public class FriendsListWindow extends GenericController {
 
             // Gets the friends id and sets it into friendsId
             List<FriendsList> friendsListList = session.createQuery("from FriendsList where user_id = '" + myId + "'").getResultList();
-            System.out.println(friendsListList);
 
             // Iterates through the friendslist, putting names into Labels and displaying them
             for (FriendsList friendsList : friendsListList) {

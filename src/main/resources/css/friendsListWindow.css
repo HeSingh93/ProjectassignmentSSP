@@ -9,24 +9,16 @@
     -fx-font: normal bold 30px 'italic';
 }
 
+#friendsListNameHolder {
+        -fx-border-color: black;
+        -fx-border-insets: 20;
+        -fx-border-width: 0.5;
+        -fx-border-style: solid;
+}
+
 #friendsListTextFormat {
     -fx-alignment:center;
     -fx-font: normal bold 10px 'italic';
-}
-
-#friendsListBox {
-    -fx-border-style: solid;
-    -fx-border-width: 0.5px;
-}
-
-#requestBox {
-    -fx-border-style: solid;
-    -fx-border-width: 0.5px;
-}
-
-#recentBox {
-    -fx-border-style: solid;
-    -fx-border-width: 0.5px;
 }
 
 #backBox {
@@ -39,10 +31,6 @@
 
 #backButton:hover {
     -fx-image: url("../images/backbuttonglow.png")
-}
-
-#refreshButton {
-    -fx-image: url("../images/refresh.jpg")
 }
 
 #addFriendsBtn {
