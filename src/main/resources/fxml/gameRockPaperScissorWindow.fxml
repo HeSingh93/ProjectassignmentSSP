@@ -14,22 +14,18 @@
           alignment="TOP_CENTER">
 
     <VBox alignment="CENTER">
-
         <Label id="pickMove"
                text="PICK YOUR MOVE"/>
-
         <ImageView id="rock"
                    fitHeight="170"
                    fitWidth="170"
                    preserveRatio="true"
                    onMouseClicked="#rockClicked"/>
-
         <ImageView id="paper"
                    fitHeight="200"
                    fitWidth="200"
                    preserveRatio="true"
                    onMouseClicked="#paperClicked"/>
-
         <ImageView id="scissors"
                    fitHeight="200"
                    fitWidth="200"

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
 
-<FlowPane id="mainWindow"
+<FlowPane xmlns:fx="http://javafx.com/fxml"
+          id="mainWindow"
           stylesheets="@/css/mainWindow.css"
           xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.ssp.controllers.MainWindow"
           prefHeight="600"
           prefWidth="600"
           alignment="CENTER">
 
-    <VBox alignment="CENTER" spacing="20">
+    <VBox alignment="CENTER"
+          spacing="20">
 
-        <Label
-                id="mainMenuLabel"
-                text="MAIN MENU"/>
+        <Label id="mainMenuLabel"
+               text="MAIN MENU"/>
 
         <Button id="newGameBtn"
                 onMouseClicked="#newGameBtnClicked"
@@ -33,6 +34,7 @@
         <Button id="helpBtn"
                 onMouseClicked="#helpBtnClicked"
                 text="HELP"/>
+
         <Button id="exitBtn"
                 onMouseClicked="#exitBtnClicked"
                 text="EXIT"/>
