@@ -15,7 +15,6 @@ public class MainWindow extends GenericController {
                 mouseEvent,
                 token
         );
-
     }
 
     public void recentBtnClicked(MouseEvent mouseEvent) throws IOException {

@@ -13,7 +13,7 @@
           prefWidth="600.0"
           alignment="TOP_CENTER">
 
-    <VBox alignment="CENTER">
+    <VBox alignment="CENTER" >
         <Label id="pickMove"
                text="PICK YOUR MOVE"/>
         <ImageView id="rock"
