@@ -21,6 +21,12 @@ public class FriendsListVersusWindow extends GenericController {
     public TextField enteredUserName;
     public Label errorMessage;
 
+    /**
+     * When the backButton is clicked, we replace the scene with the versusPlayCpuWindow
+     * as well as passing our token-object to the next scene.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.versusPlayCpuWindowFXML,
@@ -29,6 +35,20 @@ public class FriendsListVersusWindow extends GenericController {
         );
     }
 
+    /**
+     * In this method we type the name of a user that we would like to play a game with. The method checks if
+     * the user entered is in the users friend list.
+     * We start off by querying our friend list with the given input. After that we create a query for retrieving
+     * our user id with our token.
+     * The third query checks if the friend exists in our friend list.
+     * If it exists, we create an object (Choice) that contains our match request. We use set methods to set the value
+     * of user id and friend id.
+     * The object (choice) is then passed on to the next scene, along with our token.
+     * If you have a ongoing match with the entered user, the program prompts that a match is already active.
+     *
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void confirmBtnClicked(MouseEvent mouseEvent) throws IOException {
 
         String queriedUserName = enteredUserName.getText();
@@ -58,7 +78,7 @@ public class FriendsListVersusWindow extends GenericController {
                     "from FriendsList where friends_name = '" + queriedUserName
                             + "'  and user_id = " + myUser.get(0).getUserId()).getResultList();
 
-            if (comparedFriend.get(0).getFriendsName().equals(queriedUserName)) {
+            if (comparedFriend.size() > 0 ) {
 
                 List<Choice> matchExists = session.createQuery(
                         "from Choice where user_id = '" + myUser.get(0).getUserId()
@@ -87,10 +107,13 @@ public class FriendsListVersusWindow extends GenericController {
                     errorMessage.setText("YOU HAVE ALREADY STARTED A MATCH WITH THIS USER!");
 
                 }
+            } else {
+                Font font = new Font("Arial Black", 10);
+                errorMessage.setVisible(true);
+                errorMessage.setFont(font);
+                errorMessage.setText("YOU HAVE NOT ADDED THIS FRIEND YET");
             }
-
             tr.commit();
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
