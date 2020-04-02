@@ -17,6 +17,13 @@ public class RandomChoiceWindow extends GenericController {
 
     }
 
+    /**
+     * This method takes the input from playRandomWindow class. (1 - 3), if the user has not made a choice
+     * the choice is set to 0. The input gets an assigned image that is set.
+     * @param choice the object passed on from GameRockPaperScissorVersus class.
+     * @param image the relevant image for the selected choice.
+     */
+
     public void setChoiceImage(int choice, ImageView image) {
         switch (choice) {
             case 1:

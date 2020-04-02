@@ -64,6 +64,15 @@ public class playRandomWindow extends GenericController {
         );
     }
 
+    /**
+     * Modded the replaceScene in HelperMethods to pass an int
+     * @param fxmlPath
+     * @param mouseEvent
+     * @param token used to pass the token object to next scene
+     * @param randomChoice int used to set image in next scene
+     * @throws IOException
+     */
+
     static void replaceSceneRandom(String fxmlPath, MouseEvent mouseEvent, Token token, int randomChoice) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()

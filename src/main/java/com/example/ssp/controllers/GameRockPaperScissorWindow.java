@@ -20,6 +20,12 @@ public class GameRockPaperScissorWindow extends GenericController {
     int cpuChoice;
     int playerChoice;
 
+    /**
+     * These are the players choices. Rock, paper and scissors
+     * @param mouseEvent
+     * @throws IOException
+     */
+
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
         playerChoice = rock;
         calculate();
@@ -56,6 +62,10 @@ public class GameRockPaperScissorWindow extends GenericController {
         );
     }
 
+    /**
+     * This method is used to calculate the Cpu's choice.
+     */
+
     public void calculate() {
         Random rand = new Random();
         int n = rand.nextInt(3) + 1;
@@ -69,6 +79,16 @@ public class GameRockPaperScissorWindow extends GenericController {
         }
 
     }
+
+    /**
+     * A Changed version of HelperMethods.replaceScene() used to pass 2 ints as well as path, MouseEvent and Token.
+     * @param fxmlPath
+     * @param mouseEvent
+     * @param token
+     * @param playerChoice players choice, int
+     * @param cpuChoice cpu's randomized choice, int
+     * @throws IOException
+     */
 
     static void replaceSceneVersusCpu(String fxmlPath, MouseEvent mouseEvent, Token token, int playerChoice, int cpuChoice) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())

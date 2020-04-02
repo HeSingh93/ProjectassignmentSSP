@@ -21,6 +21,12 @@ public class PlayCpuResult extends GenericController {
         calculateWinner(playerChoice, cpuChoice);
     }
 
+    /**
+     * Method used to set the winner label
+     * @param playerChoice int
+     * @param cpuChoice int
+     */
+
     public void calculateWinner(int playerChoice, int cpuChoice) {
         if (playerChoice == 1 && cpuChoice == 1) {
             winnerLabel.setText("TIE!");
@@ -50,6 +56,13 @@ public class PlayCpuResult extends GenericController {
 
         }
     }
+
+    /**
+     * This method takes the input from GameRockPaperScissorWindow class. (1 - 3)
+     * The input gets an assigned image that is set.
+     * @param choice the object passed on from GameRockPaperScissorVersus class.
+     * @param image the relevant image for the selected choice.
+     */
 
     public void setChoiceImage(int choice, ImageView image) {
         switch (choice) {
