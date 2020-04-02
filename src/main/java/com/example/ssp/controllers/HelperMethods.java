@@ -36,7 +36,7 @@ public class HelperMethods {
     public static final String playRandomFXML = "fxml/playRandomWindow.fxml";
     public static final String playCpuFXML = "fxml/playCpu.fxml";
     public static final String playFriendsListVersusWindow = "fxml/friendsListVersusWindow.fxml";
-    public static final String rockViewFXML = "fxml/rockView.fxml";
+    public static final String randomChoiceFXML = "fxml/randomChoiceWindow.fxml";
     public static final String paperViewFXML = "fxml/paperView.fxml";
     public static final String scissorViewFXML = "fxml/scissorView.fxml";
     public static final String gameRockPaperScissorVersusFXML = "fxml/gameRockPaperScissorVersus.fxml";

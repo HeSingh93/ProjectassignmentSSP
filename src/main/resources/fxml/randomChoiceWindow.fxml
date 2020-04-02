@@ -24,7 +24,8 @@
 
     <VBox alignment="BASELINE_CENTER">
 
-        <ImageView id="scissor"
+        <ImageView id="randomImage"
+                   fx:id="randomImage"
                    fitHeight="500"
                    fitWidth="500"
                    preserveRatio="true"/>

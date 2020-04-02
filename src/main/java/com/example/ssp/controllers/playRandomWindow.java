@@ -1,8 +1,15 @@
 package com.example.ssp.controllers;
 
+import com.example.ssp.models.Token;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Random;
 
 import static com.example.ssp.controllers.HelperMethods.*;
 
@@ -16,27 +23,34 @@ public class playRandomWindow extends GenericController {
      */
     public void randomClicked(MouseEvent mouseEvent) throws IOException {
 
-        int random = (int) (Math.random() * 4);
+        Random rand = new Random();
+        int n = rand.nextInt(3) + 1;
 
-        if (random == 1) {
-            HelperMethods.replaceSceneLoggedIn(
-                    rockViewFXML,
+        if (n == 1) {
+            playerChoice = n;
+            replaceSceneRandom(
+                    randomChoiceFXML,
                     mouseEvent,
-                    token
+                    token,
+                    playerChoice
             );
         }
-        if (random == 2) {
-            HelperMethods.replaceSceneLoggedIn(
-                    paperViewFXML,
+        if (n == 2) {
+            playerChoice = n;
+            replaceSceneRandom(
+                    randomChoiceFXML,
                     mouseEvent,
-                    token
+                    token,
+                    playerChoice
             );
         }
-        if (random == 3) {
-            HelperMethods.replaceSceneLoggedIn(
-                    scissorViewFXML,
+        if (n == 3) {
+            playerChoice = n;
+            replaceSceneRandom(
+                    randomChoiceFXML,
                     mouseEvent,
-                    token
+                    token,
+                    playerChoice
             );
         }
     }
@@ -48,5 +62,23 @@ public class playRandomWindow extends GenericController {
                 token
 
         );
+    }
+
+    static void replaceSceneRandom(String fxmlPath, MouseEvent mouseEvent, Token token, int randomChoice) throws IOException {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource())
+                .getScene()
+                .getWindow();
+
+        FXMLLoader loader = HelperMethods.getLoader(fxmlPath);
+        Parent root = loader.load();
+        GenericController controller = loader.getController();
+        controller.setToken(token);
+        controller.setPlayerChoice(randomChoice);
+        controller.postInitialize();
+        Scene scene = new Scene(root);
+        stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
+        stage.setScene(scene);
+        stage.toFront();
+        stage.show();
     }
 }
