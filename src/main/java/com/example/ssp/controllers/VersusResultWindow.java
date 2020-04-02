@@ -184,8 +184,10 @@ public class VersusResultWindow extends GenericController {
     }
 
     /**
-     *
-     *
+     * This method is used to update number of wins in the database,
+     * the method creates a List that contains the active users results in the database.
+     * it then checks if there is an existing entry in the databse.
+     * If there is an existing entry it updates the wins and if it's empty it creates a new entry in the database.
      */
     public void updateWins() {
 
@@ -219,6 +221,13 @@ public class VersusResultWindow extends GenericController {
             session.getTransaction().commit();
         }
     }
+
+    /**
+     * This method is used to update number of losses in the database,
+     * the method creates a List that contains the active users results in the database.
+     * it then checks if there is an existing entry in the databse.
+     * If there is an existing entry it updates the losses and if it's empty it creates a new entry in the database.
+     */
 
     public void updateLoss() {
 
