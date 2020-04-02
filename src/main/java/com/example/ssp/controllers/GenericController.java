@@ -9,6 +9,23 @@ import com.example.ssp.models.Token;
 public abstract class GenericController {
     Token token;
     Choice choice;
+    int cpuChoice, playerChoice;
+
+    public int getCpuChoice() {
+        return cpuChoice;
+    }
+
+    public void setCpuChoice(int cpuChoice) {
+        this.cpuChoice = cpuChoice;
+    }
+
+    public int getPlayerChoice() {
+        return playerChoice;
+    }
+
+    public void setPlayerChoice(int playerChoice) {
+        this.playerChoice = playerChoice;
+    }
 
     public Token getToken() {
         return token;

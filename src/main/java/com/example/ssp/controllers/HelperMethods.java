@@ -39,16 +39,10 @@ public class HelperMethods {
     public static final String rockViewFXML = "fxml/rockView.fxml";
     public static final String paperViewFXML = "fxml/paperView.fxml";
     public static final String scissorViewFXML = "fxml/scissorView.fxml";
-    public static final String loserPaperWindowFXML = "fxml/loserPaperWindow.fxml";
-    public static final String loserScissorWindowFXML = "fxml/loserScissorWindow.fxml";
-    public static final String loserRockWindowFXML = "fxml/loserRockWindow.fxml";
-    public static final String winnerPaperWindowFXML = "fxml/winnerPaperWIndow.fxml";
-    public static final String winnerScissorWindowFXML = "fxml/winnerScissorWindow.fxml";
-    public static final String winnerRockWindowFXML = "fxml/winnerRockWindow.fxml";
-    public static final String tieWindowFXML = "fxml/tieWindow.fxml";
     public static final String gameRockPaperScissorVersusFXML = "fxml/gameRockPaperScissorVersus.fxml";
     public static final String versusResultWindowFXML = "fxml/versusResultWindow.fxml";
     public static final String loadScreenWindowFXML = "fxml/loadScreenWindow.fxml";
+    public static final String playCpuResultFXML = "fxml/playCpuResult.fxml";
 
     /**
      * Used to load FXML files.

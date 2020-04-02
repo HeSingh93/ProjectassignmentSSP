@@ -1,6 +1,13 @@
 package com.example.ssp.controllers;
 
+import com.example.ssp.models.Choice;
+import com.example.ssp.models.Token;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Random;
@@ -15,22 +22,43 @@ public class GameRockPaperScissorWindow extends GenericController {
 
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
         playerChoice = rock;
-        calculate(mouseEvent);
+        calculate();
+        replaceSceneVersusCpu(
+                HelperMethods.playCpuResultFXML,
+                mouseEvent,
+                token,
+                playerChoice,
+                cpuChoice
+        );
     }
 
     public void paperClicked(MouseEvent mouseEvent) throws IOException {
         playerChoice = paper;
-        calculate(mouseEvent);
+        calculate();
+        replaceSceneVersusCpu(
+                HelperMethods.playCpuResultFXML,
+                mouseEvent,
+                token,
+                playerChoice,
+                cpuChoice
+        );
     }
 
     public void scissorsClicked(MouseEvent mouseEvent) throws IOException {
         playerChoice = scissors;
-        calculate(mouseEvent);
+        calculate();
+        replaceSceneVersusCpu(
+                HelperMethods.playCpuResultFXML,
+                mouseEvent,
+                token,
+                playerChoice,
+                cpuChoice
+        );
     }
 
-    public void calculate(MouseEvent mouseEvent) throws IOException {
+    public void calculate() {
         Random rand = new Random();
-        int n = rand.nextInt(4);
+        int n = rand.nextInt(3) + 1;
 
         if (n == 1) {
             cpuChoice = rock;
@@ -40,68 +68,24 @@ public class GameRockPaperScissorWindow extends GenericController {
             cpuChoice = scissors;
         }
 
-        if (playerChoice == rock && cpuChoice == rock) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.tieWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == rock && cpuChoice == paper) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.loserPaperWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == rock && cpuChoice == scissors) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.winnerRockWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == paper && cpuChoice == rock) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.winnerPaperWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == paper && cpuChoice == paper) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.tieWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == paper && cpuChoice == scissors) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.winnerPaperWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == scissors && cpuChoice == rock) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.loserRockWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == scissors && cpuChoice == paper) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.winnerScissorWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
-        if (playerChoice == scissors && cpuChoice == scissors) {
-            HelperMethods.replaceSceneLoggedIn(
-                    HelperMethods.tieWindowFXML,
-                    mouseEvent,
-                    token
-            );
-        }
+    }
+
+    static void replaceSceneVersusCpu(String fxmlPath, MouseEvent mouseEvent, Token token, int playerChoice, int cpuChoice) throws IOException {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource())
+                .getScene()
+                .getWindow();
+
+        FXMLLoader loader = HelperMethods.getLoader(fxmlPath);
+        Parent root = loader.load();
+        GenericController controller = loader.getController();
+        controller.setToken(token);
+        controller.setPlayerChoice(playerChoice);
+        controller.setCpuChoice(cpuChoice);
+        controller.postInitialize();
+        Scene scene = new Scene(root);
+        stage.setTitle(HelperMethods.gameRockPaperScissorTitle);
+        stage.setScene(scene);
+        stage.toFront();
+        stage.show();
     }
 }

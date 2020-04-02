@@ -8,6 +8,10 @@
     -fx-background-color: white;
 }
 
+#playCpuResult {
+    -fx-background-color: white;
+}
+
 Label {
     -fx-alignment:center;
     -fx-font: normal bold 30px 'italic';

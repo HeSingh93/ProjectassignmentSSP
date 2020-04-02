@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+
+<FlowPane xmlns="http://javafx.com/javafx"
+          stylesheets="@/css/mainWindow.css"
+          id="playCpuResult"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.ssp.controllers.PlayCpuResult"
+          prefHeight="600.0"
+          prefWidth="600.0"
+          alignment="TOP_CENTER">
+
+    <VBox>
+
+        <ImageView id="backButton"
+                   fitHeight="30"
+                   fitWidth="30"
+                   preserveRatio="true"
+                   onMouseClicked="#backButtonClicked"/>
+
+    </VBox>
+
+    <VBox alignment="CENTER">
+
+        <Label id="winnerLabel"
+               fx:id="winnerLabel"/>
+
+        <HBox>
+            <ImageView id="playerImage"
+                       fx:id="playerImage"
+                       fitWidth="250"
+                       fitHeight="250"/>
+            <ImageView id="opponentImage"
+                       fx:id="opponentImage"
+                       fitWidth="250"
+                       fitHeight="250"/>
+        </HBox>
+
+        <Button id="playAgainBtn"
+                text="PLAY AGAIN"
+                onMouseClicked="#playAgainBtnClicked"/>
+
+    </VBox>
+
+</FlowPane>
