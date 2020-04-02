@@ -21,6 +21,11 @@ public class RecentGamesWindow extends GenericController {
     public Label wins;
     public Label loss;
 
+    /**
+     * In this scene we create a query that asks the database to retrieve the users wins and losses. We create an
+     * object (User), to get the current users id with our token. After that a Results object is created. With this
+     * object, a getter method is used to retrieve wins and losses, printing them out in the scene.
+     */
     @Override
     public void postInitialize() {
         SessionFactory factory = new Configuration()

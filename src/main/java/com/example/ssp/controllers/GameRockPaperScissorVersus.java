@@ -8,11 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,24 +36,48 @@ public class GameRockPaperScissorVersus extends GenericController {
 
     Session session = factory.getCurrentSession();
 
+    /**
+     * When rock is clicked, we call the function choiceMade();
+     * it sets myChoice to 1.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void rockClicked(MouseEvent mouseEvent) throws IOException {
 
         choiceMade(mouseEvent, rock);
 
     }
-
+    /**
+     * When paper is clicked, we call the function choiceMade();
+     * it sets myChoice to 2.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void paperClicked(MouseEvent mouseEvent) {
 
         choiceMade(mouseEvent, paper);
 
     }
-
+    /**
+     * When scissors is clicked, we call the function choiceMade();
+     * it sets myChoice to 3.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void scissorsClicked(MouseEvent mouseEvent) {
 
         choiceMade(mouseEvent, scissors);
 
     }
 
+    /**
+     * This method is used to set the choice when the user selects rock, paper or scissors.
+     * It replaces the scene with a loadScreen and passes the users token and the choice made.
+     * The choice is saved to the database that later on will be used to calculate the winner.
+     *
+     * @param mouseEvent
+     * @param myChoice an integer with mapped values (rock = 1, paper = 2, scissors = 3)
+     */
     public void choiceMade(MouseEvent mouseEvent, int myChoice) {
 
         try {
@@ -80,6 +101,12 @@ public class GameRockPaperScissorVersus extends GenericController {
         }
     }
 
+    /**
+     * When the mainMenuButton is clicked, we replace the scene with the mainWindow
+     * as well as passing our token-object to the next scene.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void mainMenuBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.mainWindowFXML,
@@ -88,6 +115,16 @@ public class GameRockPaperScissorVersus extends GenericController {
         );
     }
 
+    /**
+     * This method is used to pass our token and choice object to the next scene.
+     * It is similar to the normal replace scene method that we use from the HelperMethods class.
+     * But controller.postInitialize(); is set to run later.
+     * @param fxmlPath loads the relevant scene.
+     * @param mouseEvent button clicked.
+     * @param token the object that is passed to the next screen.
+     * @param choice the object that is passed to the next screen.
+     * @throws IOException
+     */
     static void replaceSceneToLoadingScreen(String fxmlPath, MouseEvent mouseEvent, Token token, Choice choice) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()

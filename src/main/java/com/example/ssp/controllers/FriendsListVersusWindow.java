@@ -4,7 +4,6 @@ import com.example.ssp.models.Choice;
 import com.example.ssp.models.FriendsList;
 import com.example.ssp.models.Token;
 import com.example.ssp.models.User;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -44,7 +43,8 @@ public class FriendsListVersusWindow extends GenericController {
      * If it exists, we create an object (Choice) that contains our match request. We use set methods to set the value
      * of user id and friend id.
      * The object (choice) is then passed on to the next scene, along with our token.
-     * If you have a ongoing match with the entered user, the program prompts that a match is already active.
+     * If you have a ongoing match with the entered user, the program prompts that a match is already active or if
+     * the user you entered does not exist in your friend list the program prompts that the user is not added.
      *
      * @param mouseEvent
      * @throws IOException

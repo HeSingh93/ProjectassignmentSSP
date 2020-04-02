@@ -19,6 +19,13 @@ public class FriendsListWindow extends GenericController {
 
     public VBox friendsListNameHolder;
 
+    /**
+     * postInitialize() iterates though the current users friend list.
+     * We make a HQL-query that gets the current users id by using token.
+     * Then another HQL-query gets a List with objects from FriendsList.
+     * This List is then used to print the user names that the current user has added,
+     *  putting them in labels and adding them to the friendsListNameHolder.
+     */
     @Override
     public void postInitialize(){
         SessionFactory factory = new Configuration()
@@ -44,7 +51,7 @@ public class FriendsListWindow extends GenericController {
             // Iterates through the friendslist, putting names into Labels and displaying them
             for (FriendsList friendsList : friendsListList) {
                 Label friendsLabel = new Label(friendsList.getFriendsName());
-                Font font = new Font("Arial Black", 20);
+                Font font = new Font("Cambria", 20);
 
                 friendsLabel.setFont(font);
 
@@ -62,6 +69,12 @@ public class FriendsListWindow extends GenericController {
         }
     }
 
+    /**
+     * When the backButton is clicked, we replace the scene with the mainWindow
+     * as well as passing our token-object to the next scene.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void backButtonClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.mainWindowFXML,
@@ -70,6 +83,12 @@ public class FriendsListWindow extends GenericController {
         );
     }
 
+    /**
+     * When the addFriendButton is clicked, we replace the scene with addFriends
+     * as well as passing our token-object to the next scene.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void addFriendBtnClicked(MouseEvent mouseEvent) throws IOException {
         HelperMethods.replaceSceneLoggedIn(
                 HelperMethods.addFriendsFXML,

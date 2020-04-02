@@ -11,6 +11,10 @@ public class LoadScreenWindow extends GenericController {
     public Button showResultBtn;
     public Label loadLabel;
 
+    /**
+     * Creates a new thread that sets a delay (7 seconds). Used to create an illusion of calculating the winner.
+     * After 7 seconds, a button appears that sends the user to the next scene.
+     */
     @Override
     public void postInitialize() {
 

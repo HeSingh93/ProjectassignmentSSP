@@ -54,8 +54,7 @@
             <Label id="resultTextLabel"
                    fx:id="resultTextLabel"/>
 
-            <Button id="mainMenuBtn"
-                    text="MAIN MENU"
+            <Button text="MAIN MENU"
                     onMouseClicked="#mainMenuBtnClicked"/>
 
         </VBox>

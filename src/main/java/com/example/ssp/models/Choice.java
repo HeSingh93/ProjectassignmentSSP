@@ -3,6 +3,13 @@ package com.example.ssp.models;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * This class is an entity of the table "sspchoice" in the database.
+ * The values in this class is mapped to the corresponding values in the database.
+ * Whenever we want to make an entry in the database, we create an object of this class, enter our values and then
+ * pass the object to the database.
+ */
+
 @Entity
 @Table(name = "public.sspchoice")
 public class Choice implements Serializable {

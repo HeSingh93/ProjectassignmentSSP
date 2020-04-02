@@ -3,6 +3,9 @@ package com.example.ssp.controllers;
 import com.example.ssp.models.Choice;
 import com.example.ssp.models.Token;
 
+/**
+ * This controller is used to pass around two objects, Token and Choice.
+ */
 public abstract class GenericController {
     Token token;
     Choice choice;
@@ -24,7 +27,7 @@ public abstract class GenericController {
     }
 
     public void postInitialize() {
-        // Does nothing by default my dudes
+        // Does nothing by default
     }
 
 

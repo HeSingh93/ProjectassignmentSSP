@@ -8,6 +8,12 @@ import static com.example.ssp.controllers.HelperMethods.*;
 
 public class playRandomWindow extends GenericController {
 
+    /**
+     * In this scene we use Math.random to generate a number between 0 - 3. If the random number is either 1, 2 or 3
+     * we change the scene to the relevant view. (Rock, paper, or scissors).
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void randomClicked(MouseEvent mouseEvent) throws IOException {
 
         int random = (int) (Math.random() * 4);

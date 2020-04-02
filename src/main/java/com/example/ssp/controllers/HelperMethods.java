@@ -14,6 +14,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+/**
+ * This class is used to replace the current scene in the program.
+ */
+
 public class HelperMethods {
 
     // Title
@@ -46,18 +50,38 @@ public class HelperMethods {
     public static final String versusResultWindowFXML = "fxml/versusResultWindow.fxml";
     public static final String loadScreenWindowFXML = "fxml/loadScreenWindow.fxml";
 
+    /**
+     * Used to load FXML files.
+     * @param fileName the name of the file that we want to load.
+     * @return the given image.
+     */
     public static URL getRes(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResource(fileName);
     }
-
+    /**
+     * Used to load images from our resource folder.
+     * @param fileName the name of the file that we want to load.
+     * @return the given image.
+     */
     public static InputStream getResAsStream(String fileName) {
         return Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
     }
 
+    /**
+     *
+     * @param fxmlPath Path to the FXML that we want to load.
+     * @return The FXMLLoader.
+     */
     public static FXMLLoader getLoader(String fxmlPath) {
         return new FXMLLoader(getRes(fxmlPath));
     }
 
+    /**
+     *
+     * @param fxmlPath Path to the FXML we want to load.
+     * @param mouseEvent
+     * @throws IOException
+     */
     static void replaceScene(String fxmlPath, MouseEvent mouseEvent) throws IOException {
 
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
@@ -73,6 +97,13 @@ public class HelperMethods {
         stage.show();
     }
 
+    /**
+     * Modified replaceScene, but does also pass token to the next scene.
+     * @param fxmlPath Path to the FXML we want to load.
+     * @param mouseEvent
+     * @param token The object that we want to pass.
+     * @throws IOException
+     */
     static void replaceSceneLoggedIn(String fxmlPath, MouseEvent mouseEvent, Token token) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()
@@ -90,6 +121,14 @@ public class HelperMethods {
         stage.show();
     }
 
+    /**
+     * Also a modified replaceScene, but with a token and choice object to pass to the next scene.
+     * @param fxmlPath Path to the FXML we want to load.
+     * @param mouseEvent
+     * @param token The object that we want to pass.
+     * @param choice The object that we want to pass.
+     * @throws IOException
+     */
     static void replaceSceneVersusPlayer(String fxmlPath, MouseEvent mouseEvent, Token token, Choice choice) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource())
                 .getScene()

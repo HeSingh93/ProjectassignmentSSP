@@ -5,8 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -30,7 +28,12 @@ public class VersusResultWindow extends GenericController {
 
     Session session = factory.getCurrentSession();
 
-
+    /**
+     * The postInitialize method is used to show the winner between the user and the opponent. We use three different
+     * HQL-queries. One query gets the users id, one query gets the opponents id and the third gets the opponents
+     * selected choice. Getters are used to get the names of the user and the opponent and sets these as labels.
+     * We also call two methods, setChoiceImage and GetWinner.
+     */
     @Override
     public void postInitialize() {
 
@@ -54,7 +57,6 @@ public class VersusResultWindow extends GenericController {
             friendName.setText(yourName);
             userName.setText(myName);
 
-            //Methods to set images and text
             setChoiceImage(choice, userImage);
             setChoiceImage(opponentChoice, opponentImage);
             getWinner(choice, opponentChoice, resultTextLabel);
@@ -67,7 +69,12 @@ public class VersusResultWindow extends GenericController {
         }
     }
 
-
+    /**
+     * When the mainMenu button is clicked, we delete the saved choice-object, which contains the user id, friend id
+     * and choice that has been made. If we don't delete the choice-object, we can't start a new game with the same
+     * friend.
+     * @param mouseEvent
+     */
     public void mainMenuBtnClicked(MouseEvent mouseEvent) {
 
         SessionFactory factory = new Configuration()
@@ -102,6 +109,12 @@ public class VersusResultWindow extends GenericController {
         }
     }
 
+    /**
+     * This method takes the input from GameRockPaperScissorVersus class. (1 - 3), if the user has not made a choice
+     * the choice is set to 0. The input gets an assigned image that is set.
+     * @param choice the object passed on from GameRockPaperScissorVersus class.
+     * @param image the relevant image for the selected choice.
+     */
     public void setChoiceImage(Choice choice, ImageView image) {
 
         switch (choice.getChoice()) {
@@ -127,6 +140,12 @@ public class VersusResultWindow extends GenericController {
         }
     }
 
+    /**
+     * This method calculates the winner by comparing the two choices made.
+     * @param myChoice the choice that has been made by the user.
+     * @param yourChoice the choice that has made by the opponent.
+     * @param resultLabel depending on the result, the resultLabel sets the text depending on the calculated winner.
+     */
     public void getWinner(Choice myChoice, Choice yourChoice, Label resultLabel) {
 
         if (myChoice.getChoice() == 1 && yourChoice.getChoice() == 1) {
@@ -164,6 +183,10 @@ public class VersusResultWindow extends GenericController {
         }
     }
 
+    /**
+     *
+     *
+     */
     public void updateWins() {
 
         List<Results> currentResults = session.createQuery(

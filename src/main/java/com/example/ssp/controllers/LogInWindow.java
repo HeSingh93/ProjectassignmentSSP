@@ -30,12 +30,24 @@ public class LogInWindow extends GenericController {
     public static final SecureRandom secureRandom = new SecureRandom();
     public static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
 
+    /**
+     * This method generates a string of random characters and numbers.
+     * @return a generated string.
+     */
     public static String generateToken() {
         byte[] randomBytes = new byte[24];
         secureRandom.nextBytes(randomBytes);
         return base64Encoder.encodeToString(randomBytes);
     }
 
+    /**
+     * When logging in, the user is prompted to enter a username. A HQL-query is created to check if the user exists
+     * in the database. If the login is successful, the user gets a generated token which is
+     * inserted in to the database and the scene is replaced, passing the token along with it.
+     * If the user does not exist or the username/password is incorrect, the program
+     * prompts that the username or password is invalid.
+     * @param mouseEvent
+     */
     public void logInBtn(MouseEvent mouseEvent) {
         logInUserName = logInUsernameTextField.getText();
         logInPassword = logInPasswordTextField.getText();
@@ -46,16 +58,13 @@ public class LogInWindow extends GenericController {
                 .addAnnotatedClass(Token.class)
                 .buildSessionFactory();
 
-        //Create session
         Session session = factory.getCurrentSession();
 
         try {
             session.beginTransaction();
 
-            //Query users
             List<User> theUsers = session.createQuery("from User where user_name = '" + logInUserName + "'").getResultList();
 
-            // Display users
             for (User tempUser : theUsers) {
 
                 if (tempUser.getUserName().equals(logInUserName) && tempUser.getPassword().equals(logInPassword)) {
@@ -75,9 +84,8 @@ public class LogInWindow extends GenericController {
             }
 
             errorMsg.setVisible(true);
-            errorMsg.setText("Invalid username");
+            errorMsg.setText("Invalid username or password");
 
-            //Commit transaction
             session.getTransaction().commit();
 
         } catch (IOException e) {

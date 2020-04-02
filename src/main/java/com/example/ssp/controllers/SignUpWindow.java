@@ -16,6 +16,14 @@ public class SignUpWindow extends GenericController {
     private String userName;
     private String password;
 
+    /**
+     * In this method we create a new account if a user does not have one. Two strings (userName, password) is used
+     * to store the input that we get from the TextField. A new object SignUpUser is created that has a constructor
+     * that takes two parameters, username and password. The input that has been put in to the strings are put in to
+     * the newly created object and saving it in the end and replacing the scene with the login window.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void createAccountClicked(MouseEvent mouseEvent) throws IOException {
         userName = signUpUserNameTextField.getText();
         password = signUpPasswordTextField.getText();
