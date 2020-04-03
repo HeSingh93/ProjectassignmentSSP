@@ -7,7 +7,7 @@ import javax.persistence.*;
  * The values in this class is mapped to the corresponding values in the database.
  * Whenever we want to make an entry in the database, we create an object of this class, enter our values and then
  * pass the object to the database.
- *
+ * <p>
  * We also have a foreign key to token in this entity.
  */
 
@@ -16,14 +16,14 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-    @Column(name="user_name")
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
     @OneToOne(cascade = {
@@ -46,7 +46,7 @@ public class User {
         this.token = token;
     }
 
-    public User(){
+    public User() {
         // No-arg constructor, necessary
     }
 

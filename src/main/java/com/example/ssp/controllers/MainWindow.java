@@ -41,7 +41,8 @@ public class MainWindow extends GenericController {
         );
     }
 
-    public void exitBtnClicked(MouseEvent mouseEvent) {
+    public void exitBtnClicked() {
         Platform.exit();
     }
 }
+

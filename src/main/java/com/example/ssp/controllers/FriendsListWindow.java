@@ -41,14 +41,11 @@ public class FriendsListWindow extends GenericController {
 
             Transaction tr = session.beginTransaction();
 
-            // Gets the users id and sets it into myId
             List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
             int myId = myUser.get(0).getUserId();
 
-            // Gets the friends id and sets it into friendsId
             List<FriendsList> friendsListList = session.createQuery("from FriendsList where user_id = '" + myId + "'").getResultList();
 
-            // Iterates through the friendslist, putting names into Labels and displaying them
             for (FriendsList friendsList : friendsListList) {
                 Label friendsLabel = new Label(friendsList.getFriendsName());
                 Font font = new Font("Cambria", 20);

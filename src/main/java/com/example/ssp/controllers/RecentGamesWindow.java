@@ -20,6 +20,7 @@ public class RecentGamesWindow extends GenericController {
     public VBox box1;
     public Label wins;
     public Label loss;
+    public Label wl;
 
     /**
      * In this scene we create a query that asks the database to retrieve the users wins and losses. We create an
@@ -42,7 +43,6 @@ public class RecentGamesWindow extends GenericController {
 
             Transaction tr = session.beginTransaction();
 
-            // Gets the users id and sets it into myId
             List<User> myUser = session.createQuery("from User where token_token_id = '" + token.getTokenId() + "'").getResultList();
             int myId = myUser.get(0).getUserId();
 
@@ -50,8 +50,10 @@ public class RecentGamesWindow extends GenericController {
 
             wins.setText("Total wins: " + results.getWins());
             loss.setText("Total losses: " + results.getLosses());
+            double wlRatio = (double) (results.getWins() / results.getLosses());
+            wl.setText("Win/Loss ratio: " + wlRatio);
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             factory.close();

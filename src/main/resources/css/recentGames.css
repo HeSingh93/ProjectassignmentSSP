@@ -13,9 +13,12 @@
 }
 
 #box1 {
-    -fx-padding: 10, 50, 10, 10;
+        -fx-border-color: black;
+        -fx-border-insets: 20;
+        -fx-border-width: 0.5;
+        -fx-border-style: solid;
 }
 
 Label {
-    -fx-font: normal bold 20px 'italic';
+    -fx-font: normal bold 20px 'cambria';
 }
